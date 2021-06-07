@@ -1,0 +1,30 @@
+name: too_good_to_go
+description: Too Good To Go
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Packages.
+  cupertino_icons: ^1.0.3
+
+dev_dependencies:
+  #change_app_package_name: ^1.0.0
+  #flutter_launcher_icons: ^0.9.0
+  flutter_test:
+    sdk: flutter
+
+flutter_icons:
+  android: "app_icon_round"
+  ios: true
+  image_path: "images/app_icon_round.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/
+    - icons/
