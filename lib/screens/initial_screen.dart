@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:too_good_to_go/pages/browse_page.dart';
 import 'package:too_good_to_go/pages/discover_page.dart';
 import 'package:too_good_to_go/pages/favorites_page.dart';
+import 'package:too_good_to_go/pages/more_page.dart';
 import 'package:too_good_to_go/widgets/navigation_bar.dart';
 
 class InitialScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class InitialScreen extends StatefulWidget {
 }
 
 class _InitialScreenState extends State<InitialScreen> {
-  int myIndex = 2;
+  int myIndex = 3;
   PageController controller;
   @override
   void initState() {
@@ -29,7 +30,7 @@ class _InitialScreenState extends State<InitialScreen> {
           DiscoverPage(),
           BrowsePage(),
           FavoritesPage(),
-          Container(color: Colors.yellow),
+          MorePage(),
         ],
       ),
       bottomNavigationBar: NavigationBar(

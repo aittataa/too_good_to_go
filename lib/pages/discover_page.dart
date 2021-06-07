@@ -59,7 +59,7 @@ class DiscoverPage extends StatelessWidget {
                             style: TextStyle(
                               color: AppTheme.mainColor,
                               fontWeight: FontWeight.w900,
-                              fontSize: 17.5,
+                              fontSize: 16,
                             ),
                           ),
                         ),
@@ -137,7 +137,7 @@ class DiscoverPage extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w900,
-                              fontSize: 17.5,
+                              fontSize: 15,
                             ),
                           ),
                         ),

@@ -51,7 +51,7 @@ class FavoritesPage extends StatelessWidget {
                 style: TextStyle(
                   color: AppTheme.mainColor,
                   fontWeight: FontWeight.w900,
-                  fontSize: 17.5,
+                  fontSize: 15,
                 ),
               ),
             ),
