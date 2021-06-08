@@ -131,7 +131,7 @@ class MorePage extends StatelessWidget {
         ListTile(
           tileColor: Colors.white,
           leading: Icon(
-            CupertinoIcons.checkmark_alt_circle_fill,
+            CupertinoIcons.helm,
             color: Colors.black54,
             size: 27,
           ),
