@@ -11,6 +11,13 @@ dependencies:
 
   # Packages.
   cupertino_icons: ^1.0.3
+  get: ^4.1.4
+  http: ^0.13.3
+  cached_network_image: ^3.0.0
+  url_launcher: ^6.0.6
+  google_maps_flutter: ^2.0.6
+  location: ^4.2.2
+  #geolocator: ^7.0.3
 
 dev_dependencies:
   #change_app_package_name: ^1.0.0

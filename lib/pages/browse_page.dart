@@ -1,18 +1,76 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
+import 'package:too_good_to_go/widgets/browse_button.dart';
+import 'package:too_good_to_go/widgets/listview_item.dart';
 import 'package:too_good_to_go/widgets/location_item.dart';
 import 'package:too_good_to_go/widgets/page_title.dart';
 
-class BrowsePage extends StatelessWidget {
+class BrowsePage extends StatefulWidget {
+  @override
+  _BrowsePageState createState() => _BrowsePageState();
+}
+
+class _BrowsePageState extends State<BrowsePage> {
+  Location location;
+  LocationData locationData;
+  GoogleMapController mapController;
+  int pageIndex;
+  PageController pageController;
+  LatLng position; // = LatLng(10, 10);
+  @override
+  void initState() {
+    getLocation;
+    super.initState();
+    pageIndex = 0;
+    pageController = PageController(initialPage: pageIndex);
+  }
+
+  get getLocation async {
+    locationData = await Location().getLocation();
+    position = LatLng(locationData.latitude, locationData.longitude);
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+    location.onLocationChanged.listen((value) {
+      mapController.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(target: LatLng(value.latitude, value.longitude), zoom: 10),
+        ),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Stack(
-        children: [
-          Container(),
-          Column(
+    return Stack(
+      children: [
+        Container(
+          child: PageView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: pageController,
+            children: [
+              Container(),
+              Expanded(
+                child:   GoogleMap(
+                        onMapCreated: _onMapCreated,
+                        myLocationEnabled: true,
+                        mapType: MapType.normal,
+                        initialCameraPosition: CameraPosition(
+                          target: position,
+                          zoom: 15,
+                        ),
+                      ),
+              ),
+            ],
+          ),
+        ),
+        SafeArea(
+          child: Column(
             children: [
               PageTitle(title: Messages.LABEL_BROWSE),
               LocationItem(),
@@ -24,46 +82,36 @@ class BrowsePage extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {
-                          print(Messages.APP_TITLE);
-                        },
-                        elevation: 0,
-                        highlightElevation: 0,
-                        color: AppTheme.mainColor,
-                        padding: EdgeInsets.all(15),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                        child: Text(
-                          "List",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 17.5,
-                          ),
-                        ),
-                      ),
+                    BrowseButton(
+                      title: Messages.BROWSE_LIST_BUTTON,
+                      state: pageIndex == 0,
+                      onPressed: () {
+                        setState(() {
+                          pageIndex = 0;
+                          pageController.jumpToPage(pageIndex);
+                          // pageController.animateToPage(
+                          //   pageIndex,
+                          //   duration: Duration(milliseconds: 1000),
+                          //   curve: Curves.linearToEaseOut,
+                          // );
+                        });
+                      },
                     ),
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {
-                          print(Messages.APP_TITLE);
-                        },
-                        elevation: 0,
-                        highlightElevation: 0,
-                        color: Colors.transparent,
-                        padding: EdgeInsets.all(15),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                        child: Text(
-                          "Map",
-                          style: TextStyle(
-                            color: AppTheme.mainColor,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 17.5,
-                          ),
-                        ),
-                      ),
-                    )
+                    BrowseButton(
+                      title: Messages.BROWSE_MAP_BUTTON,
+                      state: pageIndex == 1,
+                      onPressed: () {
+                        setState(() {
+                          pageIndex = 1;
+                          pageController.jumpToPage(pageIndex);
+                          // pageController.animateToPage(
+                          //   pageIndex,
+                          //   duration: Duration(milliseconds: 1000),
+                          //   curve: Curves.linearToEaseOut,
+                          // );
+                        });
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -74,63 +122,21 @@ class BrowsePage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.all(5),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          ),
-                        ],
-                      ),
+                    ListViewItem(
                       child: Icon(
                         CupertinoIcons.slider_horizontal_3,
                         color: AppTheme.mainColor,
                         size: 27,
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.all(5),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          ),
-                        ],
-                      ),
+                    ListViewItem(
                       child: Icon(
                         CupertinoIcons.search,
                         color: AppTheme.mainColor,
                         size: 27,
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.all(5),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          ),
-                        ],
-                      ),
+                    ListViewItem(
                       child: Text(
                         "Try: Hide sold-out",
                         style: TextStyle(
@@ -139,21 +145,7 @@ class BrowsePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.all(5),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          ),
-                        ],
-                      ),
+                    ListViewItem(
                       child: Text(
                         "Try: Meals",
                         style: TextStyle(
@@ -162,21 +154,7 @@ class BrowsePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.all(5),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          ),
-                        ],
-                      ),
+                    ListViewItem(
                       child: Text(
                         "Try: Bread & Pastries",
                         style: TextStyle(
@@ -185,21 +163,7 @@ class BrowsePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.all(5),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                          ),
-                        ],
-                      ),
+                    ListViewItem(
                       child: Text(
                         "Try: Vegetarian",
                         style: TextStyle(
@@ -213,8 +177,8 @@ class BrowsePage extends StatelessWidget {
               ),
             ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

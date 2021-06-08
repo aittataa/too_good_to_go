@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 
 class LocationItem extends StatelessWidget {
+  final Function onPressed;
+  const LocationItem({this.onPressed});
   @override
   Widget build(BuildContext context) {
     return ListTile(
       dense: true,
+      horizontalTitleGap: 0,
+      minLeadingWidth: 0,
+      minVerticalPadding: 0,
       title: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
@@ -42,7 +47,7 @@ class LocationItem extends StatelessWidget {
         ],
       ),
       trailing: TextButton(
-        onPressed: null,
+        onPressed: onPressed,
         style: TextButton.styleFrom(
           padding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),

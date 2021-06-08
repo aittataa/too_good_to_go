@@ -13,7 +13,60 @@ class DiscoverPage extends StatelessWidget {
       child: Column(
         children: [
           PageTitle(title: Messages.LABEL_DISCOVER),
-          LocationItem(),
+          LocationItem(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                useRootNavigator: true,
+                isDismissible: true,
+                enableDrag: true,
+                builder: (context) {
+                  return SafeArea(
+                    child: Container(
+                      padding: EdgeInsets.only(top: 10),
+                      child: Column(
+                        children: [
+                          ListTile(
+                            title: Text(
+                              "Choose Location",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                //fontSize: 25,
+                              ),
+                            ),
+                            trailing: IconButton(
+                              onPressed: () => Navigator.pop(context),
+                              icon: Icon(CupertinoIcons.xmark),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              color: Colors.red,
+                              child: Text(Messages.APP_TITLE),
+                            ),
+                          ),
+                          Container(
+                            color: Colors.black,
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  leading: Icon(CupertinoIcons.search),
+                                  title: TextField(),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
           Expanded(
             child: Column(
               children: [
@@ -24,7 +77,7 @@ class DiscoverPage extends StatelessWidget {
                     children: [
                       ListTile(
                         title: Text(
-                          Messages.TITLE_1,
+                          Messages.DISCOVER_TITLE_1,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
@@ -35,7 +88,7 @@ class DiscoverPage extends StatelessWidget {
                       ),
                       ListTile(
                         title: Text(
-                          Messages.SUBTITLE_1,
+                          Messages.DISCOVER_SUBTITLE_1,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
@@ -101,7 +154,7 @@ class DiscoverPage extends StatelessWidget {
                     children: [
                       ListTile(
                         title: Text(
-                          Messages.TITLE_2,
+                          Messages.DISCOVER_TITLE_2,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
@@ -112,7 +165,7 @@ class DiscoverPage extends StatelessWidget {
                       ),
                       ListTile(
                         title: Text(
-                          Messages.SUBTITLE_2,
+                          Messages.DISCOVER_SUBTITLE_2,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.black,
