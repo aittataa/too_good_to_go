@@ -27,4 +27,12 @@ class Messages {
   /// TODO :  Browse Page Texts
   static const String BROWSE_LIST_BUTTON = "List";
   static const String BROWSE_MAP_BUTTON = "Map";
+
+  /// TODO :  Browse Page Texts
+  static const String MORE_PROFILE_TITLE = "My Profile";
+  static const String MORE_ORDERS_TITLE = "Orders";
+  static const String MORE_PAYMENT_TITLE = "Payment Methods";
+  static const String MORE_BLOG_TITLE = "Blog";
+  static const String MORE_TERMS_TITLE = "Terms and Conditions";
+  static const String MORE_HELP_TITLE = "Help Center";
 }

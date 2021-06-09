@@ -1,12 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
+import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/widgets/location_item.dart';
 import 'package:too_good_to_go/widgets/page_title.dart';
 
-class DiscoverPage extends StatelessWidget {
+class DiscoverPage extends StatefulWidget {
+  @override
+  _DiscoverPageState createState() => _DiscoverPageState();
+}
+
+class _DiscoverPageState extends State<DiscoverPage> {
+  LatLng position;
+
+  get getPosition async {
+    LocationData location = await SharedFunctions.getLocation;
+    position = LatLng(location.latitude, location.longitude);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getPosition;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -14,58 +35,7 @@ class DiscoverPage extends StatelessWidget {
         children: [
           PageTitle(title: Messages.LABEL_DISCOVER),
           LocationItem(
-            onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                useRootNavigator: true,
-                isDismissible: true,
-                enableDrag: true,
-                builder: (context) {
-                  return SafeArea(
-                    child: Container(
-                      padding: EdgeInsets.only(top: 10),
-                      child: Column(
-                        children: [
-                          ListTile(
-                            title: Text(
-                              "Choose Location",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                //fontSize: 25,
-                              ),
-                            ),
-                            trailing: IconButton(
-                              onPressed: () => Navigator.pop(context),
-                              icon: Icon(CupertinoIcons.xmark),
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              color: Colors.red,
-                              child: Text(Messages.APP_TITLE),
-                            ),
-                          ),
-                          Container(
-                            color: Colors.black,
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  leading: Icon(CupertinoIcons.search),
-                                  title: TextField(),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              );
-            },
+            onPressed: () => SharedFunctions.loadMaps(context, position: position),
           ),
           Expanded(
             child: Column(
@@ -99,9 +69,7 @@ class DiscoverPage extends StatelessWidget {
                       ),
                       ListTile(
                         title: TextButton(
-                          onPressed: () {
-                            print(Messages.APP_TITLE);
-                          },
+                          onPressed: () => SharedFunctions.loadMaps(context, position: position),
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.all(10),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),

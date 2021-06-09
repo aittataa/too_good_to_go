@@ -7,10 +7,7 @@ import 'package:too_good_to_go/screens/initial_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark,
-  ));
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(TooGoodToGo());
 }
 
@@ -22,7 +19,7 @@ class TooGoodToGo extends StatelessWidget {
       title: Messages.APP_TITLE,
       color: AppTheme.mainColor,
       theme: ThemeData(
-        primaryColor: AppTheme.mainColor,
+        primaryColor: AppTheme.lightMainColor,
         scaffoldBackgroundColor: AppTheme.backColor,
       ),
       home: InitialScreen(),

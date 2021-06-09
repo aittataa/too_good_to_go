@@ -20,7 +20,7 @@ class _BrowsePageState extends State<BrowsePage> {
   GoogleMapController mapController;
   int pageIndex;
   PageController pageController;
-  LatLng position; // = LatLng(10, 10);
+  LatLng position;
   @override
   void initState() {
     getLocation;
@@ -34,17 +34,6 @@ class _BrowsePageState extends State<BrowsePage> {
     position = LatLng(locationData.latitude, locationData.longitude);
   }
 
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-    location.onLocationChanged.listen((value) {
-      mapController.animateCamera(
-        CameraUpdate.newCameraPosition(
-          CameraPosition(target: LatLng(value.latitude, value.longitude), zoom: 10),
-        ),
-      );
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -54,15 +43,20 @@ class _BrowsePageState extends State<BrowsePage> {
             physics: NeverScrollableScrollPhysics(),
             controller: pageController,
             children: [
-              Container(),
+              Container(
+                child: Column(
+                  children: [],
+                ),
+              ),
               Expanded(
-                child:   GoogleMap(
-                        onMapCreated: _onMapCreated,
+                child: position == null
+                    ? Center(child: CircularProgressIndicator())
+                    : GoogleMap(
                         myLocationEnabled: true,
                         mapType: MapType.normal,
                         initialCameraPosition: CameraPosition(
                           target: position,
-                          zoom: 15,
+                          zoom: 10,
                         ),
                       ),
               ),
