@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/models/user.dart';
 
 class Constant {
   static int selectedIndex;
@@ -8,6 +9,14 @@ class Constant {
   static const Curve curve = Curves.linearToEaseOut;
   //static final double screenWidth = Get.size.width;
   //static final double screenHeight = Get.size.height;
+
+  static User userLogin = User(
+    id: 1,
+    name: "John Doe",
+    email: "contact@domain.com",
+    phone: "+212 600 000 000",
+    city: "Casablanca",
+  );
 
   static const boxShadow = BoxShadow(
     color: Colors.black12,

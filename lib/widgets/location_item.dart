@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/messages.dart';
 
 class LocationItem extends StatelessWidget {
   final Function onPressed;
@@ -21,7 +22,7 @@ class LocationItem extends StatelessWidget {
             size: 16,
           ),
           Text(
-            "Current Location",
+            Messages.LOCATION_ITEM_TITLE,
             style: TextStyle(
               color: AppTheme.mainColor,
               fontWeight: FontWeight.w900,
@@ -38,7 +39,7 @@ class LocationItem extends StatelessWidget {
             size: 16,
           ),
           Text(
-            "within 5 mile",
+            Messages.LOCATION_ITEM_SUBTITLE,
             style: TextStyle(
               color: AppTheme.mainColor,
               fontWeight: FontWeight.bold,
@@ -56,7 +57,7 @@ class LocationItem extends StatelessWidget {
           onSurface: Colors.grey,
         ),
         child: Text(
-          "Change",
+          Messages.LOCATION_ITEM_BUTTON,
           style: TextStyle(
             color: AppTheme.mainColor,
             fontWeight: FontWeight.bold,

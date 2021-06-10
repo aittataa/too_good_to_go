@@ -14,15 +14,24 @@ class LocateArea extends StatelessWidget {
         padding: EdgeInsets.only(top: 25),
         child: Stack(
           children: [
+            Expanded(
+              child: GoogleMap(
+                myLocationEnabled: true,
+                mapType: MapType.normal,
+                initialCameraPosition: CameraPosition(
+                  target: position,
+                  zoom: 15,
+                ),
+              ),
+            ),
             Column(
               children: [
-                ListTile(
-                  tileColor: Colors.white,
-                  contentPadding: EdgeInsets.zero,
-                  horizontalTitleGap: 0,
-                  title: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
+                Container(
+                  color: AppTheme.backColor,
+                  child: ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    horizontalTitleGap: 0,
+                    title: Text(
                       Messages.LOCATE_AREA_TITLE,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -30,38 +39,17 @@ class LocateArea extends StatelessWidget {
                         fontWeight: FontWeight.w900,
                       ),
                     ),
-                  ),
-                  trailing: IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Icon(CupertinoIcons.clear_thick),
+                    trailing: IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Icon(CupertinoIcons.clear_thick),
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GoogleMap(
-                    myLocationEnabled: true,
-                    mapType: MapType.normal,
-                    initialCameraPosition: CameraPosition(
-                      target: position,
-                      zoom: 10,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Expanded(
-                  child: Container(
-                    alignment: Alignment.bottomCenter,
-                    height: 1,
-                    child: Icon(
-                      CupertinoIcons.chevron_down,
-                      color: Colors.white,
-                    ),
-                  ),
+                  child: Container(),
                 ),
                 Container(
                   padding: EdgeInsets.all(10),
@@ -106,7 +94,7 @@ class LocateArea extends StatelessWidget {
                             primary: Colors.black12,
                           ),
                           child: Text(
-                            "Use my current location",
+                            Messages.LOCATE_LOCATION_BUTTON,
                             style: TextStyle(
                               color: AppTheme.mainColor,
                               fontWeight: FontWeight.w900,
@@ -126,7 +114,7 @@ class LocateArea extends StatelessWidget {
                             backgroundColor: AppTheme.mainColor,
                           ),
                           child: Text(
-                            "Apply",
+                            Messages.LOCATE_APPLY_BUTTON,
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w900,

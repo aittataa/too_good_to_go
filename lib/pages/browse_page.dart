@@ -4,6 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
+import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
 import 'package:too_good_to_go/widgets/listview_item.dart';
 import 'package:too_good_to_go/widgets/location_item.dart';
@@ -23,8 +24,9 @@ class _BrowsePageState extends State<BrowsePage> {
   LatLng position;
   @override
   void initState() {
-    getLocation;
     super.initState();
+    getLocation;
+
     pageIndex = 0;
     pageController = PageController(initialPage: pageIndex);
   }
@@ -45,20 +47,79 @@ class _BrowsePageState extends State<BrowsePage> {
             children: [
               Container(
                 child: Column(
-                  children: [],
+                  children: [
+                    Expanded(child: Container(height: 1)),
+                    Expanded(
+                      flex: 2,
+                      child: Column(
+                        children: [
+                          Expanded(child: Image.asset(Messages.LOGO_ICON)),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                ListTile(
+                                  title: Text(
+                                    Messages.BROWSE_TITLE_1,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    Messages.BROWSE_SUBTITLE_1,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ),
+                                ListTile(
+                                  title: TextButton(
+                                    onPressed: () {
+                                      print(Messages.APP_TITLE);
+                                    },
+                                    style: TextButton.styleFrom(
+                                      padding: EdgeInsets.all(15),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(50)),
+                                      primary: Colors.black12,
+                                      backgroundColor: AppTheme.mainColor,
+                                    ),
+                                    child: Text(
+                                      Messages.CHANGE_LOCATION_BUTTON.toUpperCase(),
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w900,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Expanded(
-                child: position == null
-                    ? Center(child: CircularProgressIndicator())
-                    : GoogleMap(
-                        myLocationEnabled: true,
-                        mapType: MapType.normal,
-                        initialCameraPosition: CameraPosition(
-                          target: position,
-                          zoom: 10,
-                        ),
-                      ),
+                child: GoogleMap(
+                  myLocationEnabled: true,
+                  mapType: MapType.normal,
+                  initialCameraPosition: CameraPosition(
+                    target: position,
+                    zoom: 10,
+                  ),
+                ),
               ),
             ],
           ),
@@ -67,7 +128,9 @@ class _BrowsePageState extends State<BrowsePage> {
           child: Column(
             children: [
               PageTitle(title: Messages.LABEL_BROWSE),
-              LocationItem(),
+              LocationItem(
+                onPressed: () => SharedFunctions.loadMaps(context, position: position),
+              ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 decoration: BoxDecoration(
@@ -83,11 +146,6 @@ class _BrowsePageState extends State<BrowsePage> {
                         setState(() {
                           pageIndex = 0;
                           pageController.jumpToPage(pageIndex);
-                          // pageController.animateToPage(
-                          //   pageIndex,
-                          //   duration: Duration(milliseconds: 1000),
-                          //   curve: Curves.linearToEaseOut,
-                          // );
                         });
                       },
                     ),
@@ -98,11 +156,6 @@ class _BrowsePageState extends State<BrowsePage> {
                         setState(() {
                           pageIndex = 1;
                           pageController.jumpToPage(pageIndex);
-                          // pageController.animateToPage(
-                          //   pageIndex,
-                          //   duration: Duration(milliseconds: 1000),
-                          //   curve: Curves.linearToEaseOut,
-                          // );
                         });
                       },
                     ),

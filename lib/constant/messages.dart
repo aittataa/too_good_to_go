@@ -28,6 +28,9 @@ class Messages {
   /// TODO :  Browse Page Texts
   static const String BROWSE_LIST_BUTTON = "List";
   static const String BROWSE_MAP_BUTTON = "Map";
+  static const String BROWSE_TITLE_1 = "No stores in this area, yet!";
+  static const String BROWSE_SUBTITLE_1 =
+      "Try changing your location or expanding your distance to get more results";
 
   /// TODO :  Favorites Page Texts
   static const String FAVORITES_TITLE = "No favorites added yet";
@@ -48,7 +51,7 @@ class Messages {
   static const String PROFILE_ACCOUNT_NAME = "Name";
   static const String PROFILE_ACCOUNT_EMAIL = "Email";
   static const String PROFILE_ACCOUNT_PHONE = "Phone Number";
-  static const String PROFILE_ACCOUNT_COUNTRY = "Country";
+  static const String PROFILE_ACCOUNT_CITY = "City";
   //
   static const String PROFILE_SETTINGS_TITLE = "Settings";
   static const String PROFILE_SETTINGS_NOTIFICATIONS = "Notifications";
@@ -60,6 +63,13 @@ class Messages {
   static const String PROFILE_VERSION = "21.0.0";
 
   /// TODO :  Locate Area Page Texts
-  static const String LOCATE_AREA_TITLE = "Choose a Location \nto see what's available";
+  static const String LOCATE_AREA_TITLE = "Choose a Location to see \nwhat's available";
   static const String LOCATE_AREA_HINT_SEARCH = "Search for City";
+  static const String LOCATE_LOCATION_BUTTON = "Use my current location";
+  static const String LOCATE_APPLY_BUTTON = "Apply";
+
+  /// TODO :  Location Item Texts
+  static const String LOCATION_ITEM_TITLE = "Current Location";
+  static const String LOCATION_ITEM_SUBTITLE = "Within 5 Mile";
+  static const String LOCATION_ITEM_BUTTON = "Change";
 }
