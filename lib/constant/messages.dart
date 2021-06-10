@@ -2,6 +2,7 @@ class Messages {
   static const String APP_TITLE = "Too Good To Go";
 
   /// TODO : App Icon
+  static const String LOGO_ICON = "images/logo.png";
   static const String APP_ICON = "images/app_icon.png";
   static const String APP_ICON_ROUND = "images/app_icon_round.png";
 
@@ -28,11 +29,37 @@ class Messages {
   static const String BROWSE_LIST_BUTTON = "List";
   static const String BROWSE_MAP_BUTTON = "Map";
 
-  /// TODO :  Browse Page Texts
+  /// TODO :  Favorites Page Texts
+  static const String FAVORITES_TITLE = "No favorites added yet";
+  static const String FAVORITES_SUBTITLE =
+      "Tap the heart on a store to add it to your favorites and it will show up here.";
+  static const String FIND_STORE_BUTTON = "Find a store";
+
+  /// TODO :  More Page Texts
   static const String MORE_PROFILE_TITLE = "My Profile";
   static const String MORE_ORDERS_TITLE = "Orders";
   static const String MORE_PAYMENT_TITLE = "Payment Methods";
   static const String MORE_BLOG_TITLE = "Blog";
   static const String MORE_TERMS_TITLE = "Terms and Conditions";
   static const String MORE_HELP_TITLE = "Help Center";
+
+  /// TODO :  Profile Page Texts
+  static const String PROFILE_ACCOUNT_TITLE = "Account Details";
+  static const String PROFILE_ACCOUNT_NAME = "Name";
+  static const String PROFILE_ACCOUNT_EMAIL = "Email";
+  static const String PROFILE_ACCOUNT_PHONE = "Phone Number";
+  static const String PROFILE_ACCOUNT_COUNTRY = "Country";
+  //
+  static const String PROFILE_SETTINGS_TITLE = "Settings";
+  static const String PROFILE_SETTINGS_NOTIFICATIONS = "Notifications";
+  static const String PROFILE_SETTINGS_CHANGE_PASSWORD = "Change Password";
+  static const String PROFILE_SETTINGS_HIDDEN_STORES = "Hidden Stores";
+  static const String PROFILE_SETTINGS_PRIVACY_LICENSES = "Privacy & Licenses";
+  //
+  static const String PROFILE_LOG_OUT = "Log Out";
+  static const String PROFILE_VERSION = "21.0.0";
+
+  /// TODO :  Locate Area Page Texts
+  static const String LOCATE_AREA_TITLE = "Choose a Location \nto see what's available";
+  static const String LOCATE_AREA_HINT_SEARCH = "Search for City";
 }

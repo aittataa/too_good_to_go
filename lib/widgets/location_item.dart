@@ -21,7 +21,7 @@ class LocationItem extends StatelessWidget {
             size: 16,
           ),
           Text(
-            "Mountain View",
+            "Current Location",
             style: TextStyle(
               color: AppTheme.mainColor,
               fontWeight: FontWeight.w900,
@@ -38,7 +38,7 @@ class LocationItem extends StatelessWidget {
             size: 16,
           ),
           Text(
-            "within 14 mile",
+            "within 5 mile",
             style: TextStyle(
               color: AppTheme.mainColor,
               fontWeight: FontWeight.bold,

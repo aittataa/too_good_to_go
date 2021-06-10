@@ -8,22 +8,24 @@ class FavoritesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Image.asset("images/logo.png"),
+          Image.asset(Messages.LOGO_ICON),
           ListTile(
-            title: Text(
-              "No favorites added yet",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w900,
-                fontSize: 20,
+            title: Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                Messages.FAVORITES_TITLE,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 20,
+                ),
               ),
             ),
-          ),
-          ListTile(
-            title: Text(
-              "Tap the heart on a store to add it to your favorites and it will show up here.",
+            subtitle: Text(
+              Messages.FAVORITES_SUBTITLE,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black,
@@ -39,7 +41,7 @@ class FavoritesPage extends StatelessWidget {
               },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.all(15),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
                 primary: Colors.black12,
                 side: BorderSide(
                   color: AppTheme.mainColor,
@@ -47,11 +49,10 @@ class FavoritesPage extends StatelessWidget {
                 ),
               ),
               child: Text(
-                "Find  a store".toUpperCase(),
+                Messages.FIND_STORE_BUTTON.toUpperCase(),
                 style: TextStyle(
                   color: AppTheme.mainColor,
                   fontWeight: FontWeight.w900,
-                  fontSize: 15,
                 ),
               ),
             ),
