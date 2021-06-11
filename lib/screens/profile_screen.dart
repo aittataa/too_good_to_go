@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/screens/profile_details.dart';
+import 'package:too_good_to_go/screens/settings_details.dart';
 import 'package:too_good_to_go/widgets/back_button.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/profile_item.dart';
@@ -17,21 +17,12 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
-  void initState() {
-    super.initState();
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.light,
-    ));
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: BackIcon(),
         title: Text(
-          "Profile",
+          Messages.PROFILE_TITLE,
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -42,9 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           children: [
             ///
-            ProfileTitle(
-              label: Messages.PROFILE_ACCOUNT_TITLE,
-            ),
+            ProfileTitle(label: Messages.PROFILE_ACCOUNT_TITLE),
             ProfileItem(
               label: Messages.PROFILE_ACCOUNT_NAME,
               title: Constant.userLogin.name,
@@ -71,30 +60,47 @@ class _ProfileScreenState extends State<ProfileScreen> {
             DividerLine(),
 
             ///
-            ProfileTitle(
-              label: Messages.PROFILE_SETTINGS_TITLE,
-            ),
+            ProfileTitle(label: Messages.PROFILE_SETTINGS_TITLE),
             ProfileItem(
               label: Messages.PROFILE_SETTINGS_NOTIFICATIONS,
-              onTap: () => Get.to(() => ProfileDetails(index: 4)),
+              onTap: () => Get.to(
+                () => SettingsDetails(
+                  index: 0,
+                  title: Messages.PROFILE_SETTINGS_NOTIFICATIONS,
+                ),
+              ),
             ),
             DividerLine(),
             ProfileItem(
               label: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD,
-              onTap: () => Get.to(() => ProfileDetails(index: 5)),
+              onTap: () => Get.to(
+                () => SettingsDetails(
+                  index: 1,
+                  title: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD,
+                ),
+              ),
             ),
             DividerLine(),
             ProfileItem(
               label: Messages.PROFILE_SETTINGS_HIDDEN_STORES,
-              onTap: () => Get.to(() => ProfileDetails(index: 6)),
+              onTap: () => Get.to(
+                () => SettingsDetails(
+                  index: 2,
+                  title: Messages.PROFILE_SETTINGS_HIDDEN_STORES,
+                ),
+              ),
             ),
             DividerLine(),
             ProfileItem(
               label: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES,
-              onTap: () => Get.to(() => ProfileDetails(index: 7)),
+              onTap: () => Get.to(
+                () => SettingsDetails(
+                  index: 3,
+                  title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES,
+                ),
+              ),
             ),
             DividerLine(),
-
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
               child: ListTile(

@@ -18,6 +18,16 @@ final List<String> cities = [
   "AGADIR",
   "TANGER",
   "TAMARA",
+  "Casablanca",
+  "MARRAKECK",
+  "AGADIR",
+  "TANGER",
+  "TAMARA",
+  "Casablanca",
+  "MARRAKECK",
+  "AGADIR",
+  "TANGER",
+  "TAMARA",
 ];
 
 class ProfileDetails extends StatelessWidget {
@@ -112,53 +122,20 @@ class ProfileDetails extends StatelessWidget {
             DetailsItem(
               title: Messages.PROFILE_ACCOUNT_CITY,
               child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                itemCount: cities.length,
                 itemBuilder: (BuildContext context, int index) {
                   String value = cities[index];
-                  return Text(
-                    "$value",
-                    style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
+                  return ListTile(
+                    title: Text(
+                      "$value",
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   );
                 },
-                // children: List.generate(cities.length, (index) {
-                //   String value = cities[index];
-                //   return
-                //   Text(
-                //     "$value",
-                //     style: TextStyle(
-                //       color: Colors.black87,
-                //       fontWeight: FontWeight.bold,
-                //     ),
-                //   );
-                // }),
-              ),
-            ),
-
-            ///
-            DetailsItem(
-              title: Messages.PROFILE_SETTINGS_NOTIFICATIONS,
-              child: Column(
-                children: [],
-              ),
-            ),
-            DetailsItem(
-              title: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD,
-              child: Column(
-                children: [],
-              ),
-            ),
-            DetailsItem(
-              title: Messages.PROFILE_SETTINGS_HIDDEN_STORES,
-              child: Column(
-                children: [],
-              ),
-            ),
-            DetailsItem(
-              title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES,
-              child: Column(
-                children: [],
               ),
             ),
           ],

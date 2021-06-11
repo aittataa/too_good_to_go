@@ -47,6 +47,7 @@ class Messages {
   static const String MORE_HELP_TITLE = "Help Center";
 
   /// TODO :  Profile Page Texts
+  static const String PROFILE_TITLE = "Profile";
   static const String PROFILE_ACCOUNT_TITLE = "Account Details";
   static const String PROFILE_ACCOUNT_NAME = "Name";
   static const String PROFILE_ACCOUNT_EMAIL = "Email";

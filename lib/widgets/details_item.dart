@@ -14,10 +14,12 @@ class DetailsItem extends StatelessWidget {
     return Column(
       children: [
         ProfileTitle(label: title),
-        Container(
-          padding: EdgeInsets.only(left: 10),
-          color: Colors.white,
-          child: child,
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.only(left: 10),
+            color: Colors.white,
+            child: child,
+          ),
         ),
       ],
     );
