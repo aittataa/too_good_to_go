@@ -50,17 +50,18 @@ class LocationItem extends StatelessWidget {
       trailing: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+          padding: EdgeInsets.all(15),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           primary: Colors.white,
           backgroundColor: Colors.black12,
-          onSurface: Colors.grey,
+          //onSurface: Colors.grey,
         ),
         child: Text(
           Messages.LOCATION_ITEM_BUTTON,
           style: TextStyle(
             color: AppTheme.mainColor,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
+            fontSize: 15,
           ),
         ),
       ),

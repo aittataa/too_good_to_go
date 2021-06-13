@@ -7,7 +7,7 @@ class ListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 5),
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: Colors.white,

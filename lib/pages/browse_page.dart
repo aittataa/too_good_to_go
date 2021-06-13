@@ -6,9 +6,14 @@ import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
+import 'package:too_good_to_go/widgets/button_click.dart';
+import 'package:too_good_to_go/widgets/expanded_logo.dart';
+import 'package:too_good_to_go/widgets/expanded_map.dart';
 import 'package:too_good_to_go/widgets/listview_item.dart';
 import 'package:too_good_to_go/widgets/location_item.dart';
 import 'package:too_good_to_go/widgets/page_title.dart';
+import 'package:too_good_to_go/widgets/subtitle_text.dart';
+import 'package:too_good_to_go/widgets/title_text.dart';
 
 class BrowsePage extends StatefulWidget {
   @override
@@ -26,7 +31,6 @@ class _BrowsePageState extends State<BrowsePage> {
   void initState() {
     super.initState();
     getLocation;
-
     pageIndex = 0;
     pageController = PageController(initialPage: pageIndex);
   }
@@ -48,58 +52,27 @@ class _BrowsePageState extends State<BrowsePage> {
               Container(
                 child: Column(
                   children: [
-                    Expanded(child: Container(height: 1)),
+                    Expanded(child: SizedBox()),
                     Expanded(
                       flex: 2,
                       child: Column(
                         children: [
-                          Expanded(child: Image.asset(Messages.LOGO_ICON)),
+                          ExpandedLogo(),
                           Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 ListTile(
-                                  title: Text(
-                                    Messages.BROWSE_TITLE_1,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 20,
-                                    ),
-                                  ),
+                                  title: TitleText(title: Messages.BROWSE_TITLE_1),
                                 ),
                                 ListTile(
-                                  title: Text(
-                                    Messages.BROWSE_SUBTITLE_1,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                  ),
+                                  title: SubtitleText(subtitle: Messages.BROWSE_SUBTITLE_1),
                                 ),
                                 ListTile(
-                                  title: TextButton(
-                                    onPressed: () {
-                                      print(Messages.APP_TITLE);
-                                    },
-                                    style: TextButton.styleFrom(
-                                      padding: EdgeInsets.all(15),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(50)),
-                                      primary: Colors.black12,
-                                      backgroundColor: AppTheme.mainColor,
-                                    ),
-                                    child: Text(
-                                      Messages.CHANGE_LOCATION_BUTTON.toUpperCase(),
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w900,
-                                        fontSize: 15,
-                                      ),
-                                    ),
+                                  title: ButtonClick(
+                                    title: Messages.CHANGE_LOCATION_BUTTON.toUpperCase(),
+                                    textColor: Colors.white,
+                                    backColor: AppTheme.mainColor,
                                   ),
                                 ),
                               ],
@@ -112,14 +85,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 ),
               ),
               Expanded(
-                child: GoogleMap(
-                  myLocationEnabled: true,
-                  mapType: MapType.normal,
-                  initialCameraPosition: CameraPosition(
-                    target: position,
-                    zoom: 10,
-                  ),
-                ),
+                child: ExpandedMap(position: position),
               ),
             ],
           ),
@@ -139,25 +105,29 @@ class _BrowsePageState extends State<BrowsePage> {
                 ),
                 child: Row(
                   children: [
-                    BrowseButton(
-                      title: Messages.BROWSE_LIST_BUTTON,
-                      state: pageIndex == 0,
-                      onPressed: () {
-                        setState(() {
-                          pageIndex = 0;
-                          pageController.jumpToPage(pageIndex);
-                        });
-                      },
+                    Expanded(
+                      child: BrowseButton(
+                        title: Messages.BROWSE_LIST_BUTTON,
+                        state: pageIndex == 0,
+                        onPressed: () {
+                          setState(() {
+                            pageIndex = 0;
+                            pageController.jumpToPage(pageIndex);
+                          });
+                        },
+                      ),
                     ),
-                    BrowseButton(
-                      title: Messages.BROWSE_MAP_BUTTON,
-                      state: pageIndex == 1,
-                      onPressed: () {
-                        setState(() {
-                          pageIndex = 1;
-                          pageController.jumpToPage(pageIndex);
-                        });
-                      },
+                    Expanded(
+                      child: BrowseButton(
+                        title: Messages.BROWSE_MAP_BUTTON,
+                        state: pageIndex == 1,
+                        onPressed: () {
+                          setState(() {
+                            pageIndex = 1;
+                            pageController.jumpToPage(pageIndex);
+                          });
+                        },
+                      ),
                     ),
                   ],
                 ),
@@ -188,7 +158,7 @@ class _BrowsePageState extends State<BrowsePage> {
                         "Try: Hide sold-out",
                         style: TextStyle(
                           color: AppTheme.mainColor,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
                     ),
@@ -197,7 +167,7 @@ class _BrowsePageState extends State<BrowsePage> {
                         "Try: Meals",
                         style: TextStyle(
                           color: AppTheme.mainColor,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
                     ),
@@ -206,7 +176,7 @@ class _BrowsePageState extends State<BrowsePage> {
                         "Try: Bread & Pastries",
                         style: TextStyle(
                           color: AppTheme.mainColor,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
                     ),
@@ -215,7 +185,7 @@ class _BrowsePageState extends State<BrowsePage> {
                         "Try: Vegetarian",
                         style: TextStyle(
                           color: AppTheme.mainColor,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
                     ),

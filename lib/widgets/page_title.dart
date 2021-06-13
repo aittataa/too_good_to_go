@@ -12,7 +12,7 @@ class PageTitle extends StatelessWidget {
       title: Text(
         "$title",
         style: TextStyle(
-          color: AppTheme.pageTitleColor,
+          color: AppTheme.blackTextColor,
           fontWeight: FontWeight.w900,
           fontSize: 32,
         ),

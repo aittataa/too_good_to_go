@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
+import 'package:too_good_to_go/screens/privacy_details.dart';
 import 'package:too_good_to_go/widgets/back_button.dart';
 import 'package:too_good_to_go/widgets/profile_title.dart';
 
@@ -173,6 +175,12 @@ class SettingsDetails extends StatelessWidget {
                 children: [
                   ProfileTitle(label: title),
                   ListTile(
+                    onTap: () => Get.to(
+                      () => PrivacyDetails(
+                        index: 0,
+                        title: "Request a copy of my data",
+                      ),
+                    ),
                     tileColor: Colors.white,
                     title: Text(
                       "Send me a copy of my data",
@@ -183,6 +191,12 @@ class SettingsDetails extends StatelessWidget {
                     ),
                   ),
                   ListTile(
+                    onTap: () => Get.to(
+                      () => PrivacyDetails(
+                        index: 1,
+                        title: "Privacy Policy",
+                      ),
+                    ),
                     tileColor: Colors.white,
                     title: Text(
                       "Privacy Policy",
@@ -193,6 +207,12 @@ class SettingsDetails extends StatelessWidget {
                     ),
                   ),
                   ListTile(
+                    onTap: () => Get.to(
+                      () => PrivacyDetails(
+                        index: 2,
+                        title: "Licenses",
+                      ),
+                    ),
                     tileColor: Colors.white,
                     title: Text(
                       "Licenses",
@@ -205,6 +225,12 @@ class SettingsDetails extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 10),
                     child: ListTile(
+                      onTap: () => Get.to(
+                        () => PrivacyDetails(
+                          index: 3,
+                          title: "Delete account",
+                        ),
+                      ),
                       tileColor: Colors.white,
                       title: Text(
                         "Delete account",

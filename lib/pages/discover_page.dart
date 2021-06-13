@@ -6,8 +6,12 @@ import 'package:location/location.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
+import 'package:too_good_to_go/widgets/button_click.dart';
+import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/location_item.dart';
 import 'package:too_good_to_go/widgets/page_title.dart';
+import 'package:too_good_to_go/widgets/subtitle_text.dart';
+import 'package:too_good_to_go/widgets/title_text.dart';
 
 class DiscoverPage extends StatefulWidget {
   @override
@@ -46,43 +50,16 @@ class _DiscoverPageState extends State<DiscoverPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ListTile(
-                        title: Text(
-                          Messages.DISCOVER_TITLE_1,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 20,
-                          ),
-                        ),
+                        title: TitleText(title: Messages.DISCOVER_TITLE_1),
                       ),
                       ListTile(
-                        title: Text(
-                          Messages.DISCOVER_SUBTITLE_1,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                          ),
-                        ),
+                        title: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_1),
                       ),
                       ListTile(
-                        title: TextButton(
+                        title: ButtonClick(
                           onPressed: () => SharedFunctions.loadMaps(context, position: position),
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.all(10),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-                            primary: Colors.black12,
-                          ),
-                          child: Text(
-                            Messages.CHANGE_LOCATION_BUTTON,
-                            style: TextStyle(
-                              color: AppTheme.mainColor,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 16,
-                            ),
-                          ),
+                          title: Messages.CHANGE_LOCATION_BUTTON,
+                          textColor: AppTheme.mainColor,
                         ),
                       ),
                     ],
@@ -92,11 +69,9 @@ class _DiscoverPageState extends State<DiscoverPage> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: Divider(
+                        child: DividerLine(
                           color: AppTheme.mainColor.withOpacity(0.5),
-                          thickness: 1,
-                          indent: 15,
-                          endIndent: 5,
+                          value: 10,
                         ),
                       ),
                       Image.asset(
@@ -106,11 +81,9 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         height: 45,
                       ),
                       Expanded(
-                        child: Divider(
+                        child: DividerLine(
                           color: AppTheme.mainColor.withOpacity(0.5),
-                          thickness: 1,
-                          indent: 5,
-                          endIndent: 15,
+                          value: 10,
                         ),
                       ),
                     ],
@@ -121,46 +94,18 @@ class _DiscoverPageState extends State<DiscoverPage> {
                   child: Column(
                     children: [
                       ListTile(
-                        title: Text(
-                          Messages.DISCOVER_TITLE_2,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w900,
-                            fontSize: 20,
-                          ),
+                        title: TitleText(
+                          title: Messages.DISCOVER_TITLE_2,
                         ),
                       ),
                       ListTile(
-                        title: Text(
-                          Messages.DISCOVER_SUBTITLE_2,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                          ),
-                        ),
+                        title: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_2),
                       ),
                       ListTile(
-                        title: TextButton(
-                          onPressed: () {
-                            print(Messages.APP_TITLE);
-                          },
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.all(15),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-                            primary: Colors.black12,
-                            backgroundColor: AppTheme.mainColor,
-                          ),
-                          child: Text(
-                            Messages.FOLLOW_INSTAGRAM_BUTTON.toUpperCase(),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 15,
-                            ),
-                          ),
+                        title: ButtonClick(
+                          title: Messages.FOLLOW_INSTAGRAM_BUTTON.toUpperCase(),
+                          textColor: Colors.white,
+                          backColor: AppTheme.mainColor,
                         ),
                       ),
                     ],

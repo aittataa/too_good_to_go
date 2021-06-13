@@ -13,7 +13,6 @@ class NavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       onTap: onTap,
       currentIndex: currentIndex,
-      elevation: 1,
       backgroundColor: AppTheme.navigationBarColor,
       type: BottomNavigationBarType.fixed,
       selectedItemColor: AppTheme.mainColor,
