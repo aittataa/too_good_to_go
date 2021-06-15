@@ -103,8 +103,9 @@ class _DiscoverPageState extends State<DiscoverPage> {
                       ),
                       ListTile(
                         title: ButtonClick(
+                          onPressed: () => SharedFunctions.launchURL(Messages.INSTAGRAM_LINK),
                           title: Messages.FOLLOW_INSTAGRAM_BUTTON.toUpperCase(),
-                          textColor: Colors.white,
+                          textColor: AppTheme.whiteTextColor,
                           backColor: AppTheme.mainColor,
                         ),
                       ),

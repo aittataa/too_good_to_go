@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 
 class BackIcon extends StatelessWidget {
   const BackIcon({Key key}) : super(key: key);
@@ -12,8 +13,8 @@ class BackIcon extends StatelessWidget {
         Navigator.pop(context),
       },
       icon: Icon(
-        CupertinoIcons.back,
-        color: Colors.white,
+        CupertinoIcons.left_chevron,
+        color: AppTheme.whiteIconColor,
       ),
     );
   }

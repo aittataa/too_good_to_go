@@ -18,6 +18,24 @@ class Constant {
     city: "Casablanca",
   );
 
+  static const List<String> cities = [
+    "Casablanca",
+    "MARRAKECK",
+    "AGADIR",
+    "TANGER",
+    "TAMARA",
+    "Casablanca",
+    "MARRAKECK",
+    "AGADIR",
+    "TANGER",
+    "TAMARA",
+    "Casablanca",
+    "MARRAKECK",
+    "AGADIR",
+    "TANGER",
+    "TAMARA",
+  ];
+
   static const boxShadow = BoxShadow(
     color: Colors.black12,
     blurRadius: 90,

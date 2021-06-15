@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/widgets/back_button.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
+import 'package:too_good_to_go/widgets/expanded_logo.dart';
+import 'package:too_good_to_go/widgets/subtitle_text.dart';
+import 'package:too_good_to_go/widgets/title_text.dart';
 
 class OrdersScreen extends StatefulWidget {
   @override
@@ -17,23 +21,23 @@ class _OrdersScreenState extends State<OrdersScreen> {
       appBar: AppBar(
         leading: BackIcon(),
         title: Text(
-          "Orders",
-          style: TextStyle(color: Colors.white),
+          Messages.MORE_ORDERS_TITLE,
+          style: TextStyle(color: AppTheme.whiteTextColor),
         ),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.black12,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                children: [
-                  BrowseButton(
-                    title: "Current",
+      body: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.black12,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: BrowseButton(
+                    title: Messages.MORE_ORDERS_CURRENT_BUTTON,
                     state: pageIndex == 0,
                     onPressed: () {
                       setState(() {
@@ -42,8 +46,10 @@ class _OrdersScreenState extends State<OrdersScreen> {
                       });
                     },
                   ),
-                  BrowseButton(
-                    title: "Past",
+                ),
+                Expanded(
+                  child: BrowseButton(
+                    title: Messages.MORE_ORDERS_PAST_BUTTON,
                     state: pageIndex == 1,
                     onPressed: () {
                       setState(() {
@@ -52,77 +58,65 @@ class _OrdersScreenState extends State<OrdersScreen> {
                       });
                     },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Expanded(
-              child: PageView(
-                physics: NeverScrollableScrollPhysics(),
-                controller: pageController,
-                children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          Messages.LOGO_ICON,
-                        ),
-                        ListTile(
-                          title: Text(
-                            "No Current Orders",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black87,
-                              fontWeight: FontWeight.w900,
+          ),
+          Expanded(
+            child: PageView(
+              physics: NeverScrollableScrollPhysics(),
+              controller: pageController,
+              children: [
+                SizedBox(
+                  child: Column(
+                    children: [
+                      ExpandedLogo(flex: 2),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            ListTile(
+                              title: TitleText(
+                                title: Messages.MORE_ORDERS_CURRENT_TITLE,
+                              ),
                             ),
-                          ),
-                        ),
-                        ListTile(
-                          subtitle: Text(
-                            "Orders that haven't been collected \n yet can be fount here",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black87,
-                              fontWeight: FontWeight.bold,
+                            ListTile(
+                              subtitle: SubtitleText(
+                                subtitle: Messages.MORE_ORDERS_CURRENT_SUBTITLE,
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Container(
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          Messages.LOGO_ICON,
-                        ),
-                        ListTile(
-                          title: Text(
-                            "No Past Orders",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black87,
-                              fontWeight: FontWeight.w900,
+                ),
+                SizedBox(
+                  child: Column(
+                    children: [
+                      ExpandedLogo(flex: 2),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            ListTile(
+                              title: TitleText(
+                                title: Messages.MORE_ORDERS_PAST_TITLE,
+                              ),
                             ),
-                          ),
-                        ),
-                        ListTile(
-                          subtitle: Text(
-                            "Orders that have been collected or \n cancelled can be fount here",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black87,
-                              fontWeight: FontWeight.bold,
+                            ListTile(
+                              subtitle: SubtitleText(
+                                subtitle: Messages.MORE_ORDERS_PAST_SUBTITLE,
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

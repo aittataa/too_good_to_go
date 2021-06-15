@@ -13,10 +13,9 @@ class NavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       onTap: onTap,
       currentIndex: currentIndex,
-      backgroundColor: AppTheme.navigationBarColor,
+      backgroundColor: AppTheme.whiteBackColor,
       type: BottomNavigationBarType.fixed,
       selectedItemColor: AppTheme.mainColor,
-      unselectedItemColor: Colors.black45,
       selectedLabelStyle: TextStyle(fontWeight: FontWeight.w900),
       unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
       selectedIconTheme: IconThemeData(size: 27),

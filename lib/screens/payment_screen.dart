@@ -1,11 +1,13 @@
-import 'dart:ui';
-
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/widgets/back_button.dart';
+import 'package:too_good_to_go/widgets/payment_button.dart';
+import 'package:too_good_to_go/widgets/subtitle_text.dart';
+import 'package:too_good_to_go/widgets/title_text.dart';
 
 class PaymentScreen extends StatelessWidget {
   @override
@@ -14,88 +16,50 @@ class PaymentScreen extends StatelessWidget {
       appBar: AppBar(
         leading: BackIcon(),
         title: Text(
-          "Payment Methods",
-          style: TextStyle(color: Colors.white),
+          Messages.MORE_PAYMENT_TITLE,
+          style: TextStyle(color: AppTheme.whiteTextColor),
         ),
       ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             ListTile(
-              title: Text(
-                "Payment Cards",
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w900,
-                  fontSize: 25,
-                ),
+              title: TitleText(title: Messages.MORE_PAYMENT_METHODS_TITLE),
+            ),
+            ListTile(
+              title: SubtitleText(
+                subtitle: Messages.MORE_PAYMENT_METHODS_SUBTITLE_1,
               ),
             ),
             ListTile(
-              title: Text(
-                "You haven't added any payment cards yet. \nYou can add a card to your account when making a purchase"
-                "\n\n\nWe also support the following methods at checkout",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.bold,
-                ),
+              title: SubtitleText(
+                subtitle: Messages.MORE_PAYMENT_METHODS_SUBTITLE_2,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: EdgeInsets.all(10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  TextButton(
-                    onPressed: null,
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      side: BorderSide(color: Colors.black87, width: 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: Image.asset(
-                      "icons/paypal.png",
-                      fit: BoxFit.cover,
-                      height: 25,
-                      width: 75,
-                    ),
+                  PaymentButton(
+                    image: Messages.PAYPAL_ICON,
                   ),
-                  TextButton(
-                    onPressed: null,
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      side: BorderSide(color: Colors.black87, width: 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: Image.asset(
-                      "icons/g_pay.png",
-                      fit: BoxFit.cover,
-                      height: 25,
-                      width: 75,
-                    ),
+                  PaymentButton(
+                    image: Messages.GOOGLE_PAY_ICON,
                   ),
                 ],
               ),
             ),
             ListTile(
-              title: Text(
-                "Vouchers",
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w900,
-                  fontSize: 25,
-                ),
+              title: TitleText(
+                title: Messages.MORE_PAYMENT_METHODS_VOUCHERS,
+                textAlign: TextAlign.start,
               ),
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: DottedBorder(
-                color: Colors.black54,
+                color: AppTheme.blackBackColor.withOpacity(0.75),
                 strokeWidth: 1.5,
                 borderType: BorderType.RRect,
                 radius: Radius.circular(10),
@@ -113,9 +77,9 @@ class PaymentScreen extends StatelessWidget {
                       ),
                       SizedBox(width: 10),
                       Text(
-                        "Add Voucher",
+                        Messages.MORE_PAYMENT_METHODS_VOUCHERS_ADD,
                         style: TextStyle(
-                          color: Colors.black54,
+                          color: AppTheme.blackTextColor.withOpacity(0.5),
                           fontWeight: FontWeight.w900,
                         ),
                       )

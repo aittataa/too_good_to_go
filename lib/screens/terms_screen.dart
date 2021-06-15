@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/widgets/back_button.dart';
+import 'package:too_good_to_go/widgets/subtitle_text.dart';
+import 'package:too_good_to_go/widgets/title_text.dart';
 
 class TermsScreen extends StatelessWidget {
   const TermsScreen({Key key}) : super(key: key);
@@ -10,7 +13,7 @@ class TermsScreen extends StatelessWidget {
       appBar: AppBar(
         leading: BackIcon(),
         title: Text(
-          "Terms and Conditions",
+          Messages.MORE_TERMS_TITLE,
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -18,22 +21,13 @@ class TermsScreen extends StatelessWidget {
         child: ListView(
           children: [
             ListTile(
-              title: Text(
-                "Terms & Conditions",
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w900,
-                  fontSize: 32,
-                ),
+              title: TitleText(
+                title: Messages.MORE_TERMS_TITLE,
+                textAlign: TextAlign.start,
               ),
-            ),
-            ListTile(
-              title: Text(
-                "Too Good To Go / Terms & Conditions",
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.bold,
-                ),
+              subtitle: SubtitleText(
+                subtitle: "${Messages.APP_TITLE} ${Messages.MORE_TERMS_TITLE}",
+                textAlign: TextAlign.start,
               ),
             ),
           ],

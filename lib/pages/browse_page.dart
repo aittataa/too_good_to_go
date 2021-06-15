@@ -71,7 +71,7 @@ class _BrowsePageState extends State<BrowsePage> {
                                 ListTile(
                                   title: ButtonClick(
                                     title: Messages.CHANGE_LOCATION_BUTTON.toUpperCase(),
-                                    textColor: Colors.white,
+                                    textColor: AppTheme.whiteTextColor,
                                     backColor: AppTheme.mainColor,
                                   ),
                                 ),

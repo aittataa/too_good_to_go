@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
+import 'package:too_good_to_go/widgets/button_click.dart';
 
 class LocationItem extends StatelessWidget {
   final Function onPressed;
@@ -36,7 +37,6 @@ class LocationItem extends StatelessWidget {
           Icon(
             CupertinoIcons.location_solid,
             color: Colors.transparent,
-            size: 16,
           ),
           Text(
             Messages.LOCATION_ITEM_SUBTITLE,
@@ -47,23 +47,11 @@ class LocationItem extends StatelessWidget {
           ),
         ],
       ),
-      trailing: TextButton(
+      trailing: ButtonClick(
         onPressed: onPressed,
-        style: TextButton.styleFrom(
-          padding: EdgeInsets.all(15),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-          primary: Colors.white,
-          backgroundColor: Colors.black12,
-          //onSurface: Colors.grey,
-        ),
-        child: Text(
-          Messages.LOCATION_ITEM_BUTTON,
-          style: TextStyle(
-            color: AppTheme.mainColor,
-            fontWeight: FontWeight.w900,
-            fontSize: 15,
-          ),
-        ),
+        title: Messages.LOCATION_ITEM_BUTTON,
+        textColor: AppTheme.mainColor,
+        backColor: AppTheme.blackBackColor.withOpacity(0.15),
       ),
     );
   }

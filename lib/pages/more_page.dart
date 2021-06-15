@@ -24,7 +24,7 @@ class MorePage extends StatelessWidget {
           PageTitle(title: Messages.LABEL_MORE),
           SizedBox(height: 20),
           MenuItem(
-            icon: CupertinoIcons.person_crop_circle,
+            icon: CupertinoIcons.profile_circled,
             text: Messages.MORE_PROFILE_TITLE,
             onTap: () {
               Get.to(() => ProfileScreen());
@@ -78,9 +78,8 @@ class MorePage extends StatelessWidget {
                 ExpandedLogo(),
                 ListTile(
                   title: SubtitleText(
-                    subtitle: "Are you a store owner ?"
-                        "\nJoin ${Messages.APP_TITLE} and reduce food waste",
-                    color: Colors.black54,
+                    subtitle: Messages.MORE_SUBTITLE_1,
+                    color: AppTheme.blackTextColor.withOpacity(0.75),
                   ),
                 ),
                 ListTile(
@@ -88,7 +87,7 @@ class MorePage extends StatelessWidget {
                     alignment: WrapAlignment.center,
                     children: [
                       SubtitleText(
-                        subtitle: "Learn more >",
+                        subtitle: Messages.MORE_SUBTITLE_2,
                         color: AppTheme.mainColor,
                       ),
                     ],

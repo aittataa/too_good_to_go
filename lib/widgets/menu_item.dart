@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 
 class MenuItem extends StatelessWidget {
   final IconData icon;
@@ -11,22 +12,22 @@ class MenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: onTap,
-      tileColor: Colors.white,
+      tileColor: AppTheme.whiteBackColor,
       leading: Icon(
         icon,
-        color: Colors.black54,
+        color: AppTheme.blackIconColor.withOpacity(.64),
         size: 27,
       ),
       title: Text(
         "$text",
         style: TextStyle(
-          color: Colors.black87,
+          color: AppTheme.blackTextColor.withOpacity(.75),
           fontWeight: FontWeight.bold,
         ),
       ),
       trailing: Icon(
         CupertinoIcons.right_chevron,
-        color: Colors.black54,
+        color: AppTheme.blackIconColor.withOpacity(.64),
         size: 27,
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 
 class ProfileTitle extends StatelessWidget {
   final String label;
@@ -9,7 +10,7 @@ class ProfileTitle extends StatelessWidget {
       title: Text(
         "$label",
         style: TextStyle(
-          color: Colors.black54,
+          color: AppTheme.blackTextColor.withOpacity(0.5),
           fontWeight: FontWeight.bold,
         ),
       ),
