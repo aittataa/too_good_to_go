@@ -16,7 +16,7 @@ class ListViewItem extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 5),
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.symmetric(horizontal: 5),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: color,

@@ -136,7 +136,7 @@ class _BrowsePageState extends State<BrowsePage> {
               SizedBox(
                 height: 50,
                 child: ListView(
-                  physics: BouncingScrollPhysics(),
+                  physics: onSearchTap ? NeverScrollableScrollPhysics() : BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   children: [
@@ -149,7 +149,7 @@ class _BrowsePageState extends State<BrowsePage> {
                     ),
                     ListViewItem(
                       onTap: () {
-                        setState(() => onSearchTap = !onSearchTap);
+                        setState(() => onSearchTap = true);
                       },
                       child: !onSearchTap
                           ? Icon(
@@ -157,9 +157,8 @@ class _BrowsePageState extends State<BrowsePage> {
                               color: AppTheme.mainColor,
                               size: 27,
                             )
-                          : Container(
-                              width: Constant.screenWidth * .5,
-                              height: double.infinity,
+                          : SizedBox(
+                              width: Constant.screenWidth * .81,
                               child: Row(
                                 children: [
                                   Icon(
@@ -168,23 +167,25 @@ class _BrowsePageState extends State<BrowsePage> {
                                     size: 27,
                                   ),
                                   Expanded(
-                                    child: TextFormField(
-                                      cursorColor: AppTheme.mainColor,
-                                      style: TextStyle(
-                                        color: AppTheme.blackTextColor.withOpacity(.75),
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      decoration: InputDecoration(
-                                        border: InputBorder.none,
-                                        hintText: "Filter",
-                                        hintStyle: TextStyle(color: AppTheme.blackTextColor.withOpacity(.45)),
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 5),
+                                      child: TextField(
+                                        cursorColor: AppTheme.mainColor,
+                                        style: TextStyle(
+                                          color: AppTheme.blackTextColor.withOpacity(.75),
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                          hintText: "Type a Store",
+                                          hintStyle: TextStyle(color: AppTheme.blackTextColor.withOpacity(.45)),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  /*
                                   GestureDetector(
                                     onTap: () {
-                                      setState(() => onSearchTap = !onSearchTap);
+                                      setState(() => onSearchTap = false);
                                     },
                                     child: Icon(
                                       CupertinoIcons.clear_circled_solid,
@@ -192,13 +193,13 @@ class _BrowsePageState extends State<BrowsePage> {
                                       size: 27,
                                     ),
                                   ),
-                                  */
                                 ],
                               ),
                             ),
                     ),
+                    /*
                     ListViewItem(
-                      color: onItemTap ? Colors.red : AppTheme.whiteBackColor,
+                      color: onItemTap ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
                       onTap: () {
                         setState(() {
                           onItemTap = !onItemTap;
@@ -207,9 +208,9 @@ class _BrowsePageState extends State<BrowsePage> {
                       child: Wrap(
                         children: [
                           Text(
-                            "Try: Hide sold-out",
+                            onItemTap ? "Hide sold-out" : "Try: Hide sold-out",
                             style: TextStyle(
-                              color: AppTheme.mainColor,
+                              color: onItemTap ? AppTheme.whiteTextColor : AppTheme.mainColor,
                               fontWeight: FontWeight.w900,
                             ),
                           ),
@@ -220,9 +221,12 @@ class _BrowsePageState extends State<BrowsePage> {
                                   onItemTap = false;
                                 });
                               },
-                              child: Icon(
-                                CupertinoIcons.clear_thick,
-                                size: 16,
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 5),
+                                child: Icon(
+                                  CupertinoIcons.clear_thick,
+                                  size: 16,
+                                ),
                               ),
                             ),
                         ],
@@ -249,6 +253,16 @@ class _BrowsePageState extends State<BrowsePage> {
                     ListViewItem(
                       child: Text(
                         "Try: Vegetarian",
+                        style: TextStyle(
+                          color: AppTheme.mainColor,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
+                    */
+                    ListViewItem(
+                      child: Text(
+                        "Clear all",
                         style: TextStyle(
                           color: AppTheme.mainColor,
                           fontWeight: FontWeight.w900,
