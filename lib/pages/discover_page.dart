@@ -22,7 +22,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
   LatLng position;
 
   get getPosition async {
-    LocationData location = await SharedFunctions.getLocation;
+    LocationData location = await Location().getLocation();
     position = LatLng(location.latitude, location.longitude);
   }
 

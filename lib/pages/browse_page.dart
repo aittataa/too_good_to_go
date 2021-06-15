@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
@@ -21,12 +22,16 @@ class BrowsePage extends StatefulWidget {
 }
 
 class _BrowsePageState extends State<BrowsePage> {
-  Location location;
   LocationData locationData;
-  GoogleMapController mapController;
+  LatLng position;
+
   int pageIndex;
   PageController pageController;
-  LatLng position;
+  get getLocation async {
+    locationData = await Location().getLocation();
+    position = LatLng(locationData.latitude, locationData.longitude);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -35,10 +40,8 @@ class _BrowsePageState extends State<BrowsePage> {
     pageController = PageController(initialPage: pageIndex);
   }
 
-  get getLocation async {
-    locationData = await Location().getLocation();
-    position = LatLng(locationData.latitude, locationData.longitude);
-  }
+  bool onSearchTap = false;
+  bool onItemTap = false;
 
   @override
   Widget build(BuildContext context) {
@@ -94,9 +97,7 @@ class _BrowsePageState extends State<BrowsePage> {
           child: Column(
             children: [
               PageTitle(title: Messages.LABEL_BROWSE),
-              LocationItem(
-                onPressed: () => SharedFunctions.loadMaps(context, position: position),
-              ),
+              LocationItem(onPressed: () => SharedFunctions.loadMaps(context, position: position)),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 decoration: BoxDecoration(
@@ -147,19 +148,84 @@ class _BrowsePageState extends State<BrowsePage> {
                       ),
                     ),
                     ListViewItem(
-                      child: Icon(
-                        CupertinoIcons.search,
-                        color: AppTheme.mainColor,
-                        size: 27,
-                      ),
+                      onTap: () {
+                        setState(() => onSearchTap = !onSearchTap);
+                      },
+                      child: !onSearchTap
+                          ? Icon(
+                              CupertinoIcons.search,
+                              color: AppTheme.mainColor,
+                              size: 27,
+                            )
+                          : Container(
+                              width: Constant.screenWidth * .5,
+                              height: double.infinity,
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    CupertinoIcons.search,
+                                    color: AppTheme.mainColor,
+                                    size: 27,
+                                  ),
+                                  Expanded(
+                                    child: TextFormField(
+                                      cursorColor: AppTheme.mainColor,
+                                      style: TextStyle(
+                                        color: AppTheme.blackTextColor.withOpacity(.75),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: "Filter",
+                                        hintStyle: TextStyle(color: AppTheme.blackTextColor.withOpacity(.45)),
+                                      ),
+                                    ),
+                                  ),
+                                  /*
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() => onSearchTap = !onSearchTap);
+                                    },
+                                    child: Icon(
+                                      CupertinoIcons.clear_circled_solid,
+                                      color: AppTheme.blackIconColor.withOpacity(.5),
+                                      size: 27,
+                                    ),
+                                  ),
+                                  */
+                                ],
+                              ),
+                            ),
                     ),
                     ListViewItem(
-                      child: Text(
-                        "Try: Hide sold-out",
-                        style: TextStyle(
-                          color: AppTheme.mainColor,
-                          fontWeight: FontWeight.w900,
-                        ),
+                      color: onItemTap ? Colors.red : AppTheme.whiteBackColor,
+                      onTap: () {
+                        setState(() {
+                          onItemTap = !onItemTap;
+                        });
+                      },
+                      child: Wrap(
+                        children: [
+                          Text(
+                            "Try: Hide sold-out",
+                            style: TextStyle(
+                              color: AppTheme.mainColor,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          if (onItemTap)
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  onItemTap = false;
+                                });
+                              },
+                              child: Icon(
+                                CupertinoIcons.clear_thick,
+                                size: 16,
+                              ),
+                            ),
+                        ],
                       ),
                     ),
                     ListViewItem(
