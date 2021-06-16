@@ -9,7 +9,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
+      statusBarColor: AppTheme.transparentColor,
     ),
   );
   runApp(TooGoodToGo());

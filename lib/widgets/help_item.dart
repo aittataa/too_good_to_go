@@ -12,11 +12,11 @@ class HelpItem extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppTheme.whiteBackColor,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
+            color: AppTheme.darkColor.withOpacity(.15),
             blurRadius: 10,
             spreadRadius: 1,
           ),

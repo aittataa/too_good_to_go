@@ -1,18 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
-import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/expanded_map.dart';
+import 'package:too_good_to_go/widgets/filter_page.dart';
 import 'package:too_good_to_go/widgets/listview_item.dart';
+import 'package:too_good_to_go/widgets/locate_area.dart';
 import 'package:too_good_to_go/widgets/location_item.dart';
 import 'package:too_good_to_go/widgets/page_title.dart';
+import 'package:too_good_to_go/widgets/search_bar.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
 
@@ -97,11 +100,16 @@ class _BrowsePageState extends State<BrowsePage> {
           child: Column(
             children: [
               PageTitle(title: Messages.LABEL_BROWSE),
-              LocationItem(onPressed: () => SharedFunctions.loadMaps(context, position: position)),
+              LocationItem(
+                onPressed: () => SharedFunctions.loadPage(
+                  context,
+                  screen: LocateArea(position: position),
+                ),
+              ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 decoration: BoxDecoration(
-                  color: Colors.black12,
+                  color: AppTheme.blackBackColor.withOpacity(.15),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
@@ -141,6 +149,7 @@ class _BrowsePageState extends State<BrowsePage> {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   children: [
                     ListViewItem(
+                      onTap: () => SharedFunctions.loadPage(context, screen: FilterPage()),
                       child: Icon(
                         CupertinoIcons.slider_horizontal_3,
                         color: AppTheme.mainColor,
@@ -151,53 +160,15 @@ class _BrowsePageState extends State<BrowsePage> {
                       onTap: () {
                         setState(() => onSearchTap = true);
                       },
-                      child: !onSearchTap
-                          ? Icon(
-                              CupertinoIcons.search,
-                              color: AppTheme.mainColor,
-                              size: 27,
-                            )
-                          : SizedBox(
-                              width: Constant.screenWidth * .81,
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    CupertinoIcons.search,
-                                    color: AppTheme.mainColor,
-                                    size: 27,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(horizontal: 5),
-                                      child: TextField(
-                                        cursorColor: AppTheme.mainColor,
-                                        style: TextStyle(
-                                          color: AppTheme.blackTextColor.withOpacity(.75),
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                        decoration: InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: "Type a Store",
-                                          hintStyle: TextStyle(color: AppTheme.blackTextColor.withOpacity(.45)),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() => onSearchTap = false);
-                                    },
-                                    child: Icon(
-                                      CupertinoIcons.clear_circled_solid,
-                                      color: AppTheme.blackIconColor.withOpacity(.5),
-                                      size: 27,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                      child: SearchBar(
+                        state: onSearchTap,
+                        onTap: () {
+                          setState(() => onSearchTap = false);
+                        },
+                      ),
                     ),
-                    /*
+
+                    ///
                     ListViewItem(
                       color: onItemTap ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
                       onTap: () {
@@ -225,7 +196,7 @@ class _BrowsePageState extends State<BrowsePage> {
                                 padding: EdgeInsets.only(left: 5),
                                 child: Icon(
                                   CupertinoIcons.clear_thick,
-                                  size: 16,
+                                  size: 15,
                                 ),
                               ),
                             ),
@@ -233,14 +204,40 @@ class _BrowsePageState extends State<BrowsePage> {
                       ),
                     ),
                     ListViewItem(
-                      child: Text(
-                        "Try: Meals",
-                        style: TextStyle(
-                          color: AppTheme.mainColor,
-                          fontWeight: FontWeight.w900,
-                        ),
+                      color: onItemTap ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
+                      onTap: () {
+                        setState(() {
+                          onItemTap = !onItemTap;
+                        });
+                      },
+                      child: Wrap(
+                        children: [
+                          Text(
+                            onItemTap ? "Meals" : "Try: Meals",
+                            style: TextStyle(
+                              color: onItemTap ? AppTheme.whiteTextColor : AppTheme.mainColor,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          if (onItemTap)
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  onItemTap = false;
+                                });
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 5),
+                                child: Icon(
+                                  CupertinoIcons.clear_thick,
+                                  size: 15,
+                                ),
+                              ),
+                            ),
+                        ],
                       ),
                     ),
+                    /*
                     ListViewItem(
                       child: Text(
                         "Try: Bread & Pastries",
@@ -259,7 +256,6 @@ class _BrowsePageState extends State<BrowsePage> {
                         ),
                       ),
                     ),
-                    */
                     ListViewItem(
                       child: Text(
                         "Clear all",
@@ -269,6 +265,7 @@ class _BrowsePageState extends State<BrowsePage> {
                         ),
                       ),
                     ),
+                    */
                   ],
                 ),
               ),

@@ -23,7 +23,7 @@ class ListViewItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.black12,
+              color: AppTheme.darkColor.withOpacity(.15),
               spreadRadius: 1,
               blurRadius: 5,
             ),

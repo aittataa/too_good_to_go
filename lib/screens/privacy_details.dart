@@ -18,7 +18,7 @@ class PrivacyDetails extends StatelessWidget {
         title: Text(
           "$title",
           style: TextStyle(
-            color: Colors.white,
+            color: AppTheme.whiteTextColor,
             fontWeight: FontWeight.bold,
           ),
         ),

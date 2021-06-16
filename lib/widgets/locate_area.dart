@@ -13,6 +13,7 @@ class LocateArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: AppTheme.whiteBackColor,
       padding: EdgeInsets.only(top: 25),
       child: Stack(
         children: [
@@ -54,24 +55,24 @@ class LocateArea extends StatelessWidget {
                       margin: EdgeInsets.all(5),
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
-                        color: Colors.black12,
+                        color: AppTheme.blackBackColor.withOpacity(.15),
                         borderRadius: BorderRadius.circular(100),
                       ),
                       child: TextField(
                         cursorColor: AppTheme.mainColor,
                         style: TextStyle(
-                          color: Colors.black54,
+                          color: AppTheme.blackTextColor.withOpacity(.5),
                           fontWeight: FontWeight.bold,
                         ),
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: Messages.LOCATE_AREA_HINT_SEARCH,
                           hintStyle: TextStyle(
-                            color: Colors.black45,
+                            color: AppTheme.blackTextColor.withOpacity(.25),
                           ),
                           icon: Icon(
                             CupertinoIcons.search,
-                            color: Colors.black54,
+                            color: AppTheme.blackIconColor.withOpacity(.5),
                           ),
                         ),
                       ),

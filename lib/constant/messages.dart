@@ -10,6 +10,10 @@ class Messages {
   static const String INSTAGRAM_ICON = "icons/instagram.png";
   static const String GOOGLE_PAY_ICON = "icons/g_pay.png";
   static const String PAYPAL_ICON = "icons/paypal.png";
+  static const String MEALS_ICON = "icons/meals.png";
+  static const String BREAD_PASTRIES_ICON = "icons/bread_pastries.png";
+  static const String GROCERIES_ICON = "icons/groceries.png";
+  static const String OTHER_ICON = "icons/other.png";
 
   /// TODO : Links
   static const INSTAGRAM_LINK = "https://www.instagram.com/";
@@ -85,8 +89,7 @@ class Messages {
   static const String PROFILE_SETTINGS_CHANGE_PASSWORD_TITLE_3 = "Confirm New Password";
   static const String PROFILE_SETTINGS_CHANGE_PASSWORD_HINT_3 = "Confirm New Password";
   // Hidden Stores
-  static const String PROFILE_SETTINGS_HIDDEN_STORES_DESC = "Hidden stores are specific to certain corporate partnership and can't be accessed by the general public. "
-      "\nThe access codes are only available to those involved in these partnership and are not controlled by Too Good To Go";
+  static const String PROFILE_SETTINGS_HIDDEN_STORES_DESC = "Hidden stores are specific to certain corporate partnership and can't be accessed by the general public.\nThe access codes are only available to those involved in these partnership and are not controlled by $APP_TITLE";
   static const String PROFILE_SETTINGS_HIDDEN_STORES_BUTTON_TEXT = "I HAVE A CODE";
   // Privacy & Licenses
   static const String PROFILE_SETTINGS_PRIVACY = "Privacy Policy";
@@ -95,8 +98,7 @@ class Messages {
   // Delete Account Page
   static const String PROFILE_SETTINGS_PRIVACY_LICENSES_CANCEL = "Cancel";
   static const String PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_TITLE = "Leaving so soon";
-  static const String PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_DESC = "We're sad to see you go, there are still so many meals out there to save"
-      "\n\nIf you still want to say goodbye, tap the button bellow and we'll delete your account";
+  static const String PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_DESC = "We're sad to see you go, there are still so many meals out there to save\n\nIf you still want to say goodbye, tap the button bellow and we'll delete your account";
 
   /// TODO : Orders Page Texts
   static const String MORE_ORDERS_CURRENT_BUTTON = "Current";
@@ -123,4 +125,8 @@ class Messages {
   static const String MORE_HELP_CENTER_ITEM_TITLE_1 = "My Orders";
   static const String MORE_HELP_CENTER_ITEM_TITLE_2 = "How $APP_TITLE works";
   static const String MORE_HELP_CENTER_ITEM_TITLE_3 = "Join $APP_TITLE";
+
+  /// TODO : Filter Page Texts
+  static const String FILTER_PAGE_TITLE_1 = "Hide sold-out";
+  static const String FILTER_PAGE_DESC = "Most stores only have a limited amount of Surprise Bags for sale every day. By activating this filter, we'll only show you stores with food left to save";
 }

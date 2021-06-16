@@ -36,7 +36,7 @@ class LocationItem extends StatelessWidget {
         children: [
           Icon(
             CupertinoIcons.location_solid,
-            color: Colors.transparent,
+            color: AppTheme.transparentColor,
           ),
           Text(
             Messages.LOCATION_ITEM_SUBTITLE,

@@ -8,6 +8,7 @@ import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
+import 'package:too_good_to_go/widgets/locate_area.dart';
 import 'package:too_good_to_go/widgets/location_item.dart';
 import 'package:too_good_to_go/widgets/page_title.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
@@ -39,7 +40,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
         children: [
           PageTitle(title: Messages.LABEL_DISCOVER),
           LocationItem(
-            onPressed: () => SharedFunctions.loadMaps(context, position: position),
+            onPressed: () => SharedFunctions.loadPage(
+              context,
+              screen: LocateArea(position: position),
+            ),
           ),
           Expanded(
             child: Column(
@@ -57,7 +61,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
                       ),
                       ListTile(
                         title: ButtonClick(
-                          onPressed: () => SharedFunctions.loadMaps(context, position: position),
+                          onPressed: () => SharedFunctions.loadPage(
+                            context,
+                            screen: LocateArea(position: position),
+                          ),
                           title: Messages.CHANGE_LOCATION_BUTTON,
                           textColor: AppTheme.mainColor,
                         ),

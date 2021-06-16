@@ -17,7 +17,7 @@ class BrowseButton extends StatelessWidget {
       onPressed: onPressed,
       elevation: 0,
       highlightElevation: 0,
-      color: state ? AppTheme.mainColor : Colors.transparent,
+      color: state ? AppTheme.mainColor : AppTheme.transparentColor,
       padding: EdgeInsets.all(15),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Text(

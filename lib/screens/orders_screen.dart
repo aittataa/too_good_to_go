@@ -30,7 +30,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
           Container(
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: Colors.black12,
+              color: AppTheme.blackBackColor.withOpacity(.15),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Row(

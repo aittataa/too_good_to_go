@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 
 class PaymentButton extends StatelessWidget {
   final String image;
@@ -10,8 +11,8 @@ class PaymentButton extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        backgroundColor: Colors.white,
-        side: BorderSide(color: Colors.black87, width: 1),
+        backgroundColor: AppTheme.whiteBackColor,
+        side: BorderSide(color: AppTheme.darkColor.withOpacity(.75), width: 1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

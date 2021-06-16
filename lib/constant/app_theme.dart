@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
+  /// TODO : Transparent Color
+  static const Color transparentColor = Color(0x00000000);
+
   /// TODO : Main Color
   static const Color lightMainColor = Color(0xFF45ADA1);
   static const Color mainColor = Color(0xFF114D4D);
@@ -19,4 +22,8 @@ class AppTheme {
   /// TODO : Icons Colors
   static const Color blackIconColor = Color(0xFF000000);
   static const Color whiteIconColor = Color(0xFFFFFFFF);
+
+  /// TODO : For Others
+  static const Color lightColor = Color(0xFFFFFFFF);
+  static const Color darkColor = Color(0xFF000000);
 }

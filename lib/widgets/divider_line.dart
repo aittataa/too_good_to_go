@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 
 class DividerLine extends StatelessWidget {
   final double height;
@@ -7,7 +8,7 @@ class DividerLine extends StatelessWidget {
 
   const DividerLine({
     this.height = 2.5,
-    this.color = Colors.white,
+    this.color = AppTheme.whiteBackColor,
     this.value = 0,
   });
   @override

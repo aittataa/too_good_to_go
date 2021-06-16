@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/models/user.dart';
 
 class Constant {
@@ -37,8 +38,8 @@ class Constant {
     "TAMARA",
   ];
 
-  static const boxShadow = BoxShadow(
-    color: Colors.black12,
+  static BoxShadow boxShadow = BoxShadow(
+    color: AppTheme.darkColor.withOpacity(.15),
     blurRadius: 90,
     spreadRadius: -15,
   );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 
 class TitleText extends StatelessWidget {
   final String title;
@@ -11,7 +12,7 @@ class TitleText extends StatelessWidget {
       "$title",
       textAlign: textAlign,
       style: TextStyle(
-        color: Colors.black,
+        color: AppTheme.blackTextColor,
         fontWeight: FontWeight.w900,
         fontSize: 20,
       ),
