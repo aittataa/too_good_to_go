@@ -20,6 +20,23 @@ class Messages {
   /// TODO : Links
   static const INSTAGRAM_LINK = "https://www.instagram.com/";
 
+  //static const String TEXT_BOX_NAME_TITLE = "";
+  /// TODO : Login Screen Texts
+  static const String LOGIN_SCREEN_TITLE = "Save delicious food and fight food waste";
+  static const String TEXT_BOX_EMAIL_TITLE = "Email";
+  static const String TEXT_BOX_PASSWORD_TITLE = "Password";
+  static const String LOGIN_BUTTON_TEXT = "LOG IN";
+  static const String REMEMBER_ME_TEXT = "Remember me";
+  static const String FORGET_PASSWORD_TEXT = "Forget Password";
+  static const String OR_TEXT = " - OR - ";
+  static const String NEW_ACCOUNT_TEXT = "Create new account";
+
+  /// TODO : Register Screen Texts
+  static const String REGISTER_SCREEN_TITLE = "Welcome to $APP_TITLE";
+  static const String TEXT_BOX_NAME_TITLE = "Name";
+  static const String SIGN_IN_BUTTON_TEXT = "SIGN IN";
+  static const String HAVE_ACCOUNT_TEXT = "Already have account";
+
   /// TODO : Label Navigation
   static const String LABEL_DISCOVER = "Discover";
   static const String LABEL_BROWSE = "Browse";

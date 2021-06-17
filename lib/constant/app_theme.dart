@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
   /// TODO : Transparent Color
   static const Color transparentColor = Color(0x00000000);
+  static const Color facebookColor = Color(0xFF2196F3);
 
   /// TODO : Main Color
   static const Color lightMainColor = Color(0xFF45ADA1);

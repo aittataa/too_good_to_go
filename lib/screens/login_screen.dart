@@ -1,16 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
+import 'package:too_good_to_go/screens/initial_screen.dart';
+import 'package:too_good_to_go/screens/register_screen.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
+import 'package:too_good_to_go/widgets/text_box.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key key}) : super(key: key);
-
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -24,24 +26,27 @@ class _LoginScreenState extends State<LoginScreen> {
         physics: BouncingScrollPhysics(),
         child: Column(
           children: [
-            SizedBox(height: Constant.screenHeight * .45, child: ExpandedLogo()),
+            SizedBox(
+              height: Constant.screenHeight * .45,
+              child: ExpandedLogo(),
+            ),
             ListTile(
               dense: true,
               title: TitleText(
-                title: "Save delicious food and fight food waste",
+                title: Messages.LOGIN_SCREEN_TITLE,
               ),
             ),
             ListTile(
               dense: true,
               title: TextBox(
-                hint: "Email",
+                hint: Messages.TEXT_BOX_EMAIL_TITLE,
                 icon: CupertinoIcons.mail_solid,
               ),
             ),
             ListTile(
               dense: true,
               title: TextBox(
-                hint: "Password",
+                hint: Messages.TEXT_BOX_PASSWORD_TITLE,
                 icon: CupertinoIcons.lock_shield_fill,
                 obscureText: obscureText,
                 suffixIcon: GestureDetector(
@@ -64,47 +69,65 @@ class _LoginScreenState extends State<LoginScreen> {
                 activeColor: AppTheme.mainColor,
               ),
               title: SubtitleText(
-                subtitle: "Remember me",
+                subtitle: Messages.REMEMBER_ME_TEXT,
                 textAlign: TextAlign.start,
                 color: AppTheme.blackTextColor.withOpacity(.75),
               ),
               trailing: SubtitleText(
-                subtitle: "Forget Password",
+                subtitle: Messages.FORGET_PASSWORD_TEXT,
                 color: AppTheme.blackTextColor.withOpacity(.75),
               ),
             ),
             ListTile(
               dense: true,
               title: ButtonClick(
-                title: "LOG IN",
+                onPressed: () => Get.offAll(() => InitialScreen()),
+                title: Messages.LOGIN_BUTTON_TEXT,
                 textColor: AppTheme.whiteTextColor,
                 backColor: AppTheme.mainColor,
               ),
             ),
             ListTile(
               title: SubtitleText(
-                subtitle: " - OR - ",
+                subtitle: Messages.OR_TEXT,
                 color: AppTheme.blackTextColor.withOpacity(.75),
               ),
             ),
             ListTile(
               dense: true,
+              contentPadding: EdgeInsets.zero,
+              minVerticalPadding: 0,
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SocialConnection(
-                    image: Messages.GOOGLE_ICON,
+                  Expanded(
+                    flex: 50,
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: SocialConnection(
+                        image: Messages.GOOGLE_ICON,
+                      ),
+                    ),
                   ),
-                  SocialConnection(
-                    image: Messages.FACEBOOK_ICON,
-                    color: Colors.blue,
+                  Expanded(child: SizedBox(width: 1)),
+                  Expanded(
+                    flex: 50,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: SocialConnection(
+                        image: Messages.FACEBOOK_ICON,
+                        color: AppTheme.facebookColor,
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
             ListTile(
+              onTap: () => Get.offAll(() => RegisterScreen()),
+              contentPadding: EdgeInsets.zero,
               title: SubtitleText(
-                subtitle: "Create New Account.",
+                subtitle: Messages.NEW_ACCOUNT_TEXT,
                 color: AppTheme.blackTextColor.withOpacity(.75),
               ),
             ),
@@ -137,67 +160,6 @@ class SocialConnection extends StatelessWidget {
         width: 30,
         height: 30,
         color: color,
-      ),
-    );
-  }
-}
-
-class TextBox extends StatelessWidget {
-  final TextEditingController controller;
-  final bool obscureText;
-  final String hint;
-  final IconData icon;
-  final Widget suffixIcon;
-  const TextBox({
-    this.controller,
-    this.hint,
-    this.icon,
-    this.suffixIcon,
-    this.obscureText = false,
-  });
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 53,
-      child: TextField(
-        controller: controller,
-        keyboardType: TextInputType.text,
-        textInputAction: TextInputAction.next,
-        cursorColor: AppTheme.mainColor,
-        style: TextStyle(
-          color: AppTheme.blackTextColor.withOpacity(.75),
-          fontWeight: FontWeight.bold,
-          letterSpacing: 1.5,
-        ),
-        obscureText: obscureText,
-        obscuringCharacter: "●",
-        decoration: InputDecoration(
-          prefixIcon: Icon(
-            icon,
-            color: AppTheme.lightMainColor,
-            size: 27,
-          ),
-          suffixIcon: suffixIcon,
-          hintText: hint,
-          hintStyle: TextStyle(
-            color: AppTheme.blackTextColor.withOpacity(.5),
-            fontWeight: FontWeight.bold,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: BorderSide(
-              width: 1.5,
-              color: AppTheme.lightMainColor,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: BorderSide(
-              width: 2.5,
-              color: AppTheme.lightMainColor,
-            ),
-          ),
-        ),
       ),
     );
   }

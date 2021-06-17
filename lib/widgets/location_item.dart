@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
+import 'package:too_good_to_go/widgets/subtitle_text.dart';
+import 'package:too_good_to_go/widgets/title_text.dart';
 
 class LocationItem extends StatelessWidget {
   final Function onPressed;
@@ -22,13 +24,9 @@ class LocationItem extends StatelessWidget {
             color: AppTheme.mainColor,
             size: 16,
           ),
-          Text(
-            Messages.LOCATION_ITEM_TITLE,
-            style: TextStyle(
-              color: AppTheme.mainColor,
-              fontWeight: FontWeight.w900,
-              fontSize: 18,
-            ),
+          TitleText(
+            title: Messages.LOCATION_ITEM_TITLE,
+            color: AppTheme.mainColor,
           ),
         ],
       ),
@@ -38,12 +36,9 @@ class LocationItem extends StatelessWidget {
             CupertinoIcons.location_solid,
             color: AppTheme.transparentColor,
           ),
-          Text(
-            Messages.LOCATION_ITEM_SUBTITLE,
-            style: TextStyle(
-              color: AppTheme.mainColor,
-              fontWeight: FontWeight.bold,
-            ),
+          SubtitleText(
+            subtitle: Messages.LOCATION_ITEM_SUBTITLE,
+            color: AppTheme.mainColor,
           ),
         ],
       ),
