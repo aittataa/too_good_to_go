@@ -12,7 +12,7 @@ class InitialScreen extends StatefulWidget {
 }
 
 class _InitialScreenState extends State<InitialScreen> {
-  int myIndex = 1;
+  int myIndex = 0;
   PageController controller;
   @override
   void initState() {

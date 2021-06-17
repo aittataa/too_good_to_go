@@ -8,6 +8,8 @@ class Messages {
 
   /// TODO : Icons
   static const String INSTAGRAM_ICON = "icons/instagram.png";
+  static const String FACEBOOK_ICON = "icons/facebook.png";
+  static const String GOOGLE_ICON = "icons/google.png";
   static const String GOOGLE_PAY_ICON = "icons/g_pay.png";
   static const String PAYPAL_ICON = "icons/paypal.png";
   static const String MEALS_ICON = "icons/meals.png";
