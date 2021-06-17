@@ -167,10 +167,10 @@ class TextBox extends StatelessWidget {
         style: TextStyle(
           color: AppTheme.blackTextColor.withOpacity(.75),
           fontWeight: FontWeight.bold,
+          letterSpacing: 1.5,
         ),
         obscureText: obscureText,
         obscuringCharacter: "●",
-        //obscuringCharacter: "⬤",
         decoration: InputDecoration(
           prefixIcon: Icon(
             icon,
