@@ -76,6 +76,10 @@ class _BrowsePageState extends State<BrowsePage> {
                                 ),
                                 ListTile(
                                   title: ButtonClick(
+                                    onPressed: () => SharedFunctions.loadPage(
+                                      context,
+                                      screen: LocateArea(position: position),
+                                    ),
                                     title: Messages.CHANGE_LOCATION_BUTTON.toUpperCase(),
                                     textColor: AppTheme.whiteTextColor,
                                     backColor: AppTheme.mainColor,

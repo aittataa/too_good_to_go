@@ -4,9 +4,12 @@ import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
+import 'package:too_good_to_go/constant/shared_functions.dart';
+import 'package:too_good_to_go/screens/login_screen.dart';
 import 'package:too_good_to_go/screens/profile_details.dart';
 import 'package:too_good_to_go/widgets/back_button.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
+import 'package:too_good_to_go/widgets/message_box.dart';
 import 'package:too_good_to_go/widgets/profile_item.dart';
 import 'package:too_good_to_go/widgets/profile_title.dart';
 
@@ -23,10 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         leading: BackIcon(),
         title: Text(
           Messages.PROFILE_TITLE,
-          style: TextStyle(
-            color: AppTheme.whiteTextColor,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Constant.appBarStyle,
         ),
       ),
       body: SingleChildScrollView(
@@ -142,6 +142,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
               child: ListTile(
+                onTap: () => SharedFunctions.loadMessageBox(
+                  context,
+                  screen: MessageBox(
+                    onPressed: () => Get.offAll(() => LoginScreen()),
+                    title: Messages.PROFILE_LOG_OUT_MESSAGE,
+                    acceptTitle: Messages.PROFILE_LOG_OUT,
+                    cancelTitle: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_CANCEL,
+                  ),
+                ),
                 tileColor: AppTheme.whiteBackColor,
                 title: Text(
                   Messages.PROFILE_LOG_OUT,

@@ -19,14 +19,12 @@ class LocateArea extends StatelessWidget {
         children: [
           ExpandedMap(position: position),
           Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 color: AppTheme.whiteBackColor,
                 child: ListTile(
                   contentPadding: EdgeInsets.zero,
-                  horizontalTitleGap: 0,
-                  minVerticalPadding: 0,
-                  minLeadingWidth: 0,
                   title: SubtitleText(
                     subtitle: Messages.LOCATE_AREA_TITLE,
                   ),
@@ -39,7 +37,7 @@ class LocateArea extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(child: SizedBox()),
+              //Expanded(child: SizedBox()),
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(

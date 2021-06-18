@@ -26,49 +26,37 @@ class MorePage extends StatelessWidget {
           MenuItem(
             icon: CupertinoIcons.profile_circled,
             text: Messages.MORE_PROFILE_TITLE,
-            onTap: () {
-              Get.to(() => ProfileScreen());
-            },
+            onTap: () => Get.to(() => ProfileScreen()),
           ),
           DividerLine(),
           MenuItem(
             icon: CupertinoIcons.doc_text_fill,
             text: Messages.MORE_ORDERS_TITLE,
-            onTap: () {
-              Get.to(() => OrdersScreen());
-            },
+            onTap: () => Get.to(() => OrdersScreen()),
           ),
           DividerLine(),
           MenuItem(
             icon: CupertinoIcons.creditcard_fill,
             text: Messages.MORE_PAYMENT_TITLE,
-            onTap: () {
-              Get.to(() => PaymentScreen());
-            },
+            onTap: () => Get.to(() => PaymentScreen()),
           ),
           DividerLine(),
           MenuItem(
             icon: CupertinoIcons.news_solid,
             text: Messages.MORE_BLOG_TITLE,
-            onTap: () {
-              Get.to(() => BlogScreen());
-            },
+            onTap: () => Get.to(() => BlogScreen()),
           ),
           DividerLine(),
           MenuItem(
             icon: CupertinoIcons.checkmark_alt_circle_fill,
             text: Messages.MORE_TERMS_TITLE,
-            onTap: () {
-              Get.to(() => TermsScreen());
-            },
+            onTap: () => Get.to(() => TermsScreen()),
           ),
           DividerLine(),
           MenuItem(
             icon: CupertinoIcons.helm,
             text: Messages.MORE_HELP_TITLE,
-            onTap: () {
-              Get.to(() => HelpScreen());
-            },
+            onTap: () => Get.to(() => HelpScreen()),
           ),
           DividerLine(),
           Expanded(

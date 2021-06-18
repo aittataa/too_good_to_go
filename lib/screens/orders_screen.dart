@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/widgets/back_button.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
@@ -22,7 +23,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
         leading: BackIcon(),
         title: Text(
           Messages.MORE_ORDERS_TITLE,
-          style: TextStyle(color: AppTheme.whiteTextColor),
+          style: Constant.appBarStyle,
         ),
       ),
       body: Column(

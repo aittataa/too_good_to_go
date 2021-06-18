@@ -21,7 +21,6 @@ class DiscoverPage extends StatefulWidget {
 
 class _DiscoverPageState extends State<DiscoverPage> {
   LatLng position;
-
   get getPosition async {
     LocationData location = await Location().getLocation();
     position = LatLng(location.latitude, location.longitude);
@@ -49,7 +48,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
             child: Column(
               children: [
                 Expanded(
-                  flex: 2,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -97,7 +95,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
                   ),
                 ),
                 Expanded(
-                  flex: 3,
                   child: Column(
                     children: [
                       ListTile(

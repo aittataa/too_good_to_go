@@ -19,4 +19,11 @@ class SharedFunctions {
       builder: (context) => screen,
     );
   }
+
+  static loadMessageBox(context, {dynamic screen}) {
+    showDialog(
+      context: context,
+      builder: (context) => screen,
+    );
+  }
 }

@@ -12,6 +12,11 @@ class Constant {
   static final double screenWidth = Get.size.width;
   static final double screenHeight = Get.size.height;
 
+  static const TextStyle appBarStyle = TextStyle(
+    color: AppTheme.whiteTextColor,
+    fontWeight: FontWeight.bold,
+  );
+
   static User userLogin = User(
     id: 1,
     name: "John Doe",

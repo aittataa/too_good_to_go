@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/widgets/back_button.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
@@ -17,7 +17,7 @@ class BlogScreen extends StatelessWidget {
         leading: BackIcon(),
         title: Text(
           Messages.MORE_BLOG_TITLE,
-          style: TextStyle(color: AppTheme.whiteTextColor),
+          style: Constant.appBarStyle,
         ),
       ),
       body: Container(

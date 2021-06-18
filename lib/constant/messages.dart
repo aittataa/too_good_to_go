@@ -96,6 +96,7 @@ class Messages {
   static const String PROFILE_SETTINGS_HIDDEN_STORES = "Hidden Stores";
   static const String PROFILE_SETTINGS_PRIVACY_LICENSES = "Privacy & Licenses";
   static const String PROFILE_LOG_OUT = "Log Out";
+  static const String PROFILE_LOG_OUT_MESSAGE = "We Love To See You Soon";
   static const String PROFILE_VERSION = "21.0.0";
   // Notifications
   static const String PROFILE_SETTINGS_NOTIFICATIONS_TITLE_1 = "Push Notifications";
@@ -115,9 +116,10 @@ class Messages {
   static const String PROFILE_SETTINGS_LICENSES = "Licenses";
   static const String PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON = "Delete Account";
   // Delete Account Page
+  static const String PROFILE_SETTINGS_PRIVACY_LICENSES_DELETE_MESSAGE = "We hope to see you again";
   static const String PROFILE_SETTINGS_PRIVACY_LICENSES_CANCEL = "Cancel";
   static const String PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_TITLE = "Leaving so soon";
-  static const String PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_DESC = "We're sad to see you go, there are still so many meals out there to save\n\nIf you still want to say goodbye, tap the button bellow and we'll delete your account";
+  static const String PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_DESC = "We're sad to see you go, there are still so many meals out there to save.\nIf you still want to say goodbye, tap the button bellow and we'll delete your account";
 
   /// TODO : Orders Page Texts
   static const String MORE_ORDERS_CURRENT_BUTTON = "Current";

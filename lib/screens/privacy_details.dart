@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
+import 'package:too_good_to_go/constant/shared_functions.dart';
+import 'package:too_good_to_go/screens/login_screen.dart';
 import 'package:too_good_to_go/widgets/back_button.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
+import 'package:too_good_to_go/widgets/message_box.dart';
+import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
 
 class PrivacyDetails extends StatelessWidget {
@@ -17,87 +23,83 @@ class PrivacyDetails extends StatelessWidget {
         leading: BackIcon(),
         title: Text(
           "$title",
-          style: TextStyle(
-            color: AppTheme.whiteTextColor,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Constant.appBarStyle,
         ),
       ),
-      body: Container(
-        child: PageView(
-          controller: PageController(initialPage: index),
-          physics: NeverScrollableScrollPhysics(),
-          children: [
-            SizedBox(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ExpandedLogo(),
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: TitleText(title: "$title"),
-                  ),
-                ],
-              ),
+      body: PageView(
+        controller: PageController(initialPage: index),
+        physics: NeverScrollableScrollPhysics(),
+        children: [
+          SizedBox(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ExpandedLogo(),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TitleText(title: "$title"),
+                ),
+              ],
             ),
-            SizedBox(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ExpandedLogo(),
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: TitleText(title: "$title"),
-                  ),
-                ],
-              ),
+          ),
+          SizedBox(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ExpandedLogo(),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TitleText(title: "$title"),
+                ),
+              ],
             ),
-            SizedBox(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ExpandedLogo(),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_TITLE,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor.withOpacity(.75),
-                        fontWeight: FontWeight.w900,
-                        fontSize: 25,
-                      ),
-                    ),
+          ),
+          SizedBox(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ExpandedLogo(),
+                ListTile(
+                  title: TitleText(
+                    title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_TITLE,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_DESC,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor.withOpacity(.75),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                ),
+                ListTile(
+                  title: SubtitleText(
+                    subtitle: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_DESC,
+                    color: AppTheme.blackTextColor.withOpacity(.75),
                   ),
-                  ListTile(
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: ListTile(
                     title: ButtonClick(
+                      onPressed: () => SharedFunctions.loadMessageBox(
+                        context,
+                        screen: MessageBox(
+                          onPressed: () => Get.offAll(() => LoginScreen()),
+                          title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_DELETE_MESSAGE,
+                          acceptTitle: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON,
+                          cancelTitle: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_CANCEL,
+                        ),
+                      ),
                       title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON,
                       textColor: AppTheme.whiteTextColor,
                       backColor: AppTheme.redBackColor,
                     ),
                   ),
-                  ListTile(
-                    title: ButtonClick(
-                      title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_CANCEL,
-                      textColor: AppTheme.blackTextColor.withOpacity(.75),
-                    ),
+                ),
+                ListTile(
+                  title: ButtonClick(
+                    onPressed: () => Navigator.pop(context),
+                    title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_CANCEL,
+                    textColor: AppTheme.blackTextColor.withOpacity(.75),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

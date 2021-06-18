@@ -26,10 +26,7 @@ class ProfileDetails extends StatelessWidget {
         leading: BackIcon(),
         title: Text(
           "$title",
-          style: TextStyle(
-            color: AppTheme.whiteTextColor,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Constant.appBarStyle,
         ),
       ),
       body: Container(
