@@ -25,7 +25,7 @@ class ProfileDetails extends StatelessWidget {
       appBar: AppBar(
         leading: BackIcon(),
         title: Text(
-          "$title",
+          title,
           style: Constant.appBarStyle,
         ),
       ),
@@ -39,31 +39,9 @@ class ProfileDetails extends StatelessWidget {
               child: Column(
                 children: [
                   ProfileTitle(label: Messages.PROFILE_ACCOUNT_NAME),
-                  Container(
-                    padding: EdgeInsets.only(left: 10),
-                    color: AppTheme.whiteBackColor,
-                    child: TextField(
-                      autofocus: true,
-                      controller: TextEditingController(text: user.name),
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor.withOpacity(0.75),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: Messages.PROFILE_ACCOUNT_NAME,
-                        hintStyle: TextStyle(
-                          color: AppTheme.blackTextColor.withOpacity(0.25),
-                        ),
-                        suffixIcon: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            CupertinoIcons.clear_thick_circled,
-                            color: AppTheme.blackIconColor.withOpacity(0.75),
-                          ),
-                        ),
-                      ),
-                    ),
+                  EditText(
+                    controller: TextEditingController(text: user.name),
+                    hintText: Messages.PROFILE_ACCOUNT_NAME,
                   ),
                 ],
               ),
@@ -72,31 +50,9 @@ class ProfileDetails extends StatelessWidget {
               child: Column(
                 children: [
                   ProfileTitle(label: Messages.PROFILE_ACCOUNT_EMAIL),
-                  Container(
-                    padding: EdgeInsets.only(left: 10),
-                    color: AppTheme.whiteBackColor,
-                    child: TextField(
-                      autofocus: true,
-                      controller: TextEditingController(text: user.email),
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor.withOpacity(0.75),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: Messages.PROFILE_ACCOUNT_EMAIL,
-                        hintStyle: TextStyle(
-                          color: AppTheme.blackTextColor.withOpacity(0.25),
-                        ),
-                        suffixIcon: IconButton(
-                          onPressed: null,
-                          icon: Icon(
-                            CupertinoIcons.clear_thick_circled,
-                            color: AppTheme.blackIconColor.withOpacity(0.75),
-                          ),
-                        ),
-                      ),
-                    ),
+                  EditText(
+                    controller: TextEditingController(text: user.email),
+                    hintText: Messages.PROFILE_ACCOUNT_EMAIL,
                   ),
                 ],
               ),
@@ -105,28 +61,9 @@ class ProfileDetails extends StatelessWidget {
               child: Column(
                 children: [
                   ProfileTitle(label: Messages.PROFILE_ACCOUNT_PHONE),
-                  Container(
-                    padding: EdgeInsets.only(left: 10),
-                    color: AppTheme.whiteBackColor,
-                    child: TextField(
-                      autofocus: true,
-                      controller: TextEditingController(text: user.phone),
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor.withOpacity(0.75),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: Messages.PROFILE_ACCOUNT_PHONE,
-                        hintStyle: TextStyle(
-                          color: AppTheme.blackTextColor.withOpacity(0.25),
-                        ),
-                        suffixIcon: Icon(
-                          CupertinoIcons.clear_thick_circled,
-                          color: AppTheme.blackIconColor.withOpacity(0.75),
-                        ),
-                      ),
-                    ),
+                  EditText(
+                    controller: TextEditingController(text: user.phone),
+                    hintText: Messages.PROFILE_ACCOUNT_PHONE,
                   ),
                 ],
               ),
@@ -202,87 +139,34 @@ class ProfileDetails extends StatelessWidget {
               ),
             ),
             SizedBox(
-              child: Column(
-                children: [
-                  ProfileTitle(label: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_TITLE_1),
-                  ListTile(
-                    tileColor: AppTheme.whiteBackColor,
-                    title: TextField(
-                      autofocus: true,
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor.withOpacity(0.75),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_HINT_1,
-                        hintStyle: TextStyle(
-                          color: AppTheme.blackTextColor.withOpacity(0.5),
-                        ),
-                      ),
-                    ),
-                  ),
-                  ProfileTitle(label: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_TITLE_2),
-                  ListTile(
-                    tileColor: AppTheme.whiteBackColor,
-                    title: TextField(
-                      autofocus: true,
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor.withOpacity(0.75),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_HINT_2,
-                        hintStyle: TextStyle(
-                          color: AppTheme.blackTextColor.withOpacity(0.5),
-                        ),
-                      ),
-                    ),
-                  ),
-                  ProfileTitle(label: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_TITLE_3),
-                  ListTile(
-                    tileColor: AppTheme.whiteBackColor,
-                    title: TextField(
-                      autofocus: true,
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor.withOpacity(0.75),
-                        fontWeight: FontWeight.bold,
-                      ),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_HINT_3,
-                        hintStyle: TextStyle(
-                          color: AppTheme.blackTextColor.withOpacity(0.5),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ProfileTitle(label: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_TITLE_1),
+                    EditText(hintText: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_HINT_1),
+                    ProfileTitle(label: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_TITLE_2),
+                    EditText(hintText: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_HINT_2),
+                    ProfileTitle(label: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_TITLE_3),
+                    EditText(hintText: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD_HINT_3),
+                  ],
+                ),
               ),
             ),
             SizedBox(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  ExpandedLogo(flex: 2),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ListTile(
-                          title: SubtitleText(
-                            subtitle: Messages.PROFILE_SETTINGS_HIDDEN_STORES_DESC,
-                          ),
-                        ),
-                        ListTile(
-                          title: ButtonClick(
-                            title: Messages.PROFILE_SETTINGS_HIDDEN_STORES_BUTTON_TEXT,
-                            textColor: AppTheme.whiteTextColor,
-                            backColor: AppTheme.mainColor,
-                          ),
-                        ),
-                      ],
+                  ExpandedLogo(),
+                  ListTile(
+                    subtitle: SubtitleText(
+                      subtitle: Messages.PROFILE_SETTINGS_HIDDEN_STORES_DESC,
+                    ),
+                  ),
+                  ListTile(
+                    title: ButtonClick(
+                      title: Messages.PROFILE_SETTINGS_HIDDEN_STORES_BUTTON_TEXT,
+                      textColor: AppTheme.whiteTextColor,
+                      backColor: AppTheme.mainColor,
                     ),
                   ),
                 ],
@@ -348,6 +232,45 @@ class ProfileDetails extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class EditText extends StatelessWidget {
+  final TextEditingController controller;
+  final String hintText;
+  final Function onPressed;
+  const EditText({this.controller, this.hintText, this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: 10),
+      color: AppTheme.whiteBackColor,
+      child: TextField(
+        controller: controller,
+        autofocus: true,
+        cursorColor: AppTheme.lightMainColor,
+        textInputAction: TextInputAction.next,
+        style: TextStyle(
+          color: AppTheme.blackTextColor.withOpacity(0.75),
+          fontWeight: FontWeight.bold,
+        ),
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: hintText,
+          hintStyle: TextStyle(
+            color: AppTheme.blackTextColor.withOpacity(0.25),
+          ),
+          suffixIcon: IconButton(
+            onPressed: onPressed,
+            icon: Icon(
+              CupertinoIcons.clear_thick_circled,
+              color: AppTheme.blackIconColor.withOpacity(0.5),
+            ),
+          ),
         ),
       ),
     );

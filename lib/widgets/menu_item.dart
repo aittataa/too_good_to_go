@@ -13,10 +13,10 @@ class MenuItem extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       tileColor: AppTheme.whiteBackColor,
+      horizontalTitleGap: 0,
       leading: Icon(
         icon,
         color: AppTheme.blackIconColor.withOpacity(.64),
-        size: 27,
       ),
       title: Text(
         "$text",
@@ -28,7 +28,6 @@ class MenuItem extends StatelessWidget {
       trailing: Icon(
         CupertinoIcons.right_chevron,
         color: AppTheme.blackIconColor.withOpacity(.64),
-        size: 27,
       ),
     );
   }

@@ -20,7 +20,6 @@ class Messages {
   /// TODO : Links
   static const INSTAGRAM_LINK = "https://www.instagram.com/";
 
-  //static const String TEXT_BOX_NAME_TITLE = "";
   /// TODO : Login Screen Texts
   static const String LOGIN_SCREEN_TITLE = "Save delicious food and fight food waste";
   static const String TEXT_BOX_EMAIL_TITLE = "Email";

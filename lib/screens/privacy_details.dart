@@ -22,7 +22,7 @@ class PrivacyDetails extends StatelessWidget {
       appBar: AppBar(
         leading: BackIcon(),
         title: Text(
-          "$title",
+          title,
           style: Constant.appBarStyle,
         ),
       ),
@@ -65,28 +65,25 @@ class PrivacyDetails extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title: SubtitleText(
+                  subtitle: SubtitleText(
                     subtitle: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_DESC,
                     color: AppTheme.blackTextColor.withOpacity(.75),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  child: ListTile(
-                    title: ButtonClick(
-                      onPressed: () => SharedFunctions.loadMessageBox(
-                        context,
-                        screen: MessageBox(
-                          onPressed: () => Get.offAll(() => LoginScreen()),
-                          title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_DELETE_MESSAGE,
-                          acceptTitle: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON,
-                          cancelTitle: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_CANCEL,
-                        ),
+                ListTile(
+                  title: ButtonClick(
+                    onPressed: () => SharedFunctions.loadMessageBox(
+                      context,
+                      screen: MessageBox(
+                        onPressed: () => Get.offAll(() => LoginScreen()),
+                        title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_DELETE_MESSAGE,
+                        acceptTitle: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON,
+                        cancelTitle: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_CANCEL,
                       ),
-                      title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON,
-                      textColor: AppTheme.whiteTextColor,
-                      backColor: AppTheme.redBackColor,
                     ),
+                    title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON,
+                    textColor: AppTheme.whiteTextColor,
+                    backColor: AppTheme.redBackColor,
                   ),
                 ),
                 ListTile(

@@ -55,7 +55,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         title: TitleText(title: Messages.DISCOVER_TITLE_1),
                       ),
                       ListTile(
-                        title: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_1),
+                        subtitle: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_1),
                       ),
                       ListTile(
                         title: ButtonClick(
@@ -103,12 +103,12 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         ),
                       ),
                       ListTile(
-                        title: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_2),
+                        subtitle: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_2),
                       ),
                       ListTile(
                         title: ButtonClick(
                           onPressed: () => SharedFunctions.launchURL(Messages.INSTAGRAM_LINK),
-                          title: Messages.FOLLOW_INSTAGRAM_BUTTON.toUpperCase(),
+                          title: Messages.FOLLOW_INSTAGRAM_BUTTON,
                           textColor: AppTheme.whiteTextColor,
                           backColor: AppTheme.mainColor,
                         ),

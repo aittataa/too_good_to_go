@@ -59,29 +59,17 @@ class MorePage extends StatelessWidget {
             onTap: () => Get.to(() => HelpScreen()),
           ),
           DividerLine(),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ExpandedLogo(),
-                ListTile(
-                  title: SubtitleText(
-                    subtitle: Messages.MORE_SUBTITLE_1,
-                    color: AppTheme.blackTextColor.withOpacity(0.75),
-                  ),
-                ),
-                ListTile(
-                  title: Wrap(
-                    alignment: WrapAlignment.center,
-                    children: [
-                      SubtitleText(
-                        subtitle: Messages.MORE_SUBTITLE_2,
-                        color: AppTheme.mainColor,
-                      ),
-                    ],
-                  ),
-                )
-              ],
+          ExpandedLogo(),
+          ListTile(
+            subtitle: SubtitleText(
+              subtitle: Messages.MORE_SUBTITLE_1,
+              color: AppTheme.blackTextColor.withOpacity(0.75),
+            ),
+          ),
+          ListTile(
+            subtitle: SubtitleText(
+              subtitle: Messages.MORE_SUBTITLE_2,
+              color: AppTheme.mainColor,
             ),
           ),
         ],

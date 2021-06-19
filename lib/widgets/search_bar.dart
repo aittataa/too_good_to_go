@@ -13,17 +13,15 @@ class SearchBar extends StatelessWidget {
       return Icon(
         CupertinoIcons.search,
         color: AppTheme.mainColor,
-        size: 27,
       );
     } else {
       return SizedBox(
-        width: Constant.screenWidth * .81,
+        width: Constant.screenWidth * .75,
         child: Row(
           children: [
             Icon(
               CupertinoIcons.search,
               color: AppTheme.mainColor,
-              size: 27,
             ),
             Expanded(
               child: Padding(
@@ -49,7 +47,6 @@ class SearchBar extends StatelessWidget {
               child: Icon(
                 CupertinoIcons.clear_circled_solid,
                 color: AppTheme.blackIconColor.withOpacity(.5),
-                size: 27,
               ),
             ),
           ],
