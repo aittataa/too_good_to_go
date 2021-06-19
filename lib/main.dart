@@ -7,7 +7,6 @@ import 'package:too_good_to_go/widgets/splash_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  //SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       systemNavigationBarColor: Colors.transparent,
