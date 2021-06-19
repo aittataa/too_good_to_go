@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/models/user.dart';
 
 class Constant {
@@ -24,6 +25,13 @@ class Constant {
     phone: "+212 600 000 000",
     city: "Casablanca",
   );
+
+  static const List<String> titlesList = [
+    Messages.LABEL_DISCOVER,
+    Messages.LABEL_BROWSE,
+    Messages.LABEL_FAVORITES,
+    Messages.LABEL_MORE,
+  ];
 
   static const List<String> cities = [
     "Casablanca",

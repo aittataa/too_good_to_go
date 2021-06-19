@@ -10,7 +10,6 @@ import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/locate_area.dart';
 import 'package:too_good_to_go/widgets/location_item.dart';
-import 'package:too_good_to_go/widgets/page_title.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
 
@@ -37,7 +36,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
     return SafeArea(
       child: Column(
         children: [
-          PageTitle(title: Messages.LABEL_DISCOVER),
+          //PageTitle(title: Messages.LABEL_DISCOVER),
           LocationItem(
             onPressed: () => SharedFunctions.loadPage(
               context,

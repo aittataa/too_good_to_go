@@ -12,8 +12,8 @@ import 'package:too_good_to_go/screens/terms_screen.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/menu_item.dart';
-import 'package:too_good_to_go/widgets/page_title.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
+import 'package:too_good_to_go/widgets/title_text.dart';
 
 class MorePage extends StatelessWidget {
   @override
@@ -21,8 +21,7 @@ class MorePage extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          PageTitle(title: Messages.LABEL_MORE),
-          SizedBox(height: 20),
+          DividerLine(),
           MenuItem(
             icon: CupertinoIcons.profile_circled,
             text: Messages.MORE_PROFILE_TITLE,
@@ -67,8 +66,9 @@ class MorePage extends StatelessWidget {
             ),
           ),
           ListTile(
-            subtitle: SubtitleText(
-              subtitle: Messages.MORE_SUBTITLE_2,
+            dense: true,
+            title: TitleText(
+              title: Messages.MORE_SUBTITLE_2,
               color: AppTheme.mainColor,
             ),
           ),

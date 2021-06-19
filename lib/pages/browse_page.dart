@@ -15,7 +15,6 @@ import 'package:too_good_to_go/widgets/filter_page.dart';
 import 'package:too_good_to_go/widgets/listview_item.dart';
 import 'package:too_good_to_go/widgets/locate_area.dart';
 import 'package:too_good_to_go/widgets/location_item.dart';
-import 'package:too_good_to_go/widgets/page_title.dart';
 import 'package:too_good_to_go/widgets/search_bar.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
@@ -66,7 +65,6 @@ class _BrowsePageState extends State<BrowsePage> {
         SafeArea(
           child: Column(
             children: [
-              PageTitle(title: Messages.LABEL_BROWSE),
               LocationItem(
                 onPressed: () => SharedFunctions.loadPage(
                   context,
@@ -235,8 +233,6 @@ class _BrowsePageState extends State<BrowsePage> {
                   ],
                 ),
               ),
-
-              ///
               Expanded(
                 child: pageIndex == 0
                     ? Column(
