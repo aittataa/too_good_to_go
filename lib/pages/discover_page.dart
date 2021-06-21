@@ -52,7 +52,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                   title: TitleText(title: Messages.DISCOVER_TITLE_1),
                 ),
                 ListTile(
-                  title: SubtitleText(
+                  subtitle: SubtitleText(
                     subtitle: Messages.DISCOVER_SUBTITLE_1,
                     color: AppTheme.blackTextColor.withOpacity(.75),
                   ),
@@ -95,12 +95,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
             ),
           ),
           ListTile(
-            //dense: true,
             title: TitleText(title: Messages.DISCOVER_TITLE_2),
           ),
           ListTile(
-            //dense: true,
-            title: SubtitleText(
+            subtitle: SubtitleText(
               subtitle: Messages.DISCOVER_SUBTITLE_2,
               color: AppTheme.blackTextColor.withOpacity(.75),
             ),

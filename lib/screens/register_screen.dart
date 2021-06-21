@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/screens/initial_screen.dart';
 import 'package:too_good_to_go/screens/login_screen.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
+import 'package:too_good_to_go/widgets/checked_box.dart';
+import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/text_box.dart';
@@ -20,12 +23,17 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   bool obscureText = true;
+  bool state = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
+        physics: BouncingScrollPhysics(),
         children: [
-          ExpandedLogo(),
+          SizedBox(
+            height: Constant.screenHeight * .4,
+            child: ExpandedLogo(),
+          ),
           ListTile(
             dense: true,
             title: TitleText(
@@ -63,6 +71,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
             ),
           ),
+          DividerLine(height: 10, color: AppTheme.transparentColor),
+          ListTile(
+            dense: true,
+            leading: CheckedBox(
+              size: 16,
+              state: state,
+              onTap: () {
+                setState(() {
+                  state = !state;
+                });
+              },
+            ),
+            title: SubtitleText(
+              subtitle: "I allow ${Messages.APP_TITLE} to store my email address and name according to our privacy policy",
+              textAlign: TextAlign.start,
+            ),
+          ),
+          ListTile(
+            dense: true,
+            leading: CheckedBox(
+              size: 16,
+              state: state,
+              onTap: () {
+                setState(() {
+                  state = !state;
+                });
+              },
+            ),
+            title: SubtitleText(
+              subtitle: "I agree with the terms and conditions and the privacy policy",
+              textAlign: TextAlign.start,
+            ),
+          ),
+          DividerLine(height: 10, color: AppTheme.transparentColor),
           ListTile(
             dense: true,
             title: ButtonClick(

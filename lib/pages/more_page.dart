@@ -59,7 +59,7 @@ class MorePage extends StatelessWidget {
           ),
           DividerLine(height: 10, color: AppTheme.transparentColor),
           ListTile(
-            title: SubtitleText(
+            subtitle: SubtitleText(
               subtitle: Messages.MORE_SUBTITLE_1,
               color: AppTheme.blackTextColor.withOpacity(0.75),
             ),

@@ -11,7 +11,7 @@ class HelpItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      margin: EdgeInsets.symmetric(vertical: 5),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: AppTheme.whiteBackColor,

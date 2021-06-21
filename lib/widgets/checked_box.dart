@@ -4,8 +4,9 @@ import 'package:too_good_to_go/constant/app_theme.dart';
 
 class CheckedBox extends StatelessWidget {
   final bool state;
+  final double size;
   final Function onTap;
-  const CheckedBox({this.state, this.onTap});
+  const CheckedBox({this.state, this.size = 30, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +16,13 @@ class CheckedBox extends StatelessWidget {
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
           color: state ? AppTheme.mainColor : AppTheme.transparentColor,
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: AppTheme.darkColor.withOpacity(.25), width: 1.5),
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(color: AppTheme.mainColor.withOpacity(.5), width: 1.5),
         ),
         child: Icon(
           CupertinoIcons.checkmark_alt,
           color: state ? AppTheme.whiteIconColor : AppTheme.transparentColor,
-          size: 30,
+          size: size,
         ),
       ),
     );

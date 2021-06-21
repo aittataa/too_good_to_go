@@ -239,7 +239,7 @@ class _BrowsePageState extends State<BrowsePage> {
                             title: TitleText(title: Messages.BROWSE_TITLE_1),
                           ),
                           ListTile(
-                            title: SubtitleText(
+                            subtitle: SubtitleText(
                               subtitle: Messages.BROWSE_SUBTITLE_1,
                               color: AppTheme.blackTextColor.withOpacity(.75),
                             ),

@@ -20,7 +20,7 @@ class FavoritesPage extends StatelessWidget {
             title: TitleText(title: Messages.FAVORITES_TITLE),
           ),
           ListTile(
-            title: SubtitleText(
+            subtitle: SubtitleText(
               subtitle: Messages.FAVORITES_SUBTITLE,
               color: AppTheme.blackTextColor.withOpacity(.75),
             ),
