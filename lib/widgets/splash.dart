@@ -6,7 +6,7 @@ import 'package:too_good_to_go/screens/initial_screen.dart';
 import 'package:too_good_to_go/widgets/bounce_point.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 
-class SplashScreen extends StatelessWidget {
+class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(

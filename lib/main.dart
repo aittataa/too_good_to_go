@@ -3,18 +3,18 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
-import 'package:too_good_to_go/widgets/splash_screen.dart';
+import 'package:too_good_to_go/widgets/splash.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.transparent,
-      systemNavigationBarDividerColor: Colors.transparent,
+      systemNavigationBarColor: AppTheme.transparentColor,
+      systemNavigationBarDividerColor: AppTheme.transparentColor,
       systemNavigationBarIconBrightness: Brightness.dark,
-      statusBarColor: Colors.transparent,
+      statusBarColor: AppTheme.transparentColor,
       statusBarBrightness: Brightness.dark,
-      statusBarIconBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.dark,
     ),
   );
   runApp(TooGoodToGo());
@@ -32,7 +32,7 @@ class TooGoodToGo extends StatelessWidget {
         scaffoldBackgroundColor: AppTheme.backColor,
       ),
       //home: InitialScreen(),
-      home: SplashScreen(),
+      home: Splash(),
     );
   }
 }

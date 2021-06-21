@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:too_good_to_go/constant/app_theme.dart';
-import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/pages/browse_page.dart';
 import 'package:too_good_to_go/pages/discover_page.dart';
 import 'package:too_good_to_go/pages/favorites_page.dart';
 import 'package:too_good_to_go/pages/more_page.dart';
 import 'package:too_good_to_go/widgets/navigation_bar.dart';
-import 'package:too_good_to_go/widgets/page_title.dart';
 
 class InitialScreen extends StatefulWidget {
   @override
@@ -15,11 +12,12 @@ class InitialScreen extends StatefulWidget {
 }
 
 class _InitialScreenState extends State<InitialScreen> {
-  int myIndex = 3;
+  int myIndex;
   PageController controller;
   @override
   void initState() {
     super.initState();
+    myIndex = 0;
     controller = PageController(initialPage: myIndex);
   }
 
@@ -27,13 +25,17 @@ class _InitialScreenState extends State<InitialScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      extendBody: true,
+      //extendBodyBehindAppBar: myIndex == 1,
+      /*
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: AppTheme.whiteBackColor,
+        backgroundColor: Colors.transparent,
         title: PageTitle(
           title: Constant.titlesList[myIndex],
         ),
       ),
+      */
       body: PageView(
         controller: controller,
         physics: NeverScrollableScrollPhysics(),

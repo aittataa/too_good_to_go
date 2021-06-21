@@ -48,7 +48,8 @@ class Messages {
   static const String CHANGE_LOCATION_BUTTON = "Change Location";
   static const String DISCOVER_TITLE_2 = "Make your feed a bit greener";
   static const String DISCOVER_SUBTITLE_2 = "Get food waste tips and stay up to date on\neverything Too Good To Go";
-  static const String FOLLOW_INSTAGRAM_BUTTON = "Follow Us on Instagram";
+  // ignore: non_constant_identifier_names
+  static String FOLLOW_INSTAGRAM_BUTTON = "Follow Us on Instagram".toUpperCase();
 
   /// TODO :  Locate Area Page Texts
   static const String LOCATE_AREA_TITLE = "Choose a Location to see \nwhat's available";

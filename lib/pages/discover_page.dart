@@ -10,6 +10,7 @@ import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/locate_area.dart';
 import 'package:too_good_to_go/widgets/location_item.dart';
+import 'package:too_good_to_go/widgets/page_title.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
 
@@ -36,7 +37,9 @@ class _DiscoverPageState extends State<DiscoverPage> {
     return SafeArea(
       child: Column(
         children: [
-          //PageTitle(title: Messages.LABEL_DISCOVER),
+          PageTitle(
+            title: Messages.LABEL_DISCOVER,
+          ),
           LocationItem(
             onPressed: () => SharedFunctions.loadPage(
               context,
@@ -54,6 +57,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         title: TitleText(title: Messages.DISCOVER_TITLE_1),
                       ),
                       ListTile(
+                        dense: true,
                         subtitle: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_1),
                       ),
                       ListTile(
@@ -93,26 +97,19 @@ class _DiscoverPageState extends State<DiscoverPage> {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      ListTile(
-                        title: TitleText(
-                          title: Messages.DISCOVER_TITLE_2,
-                        ),
-                      ),
-                      ListTile(
-                        subtitle: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_2),
-                      ),
-                      ListTile(
-                        title: ButtonClick(
-                          onPressed: () => SharedFunctions.launchURL(Messages.INSTAGRAM_LINK),
-                          title: Messages.FOLLOW_INSTAGRAM_BUTTON,
-                          textColor: AppTheme.whiteTextColor,
-                          backColor: AppTheme.mainColor,
-                        ),
-                      ),
-                    ],
+                ListTile(
+                  title: TitleText(title: Messages.DISCOVER_TITLE_2),
+                ),
+                ListTile(
+                  dense: true,
+                  subtitle: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_2),
+                ),
+                ListTile(
+                  title: ButtonClick(
+                    onPressed: () => SharedFunctions.launchURL(Messages.INSTAGRAM_LINK),
+                    title: Messages.FOLLOW_INSTAGRAM_BUTTON,
+                    textColor: AppTheme.whiteTextColor,
+                    backColor: AppTheme.mainColor,
                   ),
                 ),
               ],

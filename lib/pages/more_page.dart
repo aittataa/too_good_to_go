@@ -10,10 +10,9 @@ import 'package:too_good_to_go/screens/payment_screen.dart';
 import 'package:too_good_to_go/screens/profile_screen.dart';
 import 'package:too_good_to_go/screens/terms_screen.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
-import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/menu_item.dart';
+import 'package:too_good_to_go/widgets/page_title.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
-import 'package:too_good_to_go/widgets/title_text.dart';
 
 class MorePage extends StatelessWidget {
   @override
@@ -21,55 +20,63 @@ class MorePage extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          DividerLine(),
-          MenuItem(
-            icon: CupertinoIcons.profile_circled,
-            text: Messages.MORE_PROFILE_TITLE,
-            onTap: () => Get.to(() => ProfileScreen()),
+          PageTitle(
+            title: Messages.LABEL_FAVORITES,
           ),
-          DividerLine(),
-          MenuItem(
-            icon: CupertinoIcons.doc_text_fill,
-            text: Messages.MORE_ORDERS_TITLE,
-            onTap: () => Get.to(() => OrdersScreen()),
-          ),
-          DividerLine(),
-          MenuItem(
-            icon: CupertinoIcons.creditcard_fill,
-            text: Messages.MORE_PAYMENT_TITLE,
-            onTap: () => Get.to(() => PaymentScreen()),
-          ),
-          DividerLine(),
-          MenuItem(
-            icon: CupertinoIcons.news_solid,
-            text: Messages.MORE_BLOG_TITLE,
-            onTap: () => Get.to(() => BlogScreen()),
-          ),
-          DividerLine(),
-          MenuItem(
-            icon: CupertinoIcons.checkmark_alt_circle_fill,
-            text: Messages.MORE_TERMS_TITLE,
-            onTap: () => Get.to(() => TermsScreen()),
-          ),
-          DividerLine(),
-          MenuItem(
-            icon: CupertinoIcons.helm,
-            text: Messages.MORE_HELP_TITLE,
-            onTap: () => Get.to(() => HelpScreen()),
-          ),
-          DividerLine(),
-          ExpandedLogo(),
-          ListTile(
-            subtitle: SubtitleText(
-              subtitle: Messages.MORE_SUBTITLE_1,
-              color: AppTheme.blackTextColor.withOpacity(0.75),
-            ),
-          ),
-          ListTile(
-            dense: true,
-            title: TitleText(
-              title: Messages.MORE_SUBTITLE_2,
-              color: AppTheme.mainColor,
+          Expanded(
+            child: ListView(
+              children: [
+                DividerLine(),
+                MenuItem(
+                  icon: CupertinoIcons.profile_circled,
+                  text: Messages.MORE_PROFILE_TITLE,
+                  onTap: () => Get.to(() => ProfileScreen()),
+                ),
+                DividerLine(),
+                MenuItem(
+                  icon: CupertinoIcons.doc_text_fill,
+                  text: Messages.MORE_ORDERS_TITLE,
+                  onTap: () => Get.to(() => OrdersScreen()),
+                ),
+                DividerLine(),
+                MenuItem(
+                  icon: CupertinoIcons.creditcard_fill,
+                  text: Messages.MORE_PAYMENT_TITLE,
+                  onTap: () => Get.to(() => PaymentScreen()),
+                ),
+                DividerLine(),
+                MenuItem(
+                  icon: CupertinoIcons.news_solid,
+                  text: Messages.MORE_BLOG_TITLE,
+                  onTap: () => Get.to(() => BlogScreen()),
+                ),
+                DividerLine(),
+                MenuItem(
+                  icon: CupertinoIcons.checkmark_alt_circle_fill,
+                  text: Messages.MORE_TERMS_TITLE,
+                  onTap: () => Get.to(() => TermsScreen()),
+                ),
+                DividerLine(),
+                MenuItem(
+                  icon: CupertinoIcons.helm,
+                  text: Messages.MORE_HELP_TITLE,
+                  onTap: () => Get.to(() => HelpScreen()),
+                ),
+                DividerLine(),
+                //SizedBox(child: ExpandedLogo()),
+                ListTile(
+                  title: SubtitleText(
+                    subtitle: Messages.MORE_SUBTITLE_1,
+                    color: AppTheme.blackTextColor.withOpacity(0.75),
+                  ),
+                ),
+                ListTile(
+                  title: SubtitleText(
+                    subtitle: Messages.MORE_SUBTITLE_2,
+                    color: AppTheme.mainColor,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

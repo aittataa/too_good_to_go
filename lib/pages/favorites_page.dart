@@ -4,6 +4,7 @@ import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
+import 'package:too_good_to_go/widgets/page_title.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
 
@@ -13,19 +14,25 @@ class FavoritesPage extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          //PageTitle(title: Messages.LABEL_FAVORITES),
-          ExpandedLogo(),
-          ListTile(
-            title: TitleText(title: Messages.FAVORITES_TITLE),
-          ),
-          ListTile(
-            title: SubtitleText(subtitle: Messages.FAVORITES_SUBTITLE),
-          ),
-          ListTile(
-            title: ButtonClick(
-              title: Messages.FIND_STORE_BUTTON,
-              textColor: AppTheme.whiteTextColor,
-              backColor: AppTheme.mainColor,
+          PageTitle(title: Messages.LABEL_FAVORITES),
+          Expanded(
+            child: Column(
+              children: [
+                ExpandedLogo(),
+                ListTile(
+                  title: TitleText(title: Messages.FAVORITES_TITLE),
+                ),
+                ListTile(
+                  subtitle: SubtitleText(subtitle: Messages.FAVORITES_SUBTITLE),
+                ),
+                ListTile(
+                  title: ButtonClick(
+                    title: Messages.FIND_STORE_BUTTON,
+                    textColor: AppTheme.whiteTextColor,
+                    backColor: AppTheme.mainColor,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
