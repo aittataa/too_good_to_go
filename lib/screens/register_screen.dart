@@ -74,14 +74,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
           DividerLine(height: 10, color: AppTheme.transparentColor),
           ListTile(
             dense: true,
-            leading: CheckedBox(
-              size: 16,
-              state: state,
-              onTap: () {
-                setState(() {
-                  state = !state;
-                });
-              },
+            horizontalTitleGap: 0,
+            leading: Padding(
+              padding: EdgeInsets.all(5),
+              child: CheckedBox(
+                size: 16,
+                state: state,
+                onTap: () {
+                  setState(() {
+                    state = !state;
+                  });
+                },
+              ),
             ),
             title: SubtitleText(
               subtitle: "I allow ${Messages.APP_TITLE} to store my email address and name according to our privacy policy",
@@ -90,14 +94,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
           ListTile(
             dense: true,
-            leading: CheckedBox(
-              size: 16,
-              state: state,
-              onTap: () {
-                setState(() {
-                  state = !state;
-                });
-              },
+            horizontalTitleGap: 0,
+            leading: Padding(
+              padding: EdgeInsets.all(5),
+              child: CheckedBox(
+                size: 16,
+                state: state,
+                onTap: () {
+                  setState(() {
+                    state = !state;
+                  });
+                },
+              ),
             ),
             title: SubtitleText(
               subtitle: "I agree with the terms and conditions and the privacy policy",

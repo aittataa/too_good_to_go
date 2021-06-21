@@ -15,9 +15,9 @@ class CheckedBox extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
-          color: state ? AppTheme.mainColor : AppTheme.transparentColor,
+          color: state ? AppTheme.lightMainColor : AppTheme.transparentColor,
           borderRadius: BorderRadius.circular(5),
-          border: Border.all(color: AppTheme.mainColor.withOpacity(.5), width: 1.5),
+          border: Border.all(color: AppTheme.lightMainColor.withOpacity(.5), width: 1.5),
         ),
         child: Icon(
           CupertinoIcons.checkmark_alt,

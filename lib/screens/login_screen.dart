@@ -21,7 +21,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool obscureText = true;
-  bool state = true;
+  bool rememberMe = true;
+  bool iAgree = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,14 +64,17 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           ListTile(
-            leading: CheckedBox(
-              size: 16,
-              state: state,
-              onTap: () {
-                setState(() {
-                  state = !state;
-                });
-              },
+            leading: Padding(
+              padding: EdgeInsets.all(5),
+              child: CheckedBox(
+                size: 16,
+                state: rememberMe,
+                onTap: () {
+                  setState(() {
+                    rememberMe = !rememberMe;
+                  });
+                },
+              ),
             ),
             title: SubtitleText(
               subtitle: Messages.REMEMBER_ME_TEXT,
@@ -94,14 +98,18 @@ class _LoginScreenState extends State<LoginScreen> {
           DividerLine(height: 10, color: AppTheme.transparentColor),
           ListTile(
             dense: true,
-            leading: CheckedBox(
-              size: 16,
-              state: state,
-              onTap: () {
-                setState(() {
-                  state = !state;
-                });
-              },
+            horizontalTitleGap: 0,
+            leading: Padding(
+              padding: EdgeInsets.all(5),
+              child: CheckedBox(
+                size: 16,
+                state: iAgree,
+                onTap: () {
+                  setState(() {
+                    iAgree = !iAgree;
+                  });
+                },
+              ),
             ),
             title: SubtitleText(
               subtitle: "I allow ${Messages.APP_TITLE} to store my email address and name according to our privacy policy",
@@ -109,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
               textAlign: TextAlign.start,
             ),
           ),
-          DividerLine(height: 10, color: AppTheme.transparentColor),
+          DividerLine(color: AppTheme.transparentColor),
           ListTile(
             title: SubtitleText(
               subtitle: Messages.OR_TEXT,
