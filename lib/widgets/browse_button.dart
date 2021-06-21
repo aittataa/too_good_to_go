@@ -25,7 +25,6 @@ class BrowseButton extends StatelessWidget {
         style: TextStyle(
           color: state ? AppTheme.whiteTextColor : AppTheme.mainColor,
           fontWeight: FontWeight.w900,
-          fontSize: 17.5,
         ),
       ),
     );

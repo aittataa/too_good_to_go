@@ -9,6 +9,7 @@ import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
+import 'package:too_good_to_go/widgets/clear_icon.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/expanded_map.dart';
 import 'package:too_good_to_go/widgets/filter_page.dart';
@@ -45,21 +46,22 @@ class _BrowsePageState extends State<BrowsePage> {
   }
 
   bool onSearchTap = false;
-  bool onItemTap = false;
+  bool onItemTap1 = false;
+  bool onItemTap2 = false;
+  bool onItemTap3 = false;
+  bool onItemTap4 = false;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        Expanded(
           child: PageView(
             physics: NeverScrollableScrollPhysics(),
             controller: pageController,
             children: [
               SizedBox(),
-              Expanded(
-                child: ExpandedMap(position: position),
-              ),
+              ExpandedMap(position: position),
             ],
           ),
         ),
@@ -138,102 +140,93 @@ class _BrowsePageState extends State<BrowsePage> {
 
                     ///
                     ListViewItem(
-                      color: onItemTap ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
+                      color: onItemTap1 ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
                       onTap: () {
                         setState(() {
-                          onItemTap = !onItemTap;
+                          onItemTap1 = !onItemTap1;
                         });
                       },
                       child: Wrap(
                         children: [
-                          Text(
-                            onItemTap ? "Hide sold-out" : "Try: Hide sold-out",
-                            style: TextStyle(
-                              color: onItemTap ? AppTheme.whiteTextColor : AppTheme.mainColor,
-                              fontWeight: FontWeight.w900,
-                            ),
+                          SubtitleText(
+                            subtitle: onItemTap1 ? "Hide sold-out" : "Try: Hide sold-out",
+                            color: onItemTap1 ? AppTheme.whiteTextColor : AppTheme.mainColor,
                           ),
-                          if (onItemTap)
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  onItemTap = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 5),
-                                child: Icon(
-                                  CupertinoIcons.clear_thick,
-                                  size: 15,
-                                ),
-                              ),
-                            ),
+                          if (onItemTap1) ClearIcon(),
                         ],
                       ),
                     ),
                     ListViewItem(
-                      color: onItemTap ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
+                      color: onItemTap2 ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
                       onTap: () {
                         setState(() {
-                          onItemTap = !onItemTap;
+                          onItemTap2 = !onItemTap2;
                         });
                       },
                       child: Wrap(
                         children: [
-                          Text(
-                            onItemTap ? "Meals" : "Try: Meals",
-                            style: TextStyle(
-                              color: onItemTap ? AppTheme.whiteTextColor : AppTheme.mainColor,
-                              fontWeight: FontWeight.w900,
-                            ),
+                          SubtitleText(
+                            subtitle: onItemTap2 ? "Meals" : "Try: Meals",
+                            color: onItemTap2 ? AppTheme.whiteTextColor : AppTheme.mainColor,
                           ),
-                          if (onItemTap)
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  onItemTap = false;
-                                });
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 5),
-                                child: Icon(
-                                  CupertinoIcons.clear_thick,
-                                  size: 15,
-                                ),
-                              ),
-                            ),
+                          if (onItemTap2) ClearIcon(),
                         ],
                       ),
                     ),
-                    /*
                     ListViewItem(
-                      child: Text(
-                        "Try: Bread & Pastries",
-                        style: TextStyle(
-                          color: AppTheme.mainColor,
-                          fontWeight: FontWeight.w900,
-                        ),
+                      color: onItemTap3 ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
+                      onTap: () {
+                        setState(() {
+                          onItemTap3 = !onItemTap3;
+                        });
+                      },
+                      child: Wrap(
+                        children: [
+                          SubtitleText(
+                            subtitle: onItemTap3 ? "Bread & Pastries" : "Try: Bread & Pastries",
+                            color: onItemTap3 ? AppTheme.whiteTextColor : AppTheme.mainColor,
+                          ),
+                          if (onItemTap3) ClearIcon(),
+                        ],
                       ),
                     ),
                     ListViewItem(
-                      child: Text(
-                        "Try: Vegetarian",
-                        style: TextStyle(
-                          color: AppTheme.mainColor,
-                          fontWeight: FontWeight.w900,
-                        ),
+                      color: onItemTap4 ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
+                      onTap: () {
+                        setState(() {
+                          onItemTap4 = !onItemTap4;
+                        });
+                      },
+                      child: Wrap(
+                        children: [
+                          SubtitleText(
+                            subtitle: onItemTap4 ? "Vegetarian" : "Try: Vegetarian",
+                            color: onItemTap4 ? AppTheme.whiteTextColor : AppTheme.mainColor,
+                          ),
+                          if (onItemTap4) ClearIcon(),
+                        ],
                       ),
                     ),
+
+                    ///
                     ListViewItem(
-                      child: Text(
-                        "Clear all",
-                        style: TextStyle(
+                      onTap: () {
+                        setState(() {
+                          onItemTap1 = false;
+                          onItemTap2 = false;
+                          onItemTap3 = false;
+                          onItemTap4 = false;
+                        });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Icon(
+                          CupertinoIcons.repeat,
                           color: AppTheme.mainColor,
-                          fontWeight: FontWeight.w900,
+                          size: 16,
                         ),
                       ),
                     ),
-                    */
                   ],
                 ),
               ),
@@ -246,14 +239,14 @@ class _BrowsePageState extends State<BrowsePage> {
                             title: TitleText(title: Messages.BROWSE_TITLE_1),
                           ),
                           ListTile(
-                            subtitle: SubtitleText(subtitle: Messages.BROWSE_SUBTITLE_1),
+                            title: SubtitleText(
+                              subtitle: Messages.BROWSE_SUBTITLE_1,
+                              color: AppTheme.blackTextColor.withOpacity(.75),
+                            ),
                           ),
                           ListTile(
                             title: ButtonClick(
-                              onPressed: () => SharedFunctions.loadPage(
-                                context,
-                                screen: LocateArea(position: position),
-                              ),
+                              onPressed: () => SharedFunctions.loadPage(context, screen: LocateArea(position: position)),
                               title: Messages.CHANGE_LOCATION_BUTTON,
                               textColor: AppTheme.whiteTextColor,
                               backColor: AppTheme.mainColor,
@@ -262,11 +255,13 @@ class _BrowsePageState extends State<BrowsePage> {
                         ],
                       )
                     : SpeedDial(
+                        onPress: () {},
                         visible: true,
+                        elevation: 1,
                         backgroundColor: AppTheme.whiteBackColor,
-                        tooltip: "Change Location",
                         marginBottom: 25,
                         marginEnd: 25,
+                        buttonSize: 50,
                         child: Icon(
                           Icons.my_location,
                           color: AppTheme.lightMainColor,

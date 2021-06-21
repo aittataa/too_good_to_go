@@ -5,8 +5,9 @@ import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/screens/login_screen.dart';
-import 'package:too_good_to_go/widgets/back_button.dart';
+import 'package:too_good_to_go/widgets/back_icon.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
+import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/message_box.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
@@ -21,10 +22,7 @@ class PrivacyDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: BackIcon(),
-        title: Text(
-          title,
-          style: Constant.appBarStyle,
-        ),
+        title: Text(title, style: Constant.appBarStyle),
       ),
       body: PageView(
         controller: PageController(initialPage: index),
@@ -60,9 +58,8 @@ class PrivacyDetails extends StatelessWidget {
               children: [
                 ExpandedLogo(),
                 ListTile(
-                  title: TitleText(
-                    title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_TITLE,
-                  ),
+                  dense: true,
+                  title: TitleText(title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_TITLE),
                 ),
                 ListTile(
                   subtitle: SubtitleText(
@@ -70,6 +67,7 @@ class PrivacyDetails extends StatelessWidget {
                     color: AppTheme.blackTextColor.withOpacity(.75),
                   ),
                 ),
+                DividerLine(height: 10, color: AppTheme.transparentColor),
                 ListTile(
                   title: ButtonClick(
                     onPressed: () => SharedFunctions.loadMessageBox(

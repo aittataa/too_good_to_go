@@ -9,14 +9,16 @@ class ExpandedMap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GoogleMap(
-      myLocationButtonEnabled: false,
-      myLocationEnabled: true,
-      zoomControlsEnabled: false,
-      mapType: MapType.normal,
-      initialCameraPosition: CameraPosition(
-        target: position,
-        zoom: 10,
+    return Expanded(
+      child: GoogleMap(
+        myLocationButtonEnabled: false,
+        myLocationEnabled: true,
+        zoomControlsEnabled: false,
+        mapType: MapType.normal,
+        initialCameraPosition: CameraPosition(
+          target: position,
+          zoom: 10,
+        ),
       ),
     );
   }

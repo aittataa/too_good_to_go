@@ -15,24 +15,22 @@ class FavoritesPage extends StatelessWidget {
       child: Column(
         children: [
           PageTitle(title: Messages.LABEL_FAVORITES),
-          Expanded(
-            child: Column(
-              children: [
-                ExpandedLogo(),
-                ListTile(
-                  title: TitleText(title: Messages.FAVORITES_TITLE),
-                ),
-                ListTile(
-                  subtitle: SubtitleText(subtitle: Messages.FAVORITES_SUBTITLE),
-                ),
-                ListTile(
-                  title: ButtonClick(
-                    title: Messages.FIND_STORE_BUTTON,
-                    textColor: AppTheme.whiteTextColor,
-                    backColor: AppTheme.mainColor,
-                  ),
-                ),
-              ],
+          ExpandedLogo(),
+          ListTile(
+            title: TitleText(title: Messages.FAVORITES_TITLE),
+          ),
+          ListTile(
+            title: SubtitleText(
+              subtitle: Messages.FAVORITES_SUBTITLE,
+              color: AppTheme.blackTextColor.withOpacity(.75),
+            ),
+          ),
+          ListTile(
+            title: ButtonClick(
+              onPressed: () {},
+              title: Messages.FIND_STORE_BUTTON,
+              textColor: AppTheme.whiteTextColor,
+              backColor: AppTheme.mainColor,
             ),
           ),
         ],

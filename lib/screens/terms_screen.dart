@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
-import 'package:too_good_to_go/widgets/back_button.dart';
+import 'package:too_good_to_go/widgets/back_icon.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
 
@@ -18,21 +19,20 @@ class TermsScreen extends StatelessWidget {
           style: Constant.appBarStyle,
         ),
       ),
-      body: Container(
-        child: ListView(
-          children: [
-            ListTile(
-              title: TitleText(
-                title: Messages.MORE_TERMS_TITLE,
-                textAlign: TextAlign.start,
-              ),
-              subtitle: SubtitleText(
-                subtitle: "${Messages.APP_TITLE} ${Messages.MORE_TERMS_TITLE}",
-                textAlign: TextAlign.start,
-              ),
+      body: ListView(
+        children: [
+          ListTile(
+            title: TitleText(
+              title: Messages.MORE_TERMS_TITLE,
+              textAlign: TextAlign.start,
             ),
-          ],
-        ),
+            subtitle: SubtitleText(
+              subtitle: "${Messages.APP_TITLE} / ${Messages.MORE_TERMS_TITLE}",
+              color: AppTheme.blackTextColor.withOpacity(.75),
+              textAlign: TextAlign.start,
+            ),
+          ),
+        ],
       ),
     );
   }

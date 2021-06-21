@@ -16,10 +16,7 @@ class ProfileItem extends StatelessWidget {
       dense: true,
       horizontalTitleGap: 0,
       tileColor: AppTheme.whiteBackColor,
-      leading: Icon(
-        icon,
-        color: AppTheme.lightMainColor,
-      ),
+      leading: Icon(icon, color: AppTheme.lightMainColor),
       title: Wrap(
         alignment: WrapAlignment.spaceBetween,
         children: [
@@ -34,7 +31,7 @@ class ProfileItem extends StatelessWidget {
             "$value",
             textAlign: TextAlign.end,
             style: TextStyle(
-              color: AppTheme.blackTextColor.withOpacity(0.65),
+              color: AppTheme.blackTextColor.withOpacity(0.5),
               fontWeight: FontWeight.w900,
             ),
           ),

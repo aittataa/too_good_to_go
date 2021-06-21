@@ -7,6 +7,7 @@ class ProfileTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      dense: true,
       title: Text(
         "$label",
         style: TextStyle(

@@ -9,11 +9,12 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      dense: true,
       minLeadingWidth: 0,
       leading: Image.asset(
         "$image",
         color: AppTheme.mainColor,
-        width: 25,
+        width: 20,
         height: 20,
       ),
       title: SubtitleText(

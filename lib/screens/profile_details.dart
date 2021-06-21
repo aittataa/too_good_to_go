@@ -1,14 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/models/user.dart';
 import 'package:too_good_to_go/screens/privacy_details.dart';
-import 'package:too_good_to_go/widgets/back_button.dart';
+import 'package:too_good_to_go/widgets/back_icon.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
+import 'package:too_good_to_go/widgets/edit_text.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/profile_title.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
@@ -28,6 +30,15 @@ class ProfileDetails extends StatelessWidget {
           title,
           style: Constant.appBarStyle,
         ),
+        actions: [
+          IconButton(
+            onPressed: null,
+            icon: Icon(
+              CupertinoIcons.checkmark_alt,
+              color: AppTheme.whiteIconColor,
+            ),
+          ),
+        ],
       ),
       body: Container(
         child: PageView(
@@ -81,12 +92,11 @@ class ProfileDetails extends StatelessWidget {
                         itemBuilder: (BuildContext context, int index) {
                           String value = Constant.cities[index];
                           return ListTile(
-                            title: Text(
-                              "$value",
-                              style: TextStyle(
-                                color: AppTheme.blackTextColor.withOpacity(0.75),
-                                fontWeight: FontWeight.bold,
-                              ),
+                            dense: true,
+                            title: SubtitleText(
+                              subtitle: "$value",
+                              color: AppTheme.blackTextColor.withOpacity(0.75),
+                              textAlign: TextAlign.start,
                             ),
                           );
                         },
@@ -103,13 +113,12 @@ class ProfileDetails extends StatelessWidget {
                 children: [
                   ProfileTitle(label: title),
                   ListTile(
+                    dense: true,
                     tileColor: AppTheme.whiteBackColor,
-                    title: Text(
-                      Messages.PROFILE_SETTINGS_NOTIFICATIONS_TITLE_1,
-                      style: TextStyle(
-                        color: AppTheme.blackBackColor.withOpacity(0.75),
-                        fontWeight: FontWeight.w900,
-                      ),
+                    title: SubtitleText(
+                      subtitle: Messages.PROFILE_SETTINGS_NOTIFICATIONS_TITLE_1,
+                      color: AppTheme.blackBackColor.withOpacity(0.75),
+                      textAlign: TextAlign.start,
                     ),
                     trailing: Switch(
                       onChanged: (value) {},
@@ -120,17 +129,16 @@ class ProfileDetails extends StatelessWidget {
                   ),
                   DividerLine(),
                   ListTile(
+                    dense: true,
                     tileColor: AppTheme.whiteBackColor,
-                    title: Text(
-                      Messages.PROFILE_SETTINGS_NOTIFICATIONS_TITLE_2,
-                      style: TextStyle(
-                        color: AppTheme.blackBackColor.withOpacity(0.75),
-                        fontWeight: FontWeight.w900,
-                      ),
+                    title: SubtitleText(
+                      subtitle: Messages.PROFILE_SETTINGS_NOTIFICATIONS_TITLE_2,
+                      textAlign: TextAlign.start,
+                      color: AppTheme.blackBackColor.withOpacity(0.75),
                     ),
                     trailing: Switch(
                       onChanged: (value) {},
-                      value: true,
+                      value: false,
                       activeColor: AppTheme.mainColor,
                       activeTrackColor: AppTheme.lightMainColor,
                     ),
@@ -158,8 +166,10 @@ class ProfileDetails extends StatelessWidget {
                 children: [
                   ExpandedLogo(),
                   ListTile(
-                    subtitle: SubtitleText(
+                    dense: true,
+                    title: SubtitleText(
                       subtitle: Messages.PROFILE_SETTINGS_HIDDEN_STORES_DESC,
+                      color: AppTheme.blackTextColor.withOpacity(.75),
                     ),
                   ),
                   ListTile(
@@ -183,13 +193,12 @@ class ProfileDetails extends StatelessWidget {
                         title: Messages.PROFILE_SETTINGS_PRIVACY,
                       ),
                     ),
+                    dense: true,
                     tileColor: AppTheme.whiteBackColor,
-                    title: Text(
-                      Messages.PROFILE_SETTINGS_PRIVACY,
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor.withOpacity(0.75),
-                        fontWeight: FontWeight.bold,
-                      ),
+                    title: SubtitleText(
+                      subtitle: Messages.PROFILE_SETTINGS_PRIVACY,
+                      color: AppTheme.blackTextColor.withOpacity(0.75),
+                      textAlign: TextAlign.start,
                     ),
                   ),
                   DividerLine(),
@@ -200,77 +209,34 @@ class ProfileDetails extends StatelessWidget {
                         title: Messages.PROFILE_SETTINGS_LICENSES,
                       ),
                     ),
+                    dense: true,
                     tileColor: AppTheme.whiteBackColor,
-                    title: Text(
-                      Messages.PROFILE_SETTINGS_LICENSES,
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor.withOpacity(0.75),
-                        fontWeight: FontWeight.bold,
-                      ),
+                    title: SubtitleText(
+                      subtitle: Messages.PROFILE_SETTINGS_LICENSES,
+                      color: AppTheme.blackTextColor.withOpacity(0.75),
+                      textAlign: TextAlign.start,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    child: ListTile(
-                      onTap: () => Get.to(
-                        () => PrivacyDetails(
-                          index: 2,
-                          title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON,
-                        ),
+                  DividerLine(height: 10, color: AppTheme.transparentColor),
+                  ListTile(
+                    onTap: () => Get.to(
+                      () => PrivacyDetails(
+                        index: 2,
+                        title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON,
                       ),
-                      tileColor: AppTheme.whiteBackColor,
-                      title: Text(
-                        Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON,
-                        style: TextStyle(
-                          color: AppTheme.redTextColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                    ),
+                    dense: true,
+                    tileColor: AppTheme.whiteBackColor,
+                    title: SubtitleText(
+                      subtitle: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES_BUTTON,
+                      textAlign: TextAlign.start,
+                      color: AppTheme.redTextColor,
                     ),
                   ),
                 ],
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class EditText extends StatelessWidget {
-  final TextEditingController controller;
-  final String hintText;
-  final Function onPressed;
-  const EditText({this.controller, this.hintText, this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: 10),
-      color: AppTheme.whiteBackColor,
-      child: TextField(
-        controller: controller,
-        autofocus: true,
-        cursorColor: AppTheme.lightMainColor,
-        textInputAction: TextInputAction.next,
-        style: TextStyle(
-          color: AppTheme.blackTextColor.withOpacity(0.75),
-          fontWeight: FontWeight.bold,
-        ),
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: hintText,
-          hintStyle: TextStyle(
-            color: AppTheme.blackTextColor.withOpacity(0.25),
-          ),
-          suffixIcon: IconButton(
-            onPressed: onPressed,
-            icon: Icon(
-              CupertinoIcons.clear_thick_circled,
-              color: AppTheme.blackIconColor.withOpacity(0.5),
-            ),
-          ),
         ),
       ),
     );

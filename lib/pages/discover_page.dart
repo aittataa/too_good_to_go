@@ -37,9 +37,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
     return SafeArea(
       child: Column(
         children: [
-          PageTitle(
-            title: Messages.LABEL_DISCOVER,
-          ),
+          PageTitle(title: Messages.LABEL_DISCOVER),
           LocationItem(
             onPressed: () => SharedFunctions.loadPage(
               context,
@@ -48,71 +46,71 @@ class _DiscoverPageState extends State<DiscoverPage> {
           ),
           Expanded(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ListTile(
-                        title: TitleText(title: Messages.DISCOVER_TITLE_1),
-                      ),
-                      ListTile(
-                        dense: true,
-                        subtitle: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_1),
-                      ),
-                      ListTile(
-                        title: ButtonClick(
-                          onPressed: () => SharedFunctions.loadPage(
-                            context,
-                            screen: LocateArea(position: position),
-                          ),
-                          title: Messages.CHANGE_LOCATION_BUTTON,
-                          textColor: AppTheme.mainColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: DividerLine(
-                          color: AppTheme.mainColor.withOpacity(0.5),
-                          value: 10,
-                        ),
-                      ),
-                      Image.asset(
-                        Messages.INSTAGRAM_ICON,
-                        color: AppTheme.mainColor,
-                        width: 45,
-                        height: 45,
-                      ),
-                      Expanded(
-                        child: DividerLine(
-                          color: AppTheme.mainColor.withOpacity(0.5),
-                          value: 10,
-                        ),
-                      ),
-                    ],
-                  ),
+                ListTile(
+                  title: TitleText(title: Messages.DISCOVER_TITLE_1),
                 ),
                 ListTile(
-                  title: TitleText(title: Messages.DISCOVER_TITLE_2),
-                ),
-                ListTile(
-                  dense: true,
-                  subtitle: SubtitleText(subtitle: Messages.DISCOVER_SUBTITLE_2),
+                  title: SubtitleText(
+                    subtitle: Messages.DISCOVER_SUBTITLE_1,
+                    color: AppTheme.blackTextColor.withOpacity(.75),
+                  ),
                 ),
                 ListTile(
                   title: ButtonClick(
-                    onPressed: () => SharedFunctions.launchURL(Messages.INSTAGRAM_LINK),
-                    title: Messages.FOLLOW_INSTAGRAM_BUTTON,
-                    textColor: AppTheme.whiteTextColor,
-                    backColor: AppTheme.mainColor,
+                    onPressed: () => SharedFunctions.loadPage(
+                      context,
+                      screen: LocateArea(position: position),
+                    ),
+                    title: Messages.CHANGE_LOCATION_BUTTON,
+                    textColor: AppTheme.mainColor,
                   ),
                 ),
               ],
+            ),
+          ),
+          SizedBox(
+            child: Row(
+              children: [
+                Expanded(
+                  child: DividerLine(
+                    color: AppTheme.mainColor.withOpacity(0.5),
+                    value: 10,
+                  ),
+                ),
+                Image.asset(
+                  Messages.INSTAGRAM_ICON,
+                  color: AppTheme.mainColor,
+                  width: 45,
+                  height: 45,
+                ),
+                Expanded(
+                  child: DividerLine(
+                    color: AppTheme.mainColor.withOpacity(0.5),
+                    value: 10,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ListTile(
+            //dense: true,
+            title: TitleText(title: Messages.DISCOVER_TITLE_2),
+          ),
+          ListTile(
+            //dense: true,
+            title: SubtitleText(
+              subtitle: Messages.DISCOVER_SUBTITLE_2,
+              color: AppTheme.blackTextColor.withOpacity(.75),
+            ),
+          ),
+          ListTile(
+            title: ButtonClick(
+              onPressed: () => SharedFunctions.launchURL(Messages.INSTAGRAM_LINK),
+              title: Messages.FOLLOW_INSTAGRAM_BUTTON,
+              textColor: AppTheme.whiteTextColor,
+              backColor: AppTheme.mainColor,
             ),
           ),
         ],

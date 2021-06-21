@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/widgets/title_text.dart';
 
 class HelpItem extends StatelessWidget {
   final IconData icon;
@@ -28,12 +30,10 @@ class HelpItem extends StatelessWidget {
           size: 30,
           color: AppTheme.mainColor,
         ),
-        title: Text(
-          "$title",
-          style: TextStyle(
-            color: AppTheme.blackTextColor.withOpacity(0.75),
-            fontWeight: FontWeight.w900,
-          ),
+        title: TitleText(
+          title: "$title",
+          color: AppTheme.blackTextColor.withOpacity(0.75),
+          textAlign: TextAlign.start,
         ),
       ),
     );

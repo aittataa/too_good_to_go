@@ -34,17 +34,17 @@ class Constant {
   ];
 
   static const List<String> cities = [
-    "Casablanca",
+    "CASABLANCA",
     "MARRAKECK",
     "AGADIR",
     "TANGER",
     "TAMARA",
-    "Casablanca",
+    "CASABLANCA",
     "MARRAKECK",
     "AGADIR",
     "TANGER",
     "TAMARA",
-    "Casablanca",
+    "CASABLANCA",
     "MARRAKECK",
     "AGADIR",
     "TANGER",

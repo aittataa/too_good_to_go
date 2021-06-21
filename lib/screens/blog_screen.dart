@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
-import 'package:too_good_to_go/widgets/back_button.dart';
+import 'package:too_good_to_go/widgets/back_icon.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
 
@@ -20,22 +21,20 @@ class BlogScreen extends StatelessWidget {
           style: Constant.appBarStyle,
         ),
       ),
-      body: Container(
-        child: ListView(
-          padding: EdgeInsets.all(10),
-          children: [
-            ListTile(
-              title: TitleText(
-                title: Messages.MORE_BLOG_MAIN_TITLE,
-                textAlign: TextAlign.start,
-              ),
-              subtitle: SubtitleText(
-                subtitle: Messages.MORE_BLOG_DESC,
-                textAlign: TextAlign.start,
-              ),
+      body: ListView(
+        children: [
+          ListTile(
+            title: TitleText(
+              title: Messages.MORE_BLOG_MAIN_TITLE,
+              textAlign: TextAlign.start,
             ),
-          ],
-        ),
+            subtitle: SubtitleText(
+              subtitle: Messages.MORE_BLOG_DESC,
+              color: AppTheme.blackTextColor.withOpacity(.75),
+              textAlign: TextAlign.start,
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -18,65 +18,56 @@ class MorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
+      child: ListView(
         children: [
-          PageTitle(
-            title: Messages.LABEL_FAVORITES,
+          PageTitle(title: Messages.LABEL_MORE),
+          DividerLine(),
+          MenuItem(
+            icon: CupertinoIcons.profile_circled,
+            text: Messages.MORE_PROFILE_TITLE,
+            onTap: () => Get.to(() => ProfileScreen()),
           ),
-          Expanded(
-            child: ListView(
-              children: [
-                DividerLine(),
-                MenuItem(
-                  icon: CupertinoIcons.profile_circled,
-                  text: Messages.MORE_PROFILE_TITLE,
-                  onTap: () => Get.to(() => ProfileScreen()),
-                ),
-                DividerLine(),
-                MenuItem(
-                  icon: CupertinoIcons.doc_text_fill,
-                  text: Messages.MORE_ORDERS_TITLE,
-                  onTap: () => Get.to(() => OrdersScreen()),
-                ),
-                DividerLine(),
-                MenuItem(
-                  icon: CupertinoIcons.creditcard_fill,
-                  text: Messages.MORE_PAYMENT_TITLE,
-                  onTap: () => Get.to(() => PaymentScreen()),
-                ),
-                DividerLine(),
-                MenuItem(
-                  icon: CupertinoIcons.news_solid,
-                  text: Messages.MORE_BLOG_TITLE,
-                  onTap: () => Get.to(() => BlogScreen()),
-                ),
-                DividerLine(),
-                MenuItem(
-                  icon: CupertinoIcons.checkmark_alt_circle_fill,
-                  text: Messages.MORE_TERMS_TITLE,
-                  onTap: () => Get.to(() => TermsScreen()),
-                ),
-                DividerLine(),
-                MenuItem(
-                  icon: CupertinoIcons.helm,
-                  text: Messages.MORE_HELP_TITLE,
-                  onTap: () => Get.to(() => HelpScreen()),
-                ),
-                DividerLine(),
-                //SizedBox(child: ExpandedLogo()),
-                ListTile(
-                  title: SubtitleText(
-                    subtitle: Messages.MORE_SUBTITLE_1,
-                    color: AppTheme.blackTextColor.withOpacity(0.75),
-                  ),
-                ),
-                ListTile(
-                  title: SubtitleText(
-                    subtitle: Messages.MORE_SUBTITLE_2,
-                    color: AppTheme.mainColor,
-                  ),
-                ),
-              ],
+          DividerLine(),
+          MenuItem(
+            icon: CupertinoIcons.doc_text_fill,
+            text: Messages.MORE_ORDERS_TITLE,
+            onTap: () => Get.to(() => OrdersScreen()),
+          ),
+          DividerLine(),
+          MenuItem(
+            icon: CupertinoIcons.creditcard_fill,
+            text: Messages.MORE_PAYMENT_TITLE,
+            onTap: () => Get.to(() => PaymentScreen()),
+          ),
+          DividerLine(),
+          MenuItem(
+            icon: CupertinoIcons.news_solid,
+            text: Messages.MORE_BLOG_TITLE,
+            onTap: () => Get.to(() => BlogScreen()),
+          ),
+          DividerLine(),
+          MenuItem(
+            icon: CupertinoIcons.checkmark_alt_circle_fill,
+            text: Messages.MORE_TERMS_TITLE,
+            onTap: () => Get.to(() => TermsScreen()),
+          ),
+          DividerLine(),
+          MenuItem(
+            icon: CupertinoIcons.helm,
+            text: Messages.MORE_HELP_TITLE,
+            onTap: () => Get.to(() => HelpScreen()),
+          ),
+          DividerLine(height: 10, color: AppTheme.transparentColor),
+          ListTile(
+            title: SubtitleText(
+              subtitle: Messages.MORE_SUBTITLE_1,
+              color: AppTheme.blackTextColor.withOpacity(0.75),
+            ),
+          ),
+          ListTile(
+            title: SubtitleText(
+              subtitle: Messages.MORE_SUBTITLE_2,
+              color: AppTheme.mainColor,
             ),
           ),
         ],

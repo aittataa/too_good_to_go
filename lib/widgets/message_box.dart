@@ -25,9 +25,7 @@ class MessageBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             ListTile(
-              title: TitleText(
-                title: "$title",
-              ),
+              title: TitleText(title: "$title"),
             ),
             ListTile(
               title: ButtonClick(

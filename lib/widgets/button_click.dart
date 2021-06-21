@@ -12,12 +12,9 @@ class ButtonClick extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        //elevation: 10,
         padding: EdgeInsets.all(15),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
         backgroundColor: backColor,
-        //shadowColor: Colors.red,
-        //onSurface: Colors.blue,
         primary: AppTheme.blackBackColor.withOpacity(0.25),
       ),
       child: Text(

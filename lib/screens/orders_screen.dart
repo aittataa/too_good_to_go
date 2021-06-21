@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
-import 'package:too_good_to_go/widgets/back_button.dart';
+import 'package:too_good_to_go/widgets/back_icon.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
@@ -83,6 +83,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
                             ListTile(
                               subtitle: SubtitleText(
                                 subtitle: Messages.MORE_ORDERS_CURRENT_SUBTITLE,
+                                color: AppTheme.blackTextColor.withOpacity(.75),
                               ),
                             ),
                           ],
@@ -106,6 +107,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
                             ListTile(
                               subtitle: SubtitleText(
                                 subtitle: Messages.MORE_ORDERS_PAST_SUBTITLE,
+                                color: AppTheme.blackTextColor.withOpacity(.75),
                               ),
                             ),
                           ],

@@ -16,7 +16,7 @@ class MenuItem extends StatelessWidget {
       horizontalTitleGap: 0,
       leading: Icon(
         icon,
-        color: AppTheme.blackIconColor.withOpacity(.64),
+        color: AppTheme.blackIconColor.withOpacity(.5),
       ),
       title: Text(
         "$text",
@@ -27,7 +27,7 @@ class MenuItem extends StatelessWidget {
       ),
       trailing: Icon(
         CupertinoIcons.right_chevron,
-        color: AppTheme.blackIconColor.withOpacity(.64),
+        color: AppTheme.blackIconColor.withOpacity(.5),
       ),
     );
   }

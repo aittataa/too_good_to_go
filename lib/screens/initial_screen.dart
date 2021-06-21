@@ -17,7 +17,7 @@ class _InitialScreenState extends State<InitialScreen> {
   @override
   void initState() {
     super.initState();
-    myIndex = 0;
+    myIndex = 2;
     controller = PageController(initialPage: myIndex);
   }
 
@@ -25,17 +25,6 @@ class _InitialScreenState extends State<InitialScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      extendBody: true,
-      //extendBodyBehindAppBar: myIndex == 1,
-      /*
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: PageTitle(
-          title: Constant.titlesList[myIndex],
-        ),
-      ),
-      */
       body: PageView(
         controller: controller,
         physics: NeverScrollableScrollPhysics(),

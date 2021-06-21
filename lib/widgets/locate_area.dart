@@ -24,20 +24,18 @@ class LocateArea extends StatelessWidget {
               Container(
                 color: AppTheme.whiteBackColor,
                 child: ListTile(
+                  dense: true,
                   contentPadding: EdgeInsets.zero,
-                  title: SubtitleText(
-                    subtitle: Messages.LOCATE_AREA_TITLE,
-                  ),
+                  title: SubtitleText(subtitle: Messages.LOCATE_AREA_TITLE),
                   trailing: IconButton(
                     onPressed: () => Navigator.pop(context),
-                    icon: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Icon(CupertinoIcons.clear_thick),
+                    icon: Icon(
+                      CupertinoIcons.clear_thick,
+                      color: AppTheme.blackIconColor.withOpacity(.5),
                     ),
                   ),
                 ),
               ),
-              //Expanded(child: SizedBox()),
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
