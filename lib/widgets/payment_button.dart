@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 
-class PaymentButton extends StatelessWidget {
+class PaymentPay extends StatelessWidget {
   final String image;
-  const PaymentButton({@required this.image});
-
+  const PaymentPay({@required this.image});
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: null,
-      style: TextButton.styleFrom(
-        backgroundColor: AppTheme.whiteBackColor,
-        side: BorderSide(color: AppTheme.darkColor.withOpacity(.75), width: 1),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+    return Container(
+      constraints: BoxConstraints(
+        maxHeight: 50,
+        maxWidth: 75,
       ),
-      child: Image.asset(
-        "$image",
-        fit: BoxFit.cover,
-        height: 25,
-        width: 75,
+      decoration: BoxDecoration(
+        color: AppTheme.whiteBackColor,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: AppTheme.darkColor.withOpacity(.75), width: 1),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(image),
+        ),
       ),
     );
   }

@@ -31,12 +31,10 @@ class PaymentDetails extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              PaymentButton(
-                image: Messages.PAYPAL_ICON,
-              ),
-              PaymentButton(
-                image: Messages.GOOGLE_PAY_ICON,
-              ),
+              PaymentPay(image: Messages.PAYPAL_ICON),
+              PaymentPay(image: Messages.GOOGLE_PAY_ICON),
+              PaymentPay(image: Messages.VISA_CARD_ICON),
+              PaymentPay(image: Messages.MASTER_CARD_ICON),
             ],
           ),
         ),

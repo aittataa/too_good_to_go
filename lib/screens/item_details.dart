@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/constant.dart';
@@ -8,26 +9,64 @@ import 'package:too_good_to_go/screens/login_screen.dart';
 import 'package:too_good_to_go/widgets/back_icon.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
+import 'package:too_good_to_go/widgets/edit_text.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/message_box.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
 
-class PrivacyDetails extends StatelessWidget {
+class ItemDetails extends StatelessWidget {
   final int index;
   final String title;
-  const PrivacyDetails({Key key, this.index, this.title}) : super(key: key);
+  const ItemDetails({Key key, this.index, this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: BackIcon(),
-        title: Text(title, style: Constant.appBarStyle),
+        title: Text("$title", style: Constant.appBarStyle),
       ),
       body: PageView(
         controller: PageController(initialPage: index),
         physics: NeverScrollableScrollPhysics(),
         children: [
+          /// TODO : Unlock Hidden Stores
+          SizedBox(
+            child: Column(
+              children: [
+                ExpandedLogo(),
+                ListTile(
+                  title: TitleText(
+                    title: "Unlock hidden store",
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+                ListTile(
+                  title: SubtitleText(
+                    subtitle: "If you have a code to unlock a hidden store.\nenter it below. This will make it available in the app",
+                    color: AppTheme.blackTextColor.withOpacity(.75),
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+                EditText(
+                  controller: TextEditingController(),
+                  hintText: "Enter Code",
+                ),
+                ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: ButtonClick(
+                      title: "Valider",
+                      textColor: AppTheme.whiteTextColor,
+                      backColor: AppTheme.mainColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          /// TODO : Privacy Policy
           SizedBox(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -40,6 +79,8 @@ class PrivacyDetails extends StatelessWidget {
               ],
             ),
           ),
+
+          /// TODO : Licences
           SizedBox(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -52,6 +93,8 @@ class PrivacyDetails extends StatelessWidget {
               ],
             ),
           ),
+
+          /// TODO : Delete Account
           SizedBox(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

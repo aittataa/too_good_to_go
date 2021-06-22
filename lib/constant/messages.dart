@@ -10,8 +10,13 @@ class Messages {
   static const String INSTAGRAM_ICON = "icons/instagram.png";
   static const String FACEBOOK_ICON = "icons/facebook.png";
   static const String GOOGLE_ICON = "icons/google.png";
+  //
   static const String GOOGLE_PAY_ICON = "icons/g_pay.png";
   static const String PAYPAL_ICON = "icons/paypal.png";
+  static const String VISA_CARD_ICON = "icons/visa_card.png";
+  static const String MASTER_CARD_ICON = "icons/master_card.png";
+  //static const String CASH_ON_DELIVERY_ICON = "icons/cash_on_delivery.png";
+  //
   static const String MEALS_ICON = "icons/meals.png";
   static const String BREAD_PASTRIES_ICON = "icons/bread_pastries.png";
   static const String GROCERIES_ICON = "icons/groceries.png";
