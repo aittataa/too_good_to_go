@@ -3,13 +3,12 @@ import 'package:too_good_to_go/constant/app_theme.dart';
 
 class PaymentButton extends StatelessWidget {
   final String image;
-  final Function onPressed;
-  const PaymentButton({@required this.image, this.onPressed});
+  const PaymentButton({@required this.image});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: onPressed,
+      onPressed: null,
       style: TextButton.styleFrom(
         backgroundColor: AppTheme.whiteBackColor,
         side: BorderSide(color: AppTheme.darkColor.withOpacity(.75), width: 1),

@@ -13,13 +13,14 @@ class BrowseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
+    return TextButton(
       onPressed: onPressed,
-      elevation: 0,
-      highlightElevation: 0,
-      color: state ? AppTheme.mainColor : AppTheme.transparentColor,
-      padding: EdgeInsets.all(15),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.all(15),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: state ? AppTheme.mainColor : AppTheme.transparentColor,
+        primary: AppTheme.blackBackColor.withOpacity(0.25),
+      ),
       child: Text(
         "$title",
         style: TextStyle(
