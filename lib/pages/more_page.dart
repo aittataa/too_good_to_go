@@ -55,7 +55,12 @@ class MorePage extends StatelessWidget {
           MenuItem(
             icon: CupertinoIcons.helm,
             text: Messages.MORE_HELP_TITLE,
-            onTap: () => Get.to(() => HelpScreen()),
+            onTap: () => Get.to(
+              () => HelpScreen(
+                index: 0,
+                title: Messages.MORE_HELP_TITLE,
+              ),
+            ),
           ),
           DividerLine(height: 10, color: AppTheme.transparentColor),
           ListTile(
@@ -65,6 +70,12 @@ class MorePage extends StatelessWidget {
             ),
           ),
           ListTile(
+            onTap: () => Get.to(
+              () => HelpScreen(
+                index: 1,
+                title: "Join ${Messages.APP_TITLE}",
+              ),
+            ),
             title: SubtitleText(
               subtitle: Messages.MORE_SUBTITLE_2,
               color: AppTheme.mainColor,
