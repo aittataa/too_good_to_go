@@ -9,7 +9,6 @@ import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
-import 'package:too_good_to_go/widgets/clear_icon.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/expanded_map.dart';
 import 'package:too_good_to_go/widgets/filter_page.dart';
@@ -119,6 +118,7 @@ class _BrowsePageState extends State<BrowsePage> {
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.all(5),
                   children: [
+                    /// TODO : Filter Option
                     ListViewItem(
                       onTap: () => SharedFunctions.loadPage(context, screen: FilterPage()),
                       child: Icon(
@@ -138,7 +138,8 @@ class _BrowsePageState extends State<BrowsePage> {
                       ),
                     ),
 
-                    ///
+                    /// TODO : Other Option
+                    /*
                     ListViewItem(
                       color: onItemTap1 ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
                       onTap: () {
@@ -207,8 +208,9 @@ class _BrowsePageState extends State<BrowsePage> {
                         ],
                       ),
                     ),
+                    */
 
-                    ///
+                    /// TODO : Clear Option
                     ListViewItem(
                       onTap: () {
                         setState(() {
@@ -218,13 +220,10 @@ class _BrowsePageState extends State<BrowsePage> {
                           onItemTap4 = false;
                         });
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: Icon(
-                          CupertinoIcons.repeat,
-                          color: AppTheme.mainColor,
-                          size: 16,
-                        ),
+                      child: Icon(
+                        CupertinoIcons.repeat,
+                        color: AppTheme.mainColor,
+                        //size: 16,
                       ),
                     ),
                   ],

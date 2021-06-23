@@ -48,9 +48,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ListTile(
-                  title: TitleText(title: Messages.DISCOVER_TITLE_1),
-                ),
+                ListTile(title: TitleText(title: Messages.DISCOVER_TITLE_1)),
                 ListTile(
                   subtitle: SubtitleText(
                     subtitle: Messages.DISCOVER_SUBTITLE_1,
