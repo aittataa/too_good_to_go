@@ -12,13 +12,13 @@ class InitialScreen extends StatefulWidget {
 }
 
 class _InitialScreenState extends State<InitialScreen> {
-  int myIndex;
-  PageController controller;
+  int pageIndex;
+  PageController pageController;
   @override
   void initState() {
     super.initState();
-    myIndex = 1;
-    controller = PageController(initialPage: myIndex);
+    pageIndex = 0;
+    pageController = PageController(initialPage: pageIndex);
   }
 
   @override
@@ -26,7 +26,7 @@ class _InitialScreenState extends State<InitialScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: PageView(
-        controller: controller,
+        controller: pageController,
         physics: NeverScrollableScrollPhysics(),
         children: [
           DiscoverPage(),
@@ -36,11 +36,11 @@ class _InitialScreenState extends State<InitialScreen> {
         ],
       ),
       bottomNavigationBar: NavigationBar(
-        currentIndex: myIndex,
+        currentIndex: pageIndex,
         onTap: (index) {
           setState(() {
-            myIndex = index;
-            controller.jumpToPage(myIndex);
+            pageIndex = index;
+            pageController.jumpToPage(pageIndex);
           });
         },
       ),

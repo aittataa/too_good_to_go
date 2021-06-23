@@ -4,7 +4,15 @@ import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SharedFunctions {
-  ///Error Snack Bar
+  static animateToPage(PageController controller, int index) {
+    controller.jumpToPage(index);
+    //controller.animateToPage(
+    //  index,
+    //  duration: Constant.duration,
+    //  curve: Constant.curve,
+    //);
+  }
+
   static snackBar({String title, String message}) {
     return Get.snackbar(
       title,

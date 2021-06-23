@@ -9,6 +9,7 @@ import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
+import 'package:too_good_to_go/widgets/clear_icon.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/expanded_map.dart';
 import 'package:too_good_to_go/widgets/filter_page.dart';
@@ -34,6 +35,15 @@ class _BrowsePageState extends State<BrowsePage> {
   get getLocation async {
     locationData = await Location().getLocation();
     position = LatLng(locationData.latitude, locationData.longitude);
+  }
+
+  get animateToPage {
+    pageController.jumpToPage(pageIndex);
+    //pageController.animateToPage(
+    //  pageIndex,
+    //  duration: Constant.duration,
+    //  curve: Constant.curve,
+    //);
   }
 
   @override
@@ -91,7 +101,7 @@ class _BrowsePageState extends State<BrowsePage> {
                         onPressed: () {
                           setState(() {
                             pageIndex = 0;
-                            pageController.jumpToPage(pageIndex);
+                            animateToPage;
                           });
                         },
                       ),
@@ -103,7 +113,7 @@ class _BrowsePageState extends State<BrowsePage> {
                         onPressed: () {
                           setState(() {
                             pageIndex = 1;
-                            pageController.jumpToPage(pageIndex);
+                            animateToPage;
                           });
                         },
                       ),
@@ -139,7 +149,7 @@ class _BrowsePageState extends State<BrowsePage> {
                     ),
 
                     /// TODO : Other Option
-                    /*
+
                     ListViewItem(
                       color: onItemTap1 ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
                       onTap: () {
@@ -208,7 +218,6 @@ class _BrowsePageState extends State<BrowsePage> {
                         ],
                       ),
                     ),
-                    */
 
                     /// TODO : Clear Option
                     ListViewItem(

@@ -13,9 +13,6 @@ class LocationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       dense: true,
-      horizontalTitleGap: 0,
-      minLeadingWidth: 0,
-      minVerticalPadding: 0,
       title: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
