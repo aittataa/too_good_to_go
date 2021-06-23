@@ -17,7 +17,7 @@ class ExpandedMap extends StatelessWidget {
         mapType: MapType.normal,
         initialCameraPosition: CameraPosition(
           target: position,
-          zoom: 10,
+          zoom: 13,
         ),
       ),
     );
