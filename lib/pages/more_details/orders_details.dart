@@ -65,49 +65,44 @@ class _OrdersDetailsState extends State<OrdersDetails> {
             physics: NeverScrollableScrollPhysics(),
             controller: pageController,
             children: [
+              /// TODO : Current Page Orders
               SizedBox(
                 child: Column(
                   children: [
                     ExpandedLogo(flex: 2),
                     Expanded(
-                      child: Column(
-                        children: [
-                          ListTile(
-                            title: TitleText(
-                              title: Messages.MORE_ORDERS_CURRENT_TITLE,
-                            ),
+                      child: Center(
+                        child: ListTile(
+                          title: TitleText(
+                            title: Messages.MORE_ORDERS_CURRENT_TITLE,
                           ),
-                          ListTile(
-                            subtitle: SubtitleText(
-                              subtitle: Messages.MORE_ORDERS_CURRENT_SUBTITLE,
-                              color: AppTheme.blackTextColor.withOpacity(.75),
-                            ),
+                          subtitle: SubtitleText(
+                            subtitle: Messages.MORE_ORDERS_CURRENT_SUBTITLE,
+                            color: AppTheme.blackTextColor.withOpacity(.75),
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+
+              /// TODO : Past Page Orders
               SizedBox(
                 child: Column(
                   children: [
                     ExpandedLogo(flex: 2),
                     Expanded(
-                      child: Column(
-                        children: [
-                          ListTile(
-                            title: TitleText(
-                              title: Messages.MORE_ORDERS_PAST_TITLE,
-                            ),
+                      child: Center(
+                        child: ListTile(
+                          title: TitleText(
+                            title: Messages.MORE_ORDERS_PAST_TITLE,
                           ),
-                          ListTile(
-                            subtitle: SubtitleText(
-                              subtitle: Messages.MORE_ORDERS_PAST_SUBTITLE,
-                              color: AppTheme.blackTextColor.withOpacity(.75),
-                            ),
+                          subtitle: SubtitleText(
+                            subtitle: Messages.MORE_ORDERS_PAST_SUBTITLE,
+                            color: AppTheme.blackTextColor.withOpacity(.75),
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ],

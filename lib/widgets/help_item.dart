@@ -6,25 +6,27 @@ import 'package:too_good_to_go/widgets/title_text.dart';
 class HelpItem extends StatelessWidget {
   final IconData icon;
   final String title;
-  const HelpItem({this.icon, this.title});
+  final Function onTap;
+  const HelpItem({this.icon, this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
+      margin: EdgeInsets.all(5),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: AppTheme.whiteBackColor,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.darkColor.withOpacity(.15),
-            blurRadius: 10,
-            spreadRadius: 1,
+            color: AppTheme.darkColor.withOpacity(.12),
+            blurRadius: 25,
+            spreadRadius: 0,
           ),
         ],
       ),
       child: ListTile(
+        onTap: onTap,
         leading: Icon(
           icon,
           size: 30,

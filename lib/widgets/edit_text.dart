@@ -6,13 +6,13 @@ class EditText extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final bool obscureText;
-  final TextInputType textInputType;
+  final TextInputType keyboardType;
   final Function onPressed;
   const EditText({
     this.controller,
     this.hintText,
     this.obscureText = false,
-    this.textInputType,
+    this.keyboardType,
     this.onPressed,
   });
 
@@ -28,7 +28,7 @@ class EditText extends StatelessWidget {
         obscuringCharacter: "●",
         cursorColor: AppTheme.lightMainColor,
         textInputAction: TextInputAction.next,
-        keyboardType: TextInputType.name,
+        keyboardType: keyboardType,
         style: TextStyle(
           color: AppTheme.blackTextColor.withOpacity(0.75),
           fontWeight: FontWeight.bold,

@@ -12,15 +12,15 @@ import '../pages/more_details/profile_details.dart';
 import '../pages/more_details/terms_details.dart';
 import '../widgets/back_icon.dart';
 
-class MoreDetails extends StatefulWidget {
+class MoreItems extends StatefulWidget {
   final int index;
   final String title;
-  const MoreDetails({this.index, this.title});
+  const MoreItems({this.index, this.title});
   @override
-  _MoreDetailsState createState() => _MoreDetailsState();
+  _MoreItemsState createState() => _MoreItemsState();
 }
 
-class _MoreDetailsState extends State<MoreDetails> {
+class _MoreItemsState extends State<MoreItems> {
   int index;
   String title;
   @override

@@ -53,7 +53,7 @@ class PaymentDetails extends StatelessWidget {
             dashPattern: [10, 8],
             child: ListTile(
               leading: Icon(
-                CupertinoIcons.tickets,
+                CupertinoIcons.tickets_fill,
                 color: AppTheme.mainColor,
               ),
               title: Wrap(

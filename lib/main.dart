@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/screens/initial_screen.dart';
-import 'package:too_good_to_go/widgets/splash.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
