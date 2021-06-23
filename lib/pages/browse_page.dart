@@ -117,7 +117,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 child: ListView(
                   physics: onSearchTap ? NeverScrollableScrollPhysics() : BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  padding: EdgeInsets.all(5),
                   children: [
                     ListViewItem(
                       onTap: () => SharedFunctions.loadPage(context, screen: FilterPage()),

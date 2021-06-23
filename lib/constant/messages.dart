@@ -30,16 +30,18 @@ class Messages {
   static const String TEXT_BOX_EMAIL_TITLE = "Email";
   static const String TEXT_BOX_PASSWORD_TITLE = "Password";
   static const String LOGIN_BUTTON_TEXT = "LOG IN";
-  static const String REMEMBER_ME_TEXT = "Remember me";
-  static const String FORGET_PASSWORD_TEXT = "Forget Password";
+  //static const String REMEMBER_ME_TEXT = "Remember me";
+  static const String FORGET_PASSWORD_TEXT = "Forget Password ?";
   static const String OR_TEXT = " - OR - ";
   static const String NEW_ACCOUNT_TEXT = "Create new account";
+  static const String LOGIN_CONDITION = "I allow ${Messages.APP_TITLE} to store my email address and name according to our privacy policy";
 
   /// TODO : Register Screen Texts
   static const String REGISTER_SCREEN_TITLE = "Welcome to $APP_TITLE";
   static const String TEXT_BOX_NAME_TITLE = "Name";
   static const String SIGN_IN_BUTTON_TEXT = "SIGN IN";
   static const String HAVE_ACCOUNT_TEXT = "Already have account";
+  static const String REGISTER_CONDITION = "I agree with the terms and conditions and the privacy policy";
 
   /// TODO : Label Navigation
   static const String LABEL_DISCOVER = "Discover";
@@ -53,11 +55,10 @@ class Messages {
   static const String CHANGE_LOCATION_BUTTON = "Change Location";
   static const String DISCOVER_TITLE_2 = "Make your feed a bit greener";
   static const String DISCOVER_SUBTITLE_2 = "Get food waste tips and stay up to date on\neverything Too Good To Go";
-  // ignore: non_constant_identifier_names
-  static String FOLLOW_INSTAGRAM_BUTTON = "Follow Us on Instagram".toUpperCase();
+  static const String FOLLOW_INSTAGRAM_BUTTON = "FOLLOW US ON INSTAGRAM";
 
   /// TODO :  Locate Area Page Texts
-  static const String LOCATE_AREA_TITLE = "Choose a Location to see \nwhat's available";
+  static const String LOCATE_AREA_TITLE = "Choose a Location to see\nwhat's available";
   static const String LOCATE_AREA_HINT_SEARCH = "Search for City";
   static const String LOCATE_LOCATION_BUTTON = "Use my current location";
   static const String LOCATE_APPLY_BUTTON = "Apply";
@@ -132,7 +133,7 @@ class Messages {
   static const String MORE_ORDERS_CURRENT_TITLE = "No Current Orders";
   static const String MORE_ORDERS_CURRENT_SUBTITLE = "Orders that haven't been collected\nyet can be fount here";
   static const String MORE_ORDERS_PAST_TITLE = "No Past Orders";
-  static const String MORE_ORDERS_PAST_SUBTITLE = "Orders that have been collected or \n cancelled can be fount here";
+  static const String MORE_ORDERS_PAST_SUBTITLE = "Orders that have been collected or\ncancelled can be fount here";
 
   /// TODO : Payment Methods Page Texts
   static const String MORE_PAYMENT_METHODS_TITLE = "Payment Cards";

@@ -16,7 +16,7 @@ class SearchBar extends StatelessWidget {
       );
     } else {
       return SizedBox(
-        width: Constant.screenWidth * .75,
+        width: Constant.screenWidth * .8,
         child: Row(
           children: [
             Icon(

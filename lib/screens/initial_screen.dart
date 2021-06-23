@@ -17,7 +17,7 @@ class _InitialScreenState extends State<InitialScreen> {
   @override
   void initState() {
     super.initState();
-    myIndex = 0;
+    myIndex = 1;
     controller = PageController(initialPage: myIndex);
   }
 

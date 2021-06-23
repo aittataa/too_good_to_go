@@ -23,8 +23,10 @@ class AppTheme {
   /// TODO : Icons Colors
   static const Color blackIconColor = Color(0xFF000000);
   static const Color whiteIconColor = Color(0xFFFFFFFF);
+  static const Color redIconColor = Color(0xFFF44336);
 
   /// TODO : For Others
   static const Color lightColor = Color(0xFFFFFFFF);
   static const Color darkColor = Color(0xFF000000);
+  static const Color redColor = Color(0xFFF44336);
 }

@@ -9,19 +9,22 @@ class ButtonClick extends StatelessWidget {
   ButtonClick({this.title, this.textColor, this.backColor, this.onPressed});
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
-      style: TextButton.styleFrom(
-        padding: EdgeInsets.all(15),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-        backgroundColor: backColor,
-        primary: AppTheme.blackBackColor.withOpacity(0.25),
-      ),
-      child: Text(
-        "$title",
-        style: TextStyle(
-          color: textColor,
-          fontWeight: FontWeight.w900,
+    return SizedBox(
+      height: 50,
+      child: TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.all(15),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+          backgroundColor: backColor,
+          primary: AppTheme.blackBackColor.withOpacity(0.25),
+        ),
+        child: Text(
+          "$title",
+          style: TextStyle(
+            color: textColor,
+            fontWeight: FontWeight.w900,
+          ),
         ),
       ),
     );

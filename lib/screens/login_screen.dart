@@ -4,12 +4,14 @@ import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
+import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/screens/initial_screen.dart';
 import 'package:too_good_to_go/screens/register_screen.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/checked_box.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
+import 'package:too_good_to_go/widgets/social_connection.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/text_box.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
@@ -20,9 +22,24 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  ///
   bool obscureText = true;
-  bool rememberMe = true;
-  bool iAgree = true;
+  bool iAllow = true;
+
+  ///
+  bool isEmail = true;
+  bool isPassword = true;
+
+  @override
+  void initState() {
+    super.initState();
+    emailController = TextEditingController(text: Constant.userLogin.email);
+    passwordController = TextEditingController(text: Constant.userLogin.password);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,28 +51,37 @@ class _LoginScreenState extends State<LoginScreen> {
             child: ExpandedLogo(),
           ),
           ListTile(
-            dense: true,
             title: TitleText(
               title: Messages.LOGIN_SCREEN_TITLE,
             ),
           ),
           ListTile(
-            dense: true,
             title: TextBox(
+              onChanged: (value) {
+                setState(() => isEmail = GetUtils.isEmail(value));
+              },
+              controller: emailController,
               hint: Messages.TEXT_BOX_EMAIL_TITLE,
               icon: CupertinoIcons.mail_solid,
+              keyboardType: TextInputType.emailAddress,
+              suffixIcon: Icon(
+                isEmail ? Icons.check_circle : Icons.cancel,
+                color: isEmail ? AppTheme.lightMainColor : AppTheme.redIconColor,
+              ),
             ),
           ),
           ListTile(
-            dense: true,
             title: TextBox(
+              onChanged: (value) {
+                setState(() => isPassword = GetUtils.isGreaterThan(value, 8));
+              },
+              controller: passwordController,
               hint: Messages.TEXT_BOX_PASSWORD_TITLE,
               icon: CupertinoIcons.lock_shield_fill,
+              keyboardType: TextInputType.visiblePassword,
               obscureText: obscureText,
               suffixIcon: GestureDetector(
-                onTap: () {
-                  setState(() => obscureText = !obscureText);
-                },
+                onTap: () => setState(() => obscureText = !obscureText),
                 child: Icon(
                   Icons.remove_red_eye,
                   color: obscureText ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
@@ -64,55 +90,49 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           ListTile(
-            leading: Padding(
-              padding: EdgeInsets.all(5),
-              child: CheckedBox(
-                size: 16,
-                state: rememberMe,
-                onTap: () {
-                  setState(() {
-                    rememberMe = !rememberMe;
-                  });
-                },
-              ),
-            ),
-            title: SubtitleText(
-              subtitle: Messages.REMEMBER_ME_TEXT,
-              textAlign: TextAlign.start,
-              color: AppTheme.blackTextColor.withOpacity(.75),
-            ),
             trailing: SubtitleText(
               subtitle: Messages.FORGET_PASSWORD_TEXT,
               color: AppTheme.blackTextColor.withOpacity(.75),
+              textAlign: TextAlign.end,
             ),
           ),
           ListTile(
-            dense: true,
             title: ButtonClick(
-              onPressed: () => Get.offAll(() => InitialScreen()),
+              onPressed: !iAllow
+                  ? null
+                  : () {
+                      FocusScope.of(context).unfocus();
+                      if (isEmail && isPassword) {
+                        Get.offAll(() => InitialScreen());
+                      } else {
+                        SharedFunctions.snackBar(
+                          title: "Identification Incorrect",
+                          message: "Email or Password is Incorrect, Please Try Again",
+                        );
+                      }
+                    },
               title: Messages.LOGIN_BUTTON_TEXT,
               textColor: AppTheme.whiteTextColor,
-              backColor: AppTheme.mainColor,
+              backColor: iAllow ? AppTheme.mainColor : AppTheme.blackBackColor.withOpacity(.25),
             ),
           ),
           DividerLine(height: 10, color: AppTheme.transparentColor),
           ListTile(
             dense: true,
-            horizontalTitleGap: 0,
             leading: Padding(
-              padding: EdgeInsets.all(5),
+              padding: EdgeInsets.symmetric(horizontal: 5),
               child: CheckedBox(
                 size: 16,
-                state: iAgree,
+                state: iAllow,
                 onTap: () {
                   setState(() {
-                    iAgree = !iAgree;
+                    iAllow = !iAllow;
                   });
                 },
               ),
             ),
             title: SubtitleText(
-              subtitle: "I allow ${Messages.APP_TITLE} to store my email address and name according to our privacy policy",
+              subtitle: Messages.LOGIN_CONDITION,
               color: AppTheme.blackTextColor.withOpacity(.75),
               textAlign: TextAlign.start,
             ),
@@ -163,33 +183,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class SocialConnection extends StatelessWidget {
-  final String image;
-  final Color color;
-  const SocialConnection({
-    this.image,
-    this.color,
-  });
-  @override
-  Widget build(BuildContext context) {
-    return MaterialButton(
-      onPressed: () {},
-      elevation: 3,
-      highlightElevation: 3,
-      color: AppTheme.whiteBackColor,
-      splashColor: AppTheme.transparentColor,
-      shape: CircleBorder(),
-      padding: EdgeInsets.all(10),
-      child: Image.asset(
-        image,
-        width: 30,
-        height: 30,
-        color: color,
       ),
     );
   }

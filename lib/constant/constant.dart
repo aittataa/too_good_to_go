@@ -22,6 +22,7 @@ class Constant {
     id: 1,
     name: "John Doe",
     email: "contact@domain.com",
+    password: "azerty123456",
     phone: "+212 600 000 000",
     city: "Casablanca",
   );
