@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/messages.dart';
 
 class EditText extends StatelessWidget {
   final TextEditingController controller;
@@ -25,7 +26,7 @@ class EditText extends StatelessWidget {
         controller: controller,
         autofocus: true,
         obscureText: obscureText,
-        obscuringCharacter: "●",
+        obscuringCharacter: Messages.FIELD_TEXT_OBSCURING_CHARACTER,
         cursorColor: AppTheme.lightMainColor,
         textInputAction: TextInputAction.next,
         keyboardType: keyboardType,

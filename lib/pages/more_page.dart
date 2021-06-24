@@ -73,7 +73,7 @@ class MorePage extends StatelessWidget {
           ),
           ListTile(
             onTap: () => Get.to(
-              () => MoreItems(index: 6, title: "Join ${Messages.APP_TITLE}"),
+              () => MoreItems(index: 6, title: Messages.MORE_TITLE),
             ),
             title: SubtitleText(
               subtitle: Messages.MORE_SUBTITLE_2,

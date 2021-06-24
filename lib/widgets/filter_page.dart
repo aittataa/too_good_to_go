@@ -26,10 +26,10 @@ class _FilterPageState extends State<FilterPage> {
           Container(
             color: AppTheme.whiteBackColor,
             child: ListTile(
-              dense: true,
+              tileColor: AppTheme.whiteBackColor,
               contentPadding: EdgeInsets.zero,
               title: SubtitleText(
-                subtitle: "Filter",
+                subtitle: Messages.FILTER_PAGE_MAIN_TITLE,
               ),
               trailing: IconButton(
                 onPressed: () => Navigator.pop(context),
@@ -48,8 +48,6 @@ class _FilterPageState extends State<FilterPage> {
                 physics: BouncingScrollPhysics(),
                 children: [
                   ListTile(
-                    dense: true,
-                    contentPadding: EdgeInsets.all(15),
                     title: TitleText(
                       title: Messages.FILTER_PAGE_TITLE_1,
                       textAlign: TextAlign.start,
@@ -75,14 +73,14 @@ class _FilterPageState extends State<FilterPage> {
                   ListTile(
                     dense: true,
                     title: TitleText(
-                      title: "Category",
+                      title: Messages.FILTER_PAGE_CATEGORY_TITLE,
                       textAlign: TextAlign.start,
                     ),
                   ),
                   ListTile(
                     dense: true,
                     title: SubtitleText(
-                      subtitle: "Show All",
+                      subtitle: Messages.FILTER_PAGE_CATEGORY_ITEM_1,
                       textAlign: TextAlign.start,
                       color: AppTheme.mainColor,
                     ),
@@ -93,32 +91,32 @@ class _FilterPageState extends State<FilterPage> {
                   ),
                   CategoryItem(
                     image: Messages.MEALS_ICON,
-                    label: "Meals",
+                    label: Messages.FILTER_PAGE_CATEGORY_ITEM_2,
                   ),
                   CategoryItem(
                     image: Messages.BREAD_PASTRIES_ICON,
-                    label: "Bread & Pastries",
+                    label: Messages.FILTER_PAGE_CATEGORY_ITEM_3,
                   ),
                   CategoryItem(
                     image: Messages.GROCERIES_ICON,
-                    label: "Groceries",
+                    label: Messages.FILTER_PAGE_CATEGORY_ITEM_4,
                   ),
                   CategoryItem(
                     image: Messages.OTHER_ICON,
-                    label: "Other",
+                    label: Messages.FILTER_PAGE_CATEGORY_ITEM_5,
                   ),
                   DividerLine(color: AppTheme.darkColor.withOpacity(.75), value: 15),
                   ListTile(
                     dense: true,
                     title: TitleText(
-                      title: "Diet Preferences",
+                      title: Messages.FILTER_PAGE_DIET_TITLE,
                       textAlign: TextAlign.start,
                     ),
                   ),
                   ListTile(
                     dense: true,
                     title: SubtitleText(
-                      subtitle: "None",
+                      subtitle: Messages.FILTER_PAGE_DIET_ITEM_1,
                       textAlign: TextAlign.start,
                       color: AppTheme.mainColor,
                     ),
@@ -131,7 +129,7 @@ class _FilterPageState extends State<FilterPage> {
                   ListTile(
                     dense: true,
                     title: SubtitleText(
-                      subtitle: "Vegetarian",
+                      subtitle: Messages.FILTER_PAGE_DIET_ITEM_2,
                       textAlign: TextAlign.start,
                       color: AppTheme.blackTextColor.withOpacity(.75),
                     ),
@@ -144,7 +142,7 @@ class _FilterPageState extends State<FilterPage> {
                   ListTile(
                     dense: true,
                     title: SubtitleText(
-                      subtitle: "Vegan",
+                      subtitle: Messages.FILTER_PAGE_DIET_ITEM_3,
                       textAlign: TextAlign.start,
                       color: AppTheme.blackTextColor.withOpacity(.75),
                     ),
@@ -158,14 +156,14 @@ class _FilterPageState extends State<FilterPage> {
                   ListTile(
                     dense: true,
                     title: TitleText(
-                      title: "Pick-up Time",
+                      title: Messages.FILTER_PAGE_DAY_TITLE,
                       textAlign: TextAlign.start,
                     ),
                   ),
                   ListTile(
                     dense: true,
                     title: SubtitleText(
-                      subtitle: "All Day",
+                      subtitle: Messages.FILTER_PAGE_DAY_ITEM_1,
                       textAlign: TextAlign.start,
                       color: AppTheme.mainColor,
                     ),
@@ -182,7 +180,7 @@ class _FilterPageState extends State<FilterPage> {
                 Expanded(
                   flex: 10,
                   child: ButtonClick(
-                    title: "Clear all",
+                    title: Messages.FILTER_PAGE_CLEAR_TEXT,
                     textColor: AppTheme.whiteTextColor,
                     backColor: AppTheme.redBackColor,
                   ),
@@ -191,7 +189,7 @@ class _FilterPageState extends State<FilterPage> {
                 Expanded(
                   flex: 10,
                   child: ButtonClick(
-                    title: "Apply",
+                    title: Messages.FILTER_PAGE_APPLY_TEXT,
                     textColor: AppTheme.whiteTextColor,
                     backColor: AppTheme.mainColor,
                   ),

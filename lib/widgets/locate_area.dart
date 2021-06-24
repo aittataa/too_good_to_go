@@ -24,7 +24,7 @@ class LocateArea extends StatelessWidget {
               Container(
                 color: AppTheme.whiteBackColor,
                 child: ListTile(
-                  dense: true,
+                  tileColor: AppTheme.whiteBackColor,
                   contentPadding: EdgeInsets.zero,
                   title: SubtitleText(subtitle: Messages.LOCATE_AREA_TITLE),
                   trailing: IconButton(

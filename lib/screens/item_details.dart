@@ -37,26 +37,26 @@ class ItemDetails extends StatelessWidget {
                 ExpandedLogo(),
                 ListTile(
                   title: TitleText(
-                    title: "Unlock hidden store",
+                    title: Messages.PROFILE_SETTINGS_HIDDEN_STORES_TITLE,
                     textAlign: TextAlign.start,
                   ),
                 ),
                 ListTile(
                   title: SubtitleText(
-                    subtitle: "If you have a code to unlock a hidden store.\nenter it below. This will make it available in the app",
+                    subtitle: Messages.PROFILE_SETTINGS_HIDDEN_STORES_SUBTITLE,
                     color: AppTheme.blackTextColor.withOpacity(.75),
                     textAlign: TextAlign.start,
                   ),
                 ),
                 EditText(
                   controller: TextEditingController(),
-                  hintText: "Enter Code",
+                  hintText: Messages.PROFILE_SETTINGS_HIDDEN_STORES_HINT,
                 ),
                 ListTile(
                   title: Padding(
                     padding: const EdgeInsets.all(10),
                     child: ButtonClick(
-                      title: "Valider",
+                      title: Messages.PROFILE_SETTINGS_HIDDEN_STORES_BUTTON_VALID,
                       textColor: AppTheme.whiteTextColor,
                       backColor: AppTheme.mainColor,
                     ),

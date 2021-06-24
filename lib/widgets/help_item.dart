@@ -19,7 +19,7 @@ class HelpItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.darkColor.withOpacity(.12),
+            color: AppTheme.darkColor.withOpacity(.15),
             blurRadius: 25,
             spreadRadius: 0,
           ),
@@ -27,6 +27,8 @@ class HelpItem extends StatelessWidget {
       ),
       child: ListTile(
         onTap: onTap,
+        dense: true,
+        minLeadingWidth: 0,
         leading: Icon(
           icon,
           size: 30,

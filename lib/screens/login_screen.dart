@@ -11,6 +11,7 @@ import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/checked_box.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
+import 'package:too_good_to_go/widgets/progress_bar.dart';
 import 'package:too_good_to_go/widgets/social_connection.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/text_box.dart';
@@ -24,6 +25,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  ///
+  bool inAsyncCall = false;
 
   ///
   bool obscureText = true;
@@ -43,146 +47,152 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        physics: BouncingScrollPhysics(),
-        children: [
-          SizedBox(
-            height: Constant.screenHeight * .34,
-            child: ExpandedLogo(),
-          ),
-          ListTile(
-            title: TitleText(
-              title: Messages.LOGIN_SCREEN_TITLE,
+      body: ProgressBar(
+        inAsyncCall: inAsyncCall,
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            SizedBox(
+              height: Constant.screenHeight * .34,
+              child: ExpandedLogo(),
             ),
-          ),
-          ListTile(
-            title: TextBox(
-              onChanged: (value) {
-                setState(() => isEmail = GetUtils.isEmail(value));
-              },
-              controller: emailController,
-              hint: Messages.TEXT_BOX_EMAIL_TITLE,
-              icon: CupertinoIcons.mail_solid,
-              keyboardType: TextInputType.emailAddress,
-              suffixIcon: Icon(
-                isEmail ? Icons.check_circle : Icons.cancel,
-                color: isEmail ? AppTheme.lightMainColor : AppTheme.redIconColor,
+            ListTile(
+              title: TitleText(
+                title: Messages.LOGIN_SCREEN_TITLE,
               ),
             ),
-          ),
-          ListTile(
-            title: TextBox(
-              onChanged: (value) {
-                setState(() => isPassword = GetUtils.isGreaterThan(value, 8));
-              },
-              controller: passwordController,
-              hint: Messages.TEXT_BOX_PASSWORD_TITLE,
-              icon: CupertinoIcons.lock_shield_fill,
-              keyboardType: TextInputType.visiblePassword,
-              obscureText: obscureText,
-              suffixIcon: GestureDetector(
-                onTap: () => setState(() => obscureText = !obscureText),
-                child: Icon(
-                  Icons.remove_red_eye,
-                  color: obscureText ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
-                ),
-              ),
-            ),
-          ),
-          ListTile(
-            trailing: SubtitleText(
-              subtitle: Messages.FORGET_PASSWORD_TEXT,
-              color: AppTheme.blackTextColor.withOpacity(.75),
-              textAlign: TextAlign.end,
-            ),
-          ),
-          ListTile(
-            title: ButtonClick(
-              onPressed: !iAllow
-                  ? null
-                  : () {
-                      FocusScope.of(context).unfocus();
-                      if (isEmail && isPassword) {
-                        Get.offAll(() => InitialScreen());
-                      } else {
-                        SharedFunctions.snackBar(
-                          title: "Identification Incorrect",
-                          message: "Email or Password is Incorrect, Please Try Again",
-                        );
-                      }
-                    },
-              title: Messages.LOGIN_BUTTON_TEXT,
-              textColor: AppTheme.whiteTextColor,
-              backColor: iAllow ? AppTheme.mainColor : AppTheme.blackBackColor.withOpacity(.25),
-            ),
-          ),
-          DividerLine(height: 10, color: AppTheme.transparentColor),
-          ListTile(
-            dense: true,
-            leading: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
-              child: CheckedBox(
-                size: 16,
-                state: iAllow,
-                onTap: () {
-                  setState(() {
-                    iAllow = !iAllow;
-                  });
+            ListTile(
+              title: TextBox(
+                onChanged: (value) {
+                  setState(() => isEmail = GetUtils.isEmail(value));
                 },
+                controller: emailController,
+                hint: Messages.TEXT_BOX_EMAIL_TITLE,
+                icon: CupertinoIcons.mail_solid,
+                keyboardType: TextInputType.emailAddress,
+                suffixIcon: Icon(
+                  isEmail ? Icons.check_circle : Icons.cancel,
+                  color: isEmail ? AppTheme.lightMainColor : AppTheme.redIconColor,
+                ),
               ),
             ),
-            title: SubtitleText(
-              subtitle: Messages.LOGIN_CONDITION,
-              color: AppTheme.blackTextColor.withOpacity(.75),
-              textAlign: TextAlign.start,
-            ),
-          ),
-          DividerLine(color: AppTheme.transparentColor),
-          ListTile(
-            title: SubtitleText(
-              subtitle: Messages.OR_TEXT,
-              color: AppTheme.blackTextColor.withOpacity(.75),
-            ),
-          ),
-          ListTile(
-            dense: true,
-            contentPadding: EdgeInsets.zero,
-            minVerticalPadding: 0,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  flex: 50,
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: SocialConnection(
-                      image: Messages.GOOGLE_ICON,
-                    ),
+            ListTile(
+              title: TextBox(
+                onChanged: (value) {
+                  setState(() => isPassword = GetUtils.isGreaterThan(value, 8));
+                },
+                controller: passwordController,
+                hint: Messages.TEXT_BOX_PASSWORD_TITLE,
+                icon: CupertinoIcons.lock_shield_fill,
+                keyboardType: TextInputType.visiblePassword,
+                obscureText: obscureText,
+                suffixIcon: GestureDetector(
+                  onTap: () => setState(() => obscureText = !obscureText),
+                  child: Icon(
+                    Icons.remove_red_eye,
+                    color: obscureText ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
                   ),
                 ),
-                Expanded(child: SizedBox(width: 1)),
-                Expanded(
-                  flex: 50,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: SocialConnection(
-                      image: Messages.FACEBOOK_ICON,
-                      color: AppTheme.facebookColor,
+              ),
+            ),
+            ListTile(
+              dense: true,
+              trailing: SubtitleText(
+                subtitle: Messages.FORGET_PASSWORD_TEXT,
+                color: AppTheme.blackTextColor.withOpacity(.75),
+                textAlign: TextAlign.end,
+              ),
+            ),
+            ListTile(
+              title: ButtonClick(
+                onPressed: !iAllow
+                    ? null
+                    : () {
+                        FocusScope.of(context).unfocus();
+                        if (isEmail && isPassword) {
+                          setState(() {
+                            inAsyncCall = true;
+                          });
+                          Get.offAll(() => InitialScreen());
+                        } else {
+                          SharedFunctions.snackBar(
+                            title: "Identification Incorrect",
+                            message: "Email or Password is Incorrect, Please Try Again",
+                          );
+                        }
+                      },
+                title: Messages.LOGIN_BUTTON_TEXT,
+                textColor: AppTheme.whiteTextColor,
+                backColor: iAllow ? AppTheme.mainColor : AppTheme.blackBackColor.withOpacity(.25),
+              ),
+            ),
+            DividerLine(height: 10, color: AppTheme.transparentColor),
+            ListTile(
+              dense: true,
+              leading: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5),
+                child: CheckedBox(
+                  size: 16,
+                  state: iAllow,
+                  onTap: () {
+                    setState(() {
+                      iAllow = !iAllow;
+                    });
+                  },
+                ),
+              ),
+              title: SubtitleText(
+                subtitle: Messages.LOGIN_CONDITION_TEXT,
+                color: AppTheme.blackTextColor.withOpacity(.75),
+                textAlign: TextAlign.start,
+              ),
+            ),
+            DividerLine(color: AppTheme.transparentColor),
+            ListTile(
+              title: SubtitleText(
+                subtitle: Messages.OR_TEXT,
+                color: AppTheme.blackTextColor.withOpacity(.75),
+              ),
+            ),
+            ListTile(
+              dense: true,
+              contentPadding: EdgeInsets.zero,
+              minVerticalPadding: 0,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    flex: 50,
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: SocialConnection(
+                        image: Messages.GOOGLE_ICON,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  Expanded(child: SizedBox(width: 1)),
+                  Expanded(
+                    flex: 50,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: SocialConnection(
+                        image: Messages.FACEBOOK_ICON,
+                        color: AppTheme.facebookColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          ListTile(
-            onTap: () => Get.offAll(() => RegisterScreen()),
-            contentPadding: EdgeInsets.zero,
-            title: SubtitleText(
-              subtitle: Messages.NEW_ACCOUNT_TEXT,
-              color: AppTheme.blackTextColor.withOpacity(.75),
+            ListTile(
+              onTap: () => Get.offAll(() => RegisterScreen()),
+              title: SubtitleText(
+                subtitle: Messages.NEW_ACCOUNT_TEXT,
+                color: AppTheme.blackTextColor.withOpacity(.75),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

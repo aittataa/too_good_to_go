@@ -7,6 +7,7 @@ class Messages {
   static const String APP_ICON_ROUND = "images/app_icon_round.png";
 
   /// TODO : Icons
+  static const String FIELD_TEXT_OBSCURING_CHARACTER = "●";
   static const String INSTAGRAM_ICON = "icons/instagram.png";
   static const String FACEBOOK_ICON = "icons/facebook.png";
   static const String GOOGLE_ICON = "icons/google.png";
@@ -15,7 +16,6 @@ class Messages {
   static const String PAYPAL_ICON = "icons/paypal.png";
   static const String VISA_CARD_ICON = "icons/visa_card.png";
   static const String MASTER_CARD_ICON = "icons/master_card.png";
-  //static const String CASH_ON_DELIVERY_ICON = "icons/cash_on_delivery.png";
   //
   static const String MEALS_ICON = "icons/meals.png";
   static const String BREAD_PASTRIES_ICON = "icons/bread_pastries.png";
@@ -34,14 +34,14 @@ class Messages {
   static const String FORGET_PASSWORD_TEXT = "Forget Password ?";
   static const String OR_TEXT = " - OR - ";
   static const String NEW_ACCOUNT_TEXT = "Create new account";
-  static const String LOGIN_CONDITION = "I allow ${Messages.APP_TITLE} to store my email address and name according to our privacy policy";
+  static const String LOGIN_CONDITION_TEXT = "I allow ${Messages.APP_TITLE} to store my email address and name according to our privacy policy";
 
   /// TODO : Register Screen Texts
   static const String REGISTER_SCREEN_TITLE = "Welcome to $APP_TITLE";
   static const String TEXT_BOX_NAME_TITLE = "Name";
   static const String SIGN_IN_BUTTON_TEXT = "SIGN IN";
   static const String HAVE_ACCOUNT_TEXT = "Already have account";
-  static const String REGISTER_CONDITION = "I agree with the terms and conditions and the privacy policy";
+  static const String REGISTER_CONDITION_TEXT = "I agree with the terms and conditions and the privacy policy";
 
   /// TODO : Label Navigation
   static const String LABEL_DISCOVER = "Discover";
@@ -88,6 +88,7 @@ class Messages {
   static const String MORE_HELP_TITLE = "Help Center";
   static const String MORE_SUBTITLE_1 = "Are you a store owner ?\nJoin $APP_TITLE and reduce food waste";
   static const String MORE_SUBTITLE_2 = "Learn more >";
+  static const String MORE_TITLE = "Join $APP_TITLE";
 
   /// TODO : More Profile Page Texts
   static const String PROFILE_TITLE = "Profile";
@@ -117,6 +118,11 @@ class Messages {
   // Hidden Stores
   static const String PROFILE_SETTINGS_HIDDEN_STORES_DESC = "Hidden stores are specific to certain corporate partnership and can't be accessed by the general public.\nThe access codes are only available to those involved in these partnership and are not controlled by $APP_TITLE";
   static const String PROFILE_SETTINGS_HIDDEN_STORES_BUTTON_TEXT = "I HAVE A CODE";
+  static const String PROFILE_SETTINGS_HIDDEN_STORES_TITLE = "Unlock hidden store";
+  static const String PROFILE_SETTINGS_HIDDEN_STORES_SUBTITLE = "If you have a code to unlock a hidden store.\nenter it below. This will make it available in the app";
+  static const String PROFILE_SETTINGS_HIDDEN_STORES_HINT = "Enter Code";
+  static const String PROFILE_SETTINGS_HIDDEN_STORES_BUTTON_VALID = "Check Code";
+
   // Privacy & Licenses
   static const String PROFILE_SETTINGS_PRIVACY = "Privacy Policy";
   static const String PROFILE_SETTINGS_LICENSES = "Licenses";
@@ -126,6 +132,11 @@ class Messages {
   static const String PROFILE_SETTINGS_PRIVACY_LICENSES_CANCEL = "Cancel";
   static const String PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_TITLE = "Leaving so soon";
   static const String PROFILE_SETTINGS_PRIVACY_LICENSES_EXIT_DESC = "We're sad to see you go, there are still so many meals out there to save.\nIf you still want to say goodbye, tap the button bellow and we'll delete your account";
+  // Delete Account Page
+  static const String MORE_LEARN_DETAIL_TITLE_1 = "Join $APP_TITLE as a store";
+  static const String MORE_LEARN_DETAIL_TITLE_2 = "Do you want to...";
+  static const String MORE_LEARN_DETAIL_TITLE_3 = "Recommend a store to us you think should join $APP_TITLE";
+  static const String MORE_LEARN_DETAIL_TITLE_4 = "Sign your store up and sell surplus food on $APP_TITLE";
 
   /// TODO : Orders Page Texts
   static const String MORE_ORDERS_CURRENT_BUTTON = "Current";
@@ -154,6 +165,21 @@ class Messages {
   static const String MORE_HELP_CENTER_ITEM_TITLE_3 = "Join $APP_TITLE";
 
   /// TODO : Filter Page Texts
+  static const String FILTER_PAGE_MAIN_TITLE = "Filter";
   static const String FILTER_PAGE_TITLE_1 = "Hide sold-out";
   static const String FILTER_PAGE_DESC = "Most stores only have a limited amount of Surprise Bags for sale every day. By activating this filter, we'll only show you stores with food left to save";
+  static const String FILTER_PAGE_CATEGORY_TITLE = "Category";
+  static const String FILTER_PAGE_CATEGORY_ITEM_1 = "Show All";
+  static const String FILTER_PAGE_CATEGORY_ITEM_2 = "Meals";
+  static const String FILTER_PAGE_CATEGORY_ITEM_3 = "Bread & Pastries";
+  static const String FILTER_PAGE_CATEGORY_ITEM_4 = "Groceries";
+  static const String FILTER_PAGE_CATEGORY_ITEM_5 = "Other";
+  static const String FILTER_PAGE_DIET_TITLE = "Diet Preferences";
+  static const String FILTER_PAGE_DIET_ITEM_1 = "None";
+  static const String FILTER_PAGE_DIET_ITEM_2 = "Vegetarian";
+  static const String FILTER_PAGE_DIET_ITEM_3 = "Vegan";
+  static const String FILTER_PAGE_DAY_TITLE = "Pick-up Time";
+  static const String FILTER_PAGE_DAY_ITEM_1 = "All Day";
+  static const String FILTER_PAGE_CLEAR_TEXT = "Clear all";
+  static const String FILTER_PAGE_APPLY_TEXT = "Apply";
 }

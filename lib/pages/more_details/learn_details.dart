@@ -16,19 +16,19 @@ class LearnDetails extends StatelessWidget {
         children: [
           ExpandedLogo(),
           ListTile(
-            title: TitleText(title: "Join ${Messages.APP_TITLE} as a store"),
+            title: TitleText(title: Messages.MORE_LEARN_DETAIL_TITLE_1),
             subtitle: SubtitleText(
-              subtitle: "Do you want to...",
+              subtitle: Messages.MORE_LEARN_DETAIL_TITLE_2,
               color: AppTheme.blackTextColor.withOpacity(.75),
             ),
           ),
           HelpItem(
             icon: CupertinoIcons.lightbulb_fill,
-            title: "Recommend a store to us you think should join ${Messages.APP_TITLE}",
+            title: Messages.MORE_LEARN_DETAIL_TITLE_3,
           ),
           HelpItem(
             icon: CupertinoIcons.cart_fill,
-            title: "Sign your store up and sell surplus food on ${Messages.APP_TITLE}",
+            title: Messages.MORE_LEARN_DETAIL_TITLE_4,
           ),
         ],
       ),

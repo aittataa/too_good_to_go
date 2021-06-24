@@ -28,12 +28,14 @@ class TooGoodToGo extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: Messages.APP_TITLE,
       color: AppTheme.mainColor,
+      themeMode: ThemeMode.system,
       theme: ThemeData(
         primaryColor: AppTheme.lightMainColor,
         scaffoldBackgroundColor: AppTheme.backColor,
       ),
-      //home: InitialScreen(),
       home: Splash(),
+      //home: LoginScreen(),
+      //home: InitialScreen(),
       //home: RegisterScreen(),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/messages.dart';
 
 class TextBox extends StatelessWidget {
   final TextEditingController controller;
@@ -30,12 +31,12 @@ class TextBox extends StatelessWidget {
         cursorColor: AppTheme.mainColor,
         style: TextStyle(
           color: AppTheme.blackTextColor.withOpacity(.75),
-          fontWeight: FontWeight.w900,
+          fontWeight: FontWeight.bold,
         ),
-        autocorrect: true,
-        autofocus: true,
+        //autocorrect: true,
+        //autofocus: true,
         obscureText: obscureText,
-        obscuringCharacter: "●",
+        obscuringCharacter: Messages.FIELD_TEXT_OBSCURING_CHARACTER,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.zero,
           border: InputBorder.none,
@@ -48,11 +49,11 @@ class TextBox extends StatelessWidget {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(100),
-            borderSide: BorderSide(width: 1.5, color: AppTheme.lightMainColor),
+            borderSide: BorderSide(width: 1, color: AppTheme.lightMainColor),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(100),
-            borderSide: BorderSide(width: 2.5, color: AppTheme.lightMainColor),
+            borderSide: BorderSide(width: 2, color: AppTheme.lightMainColor),
           ),
         ),
       ),
