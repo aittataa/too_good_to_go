@@ -16,10 +16,9 @@ class NavigationBar extends StatelessWidget {
       backgroundColor: AppTheme.whiteBackColor,
       type: BottomNavigationBarType.fixed,
       selectedItemColor: AppTheme.mainColor,
-      unselectedItemColor: AppTheme.blackTextColor.withOpacity(.25),
+      unselectedItemColor: AppTheme.blackTextColor.withOpacity(.5),
       selectedLabelStyle: TextStyle(fontWeight: FontWeight.w900),
       unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-      selectedIconTheme: IconThemeData(size: 27),
       items: [
         BottomNavigationBarItem(
           label: Messages.LABEL_DISCOVER,
