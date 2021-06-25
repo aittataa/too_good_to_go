@@ -8,8 +8,9 @@ class AppTheme {
   /// TODO : Main Color
   //static const Color lightMainColor = Color(0xFF45ADA1);
   //static const Color mainColor = Color(0xFF114D4D);
-  static const Color lightMainColor = Color(0xFF00BCD4);
-  static const Color mainColor = Color(0xFF0D47A1);
+  /// New Colors
+  static Color lightMainColor = Color(0xFF00BCD4);
+  static Color mainColor = Color(0xFF0D47A1);
 
   /// TODO : Back Color
   static const Color backColor = Color(0xFFF0F0F0);
