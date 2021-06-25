@@ -10,10 +10,10 @@ void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.transparent,
-      systemNavigationBarDividerColor: Colors.transparent,
+      systemNavigationBarColor: AppTheme.whiteBackColor,
+      systemNavigationBarDividerColor: AppTheme.transparentColor,
       systemNavigationBarIconBrightness: Brightness.dark,
-      statusBarColor: Colors.transparent,
+      statusBarColor: AppTheme.transparentColor,
       statusBarBrightness: Brightness.dark,
       statusBarIconBrightness: Brightness.dark,
     ),
@@ -28,15 +28,15 @@ class TooGoodToGo extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: Messages.APP_TITLE,
       color: AppTheme.mainColor,
-      themeMode: ThemeMode.system,
+      //themeMode: ThemeMode.light,
       theme: ThemeData(
         primaryColor: AppTheme.lightMainColor,
         scaffoldBackgroundColor: AppTheme.backColor,
       ),
       home: Splash(),
-      //home: LoginScreen(),
       //home: InitialScreen(),
-      //home: RegisterScreen(),
+      // home: LoginScreen(),
+      // home: RegisterScreen(),
     );
   }
 }

@@ -7,7 +7,7 @@ class SubtitleText extends StatelessWidget {
   final TextAlign textAlign;
   const SubtitleText({
     this.subtitle,
-    this.color = AppTheme.blackTextColor,
+    this.color,
     this.textAlign = TextAlign.center,
   });
   @override
@@ -16,7 +16,7 @@ class SubtitleText extends StatelessWidget {
       "$subtitle",
       textAlign: textAlign,
       style: TextStyle(
-        color: color,
+        color: color ?? AppTheme.blackTextColor,
         fontWeight: FontWeight.bold,
       ),
     );

@@ -7,7 +7,7 @@ class TitleText extends StatelessWidget {
   final TextAlign textAlign;
   const TitleText({
     this.title,
-    this.color = AppTheme.blackTextColor,
+    this.color,
     this.textAlign = TextAlign.center,
   });
 
@@ -17,7 +17,7 @@ class TitleText extends StatelessWidget {
       "$title",
       textAlign: textAlign,
       style: TextStyle(
-        color: color,
+        color: color ?? AppTheme.blackTextColor,
         fontWeight: FontWeight.w900,
         fontSize: 18,
       ),

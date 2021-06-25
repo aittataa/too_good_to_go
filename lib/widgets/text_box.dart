@@ -49,11 +49,11 @@ class TextBox extends StatelessWidget {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(100),
-            borderSide: BorderSide(width: 1, color: AppTheme.lightMainColor),
+            borderSide: BorderSide(width: 1.5, color: AppTheme.lightMainColor),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(100),
-            borderSide: BorderSide(width: 2, color: AppTheme.lightMainColor),
+            borderSide: BorderSide(width: 2.5, color: AppTheme.lightMainColor),
           ),
         ),
       ),

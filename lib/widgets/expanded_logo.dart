@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 
 class ExpandedLogo extends StatelessWidget {
@@ -8,7 +9,7 @@ class ExpandedLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: flex,
-      child: Image.asset(Messages.LOGO_ICON),
+      child: Image.asset(Messages.LOGO_ICON, color: AppTheme.lightMainColor),
     );
   }
 }

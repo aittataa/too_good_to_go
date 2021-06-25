@@ -24,19 +24,22 @@ class SearchBar extends StatelessWidget {
               color: AppTheme.mainColor,
             ),
             Expanded(
-              child: Padding(
+              child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5),
                 child: TextField(
                   autofocus: true,
                   autocorrect: true,
                   cursorColor: AppTheme.mainColor,
+                  textInputAction: TextInputAction.done,
+                  keyboardType: TextInputType.text,
                   style: TextStyle(
                     color: AppTheme.blackTextColor.withOpacity(.75),
                     fontWeight: FontWeight.bold,
                   ),
+                  scrollPadding: EdgeInsets.zero,
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Type a Store",
+                    hintText: "Search...",
                     hintStyle: TextStyle(color: AppTheme.blackTextColor.withOpacity(.45)),
                   ),
                 ),
@@ -46,7 +49,7 @@ class SearchBar extends StatelessWidget {
               onTap: onTap,
               child: Icon(
                 CupertinoIcons.clear_circled_solid,
-                color: AppTheme.blackIconColor.withOpacity(.5),
+                color: AppTheme.redIconColor.withOpacity(.75),
               ),
             ),
           ],

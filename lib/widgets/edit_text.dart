@@ -42,8 +42,8 @@ class EditText extends StatelessWidget {
           ),
           suffixIcon: IconButton(
             onPressed: onPressed,
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
+            splashColor: AppTheme.transparentColor,
+            highlightColor: AppTheme.transparentColor,
             icon: Icon(
               CupertinoIcons.clear_thick_circled,
               color: AppTheme.blackIconColor.withOpacity(0.5),

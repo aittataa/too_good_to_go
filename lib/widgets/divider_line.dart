@@ -8,7 +8,7 @@ class DividerLine extends StatelessWidget {
 
   const DividerLine({
     this.height = 2.5,
-    this.color = AppTheme.whiteBackColor,
+    this.color = AppTheme.transparentColor,
     this.value = 0,
   });
   @override

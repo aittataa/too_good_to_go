@@ -131,25 +131,22 @@ class _BrowsePageState extends State<BrowsePage> {
                     /// TODO : Filter Option
                     ListViewItem(
                       onTap: () => SharedFunctions.loadPage(context, screen: FilterPage()),
+                      color: AppTheme.whiteBackColor,
                       child: Icon(
                         CupertinoIcons.slider_horizontal_3,
                         color: AppTheme.mainColor,
                       ),
                     ),
                     ListViewItem(
-                      onTap: () {
-                        setState(() => onSearchTap = true);
-                      },
+                      onTap: () => {setState(() => onSearchTap = true)},
+                      color: AppTheme.whiteBackColor,
                       child: SearchBar(
                         state: onSearchTap,
-                        onTap: () {
-                          setState(() => onSearchTap = false);
-                        },
+                        onTap: () => {setState(() => onSearchTap = false)},
                       ),
                     ),
 
                     /// TODO : Other Option
-
                     ListViewItem(
                       color: onItemTap1 ? AppTheme.lightMainColor : AppTheme.whiteBackColor,
                       onTap: () {
@@ -221,6 +218,7 @@ class _BrowsePageState extends State<BrowsePage> {
 
                     /// TODO : Clear Option
                     ListViewItem(
+                      color: AppTheme.whiteBackColor,
                       onTap: () {
                         setState(() {
                           onItemTap1 = false;
@@ -231,8 +229,7 @@ class _BrowsePageState extends State<BrowsePage> {
                       },
                       child: Icon(
                         CupertinoIcons.repeat,
-                        color: AppTheme.mainColor,
-                        //size: 16,
+                        color: AppTheme.redIconColor,
                       ),
                     ),
                   ],

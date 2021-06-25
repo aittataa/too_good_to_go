@@ -76,6 +76,18 @@ class ProfileDetails extends StatelessWidget {
 
           /// TODO : Settings
           ProfileTitle(label: Messages.PROFILE_SETTINGS_TITLE),
+          // ProfileItem(
+          //   icon: CupertinoIcons.sun_max_fill,
+          //   label: "Theme",
+          //   value: "Light",
+          //   onTap: () => Get.to(
+          //     () => ProfileItems(
+          //       index: 4,
+          //       title: Messages.PROFILE_SETTINGS_NOTIFICATIONS,
+          //       user: Constant.userLogin,
+          //     ),
+          //   ),
+          // ),
           ProfileItem(
             icon: CupertinoIcons.bell_solid,
             label: Messages.PROFILE_SETTINGS_NOTIFICATIONS,

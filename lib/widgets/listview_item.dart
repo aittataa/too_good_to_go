@@ -7,7 +7,7 @@ class ListViewItem extends StatelessWidget {
   final Function onTap;
   const ListViewItem({
     this.child,
-    this.color = AppTheme.whiteBackColor,
+    this.color,
     this.onTap,
   });
   @override
