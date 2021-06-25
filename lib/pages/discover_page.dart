@@ -63,6 +63,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                     ),
                     title: Messages.CHANGE_LOCATION_BUTTON,
                     textColor: AppTheme.mainColor,
+                    backColor: AppTheme.blackBackColor.withOpacity(0.25),
                   ),
                 ),
               ],
