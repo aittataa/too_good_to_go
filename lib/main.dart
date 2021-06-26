@@ -31,7 +31,7 @@ class TooGoodToGo extends StatelessWidget {
       color: AppTheme.mainColor,
       theme: ThemeData(
         primaryColor: AppTheme.lightMainColor,
-        scaffoldBackgroundColor: AppTheme.backColor,
+        scaffoldBackgroundColor: AppTheme.mainBackColor,
       ),
       home: Splash(),
       // home: InitialScreen(),

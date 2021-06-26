@@ -42,9 +42,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   void initState() {
     super.initState();
-    usernameController = TextEditingController(text: Constant.userLogin.name);
-    emailController = TextEditingController(text: Constant.userLogin.email);
-    passwordController = TextEditingController(text: Constant.userLogin.password);
+    //inAsyncCall = false;
+    //usernameController = TextEditingController(text: Constant.userLogin.name);
+    //emailController = TextEditingController(text: Constant.userLogin.email);
+    //passwordController = TextEditingController(text: Constant.userLogin.password);
   }
 
   @override
@@ -75,7 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 icon: CupertinoIcons.person_crop_circle,
                 keyboardType: TextInputType.name,
                 suffixIcon: Icon(
-                  isUsername ? Icons.check_circle : Icons.cancel,
+                  isUsername ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
                   color: isUsername ? AppTheme.lightMainColor : AppTheme.redIconColor,
                 ),
               ),
@@ -90,7 +91,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 icon: CupertinoIcons.mail_solid,
                 keyboardType: TextInputType.emailAddress,
                 suffixIcon: Icon(
-                  isEmail ? Icons.check_circle : Icons.cancel,
+                  isEmail ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
                   color: isEmail ? AppTheme.lightMainColor : AppTheme.redIconColor,
                 ),
               ),
@@ -114,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
             ),
-            DividerLine(height: 10, color: AppTheme.transparentColor),
+            DividerLine(height: 10),
             ListTile(
               dense: true,
               leading: Padding(
@@ -122,6 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: CheckedBox(
                   size: 16,
                   state: iAllow,
+                  color: iAllow ? null : AppTheme.redBorderColor,
                   onTap: () => setState(() => iAllow = !iAllow),
                 ),
               ),
@@ -138,6 +140,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: CheckedBox(
                   size: 16,
                   state: iAgree,
+                  color: iAgree ? null : AppTheme.redBorderColor,
                   onTap: () => setState(() => iAgree = !iAgree),
                 ),
               ),
@@ -147,26 +150,43 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 textAlign: TextAlign.start,
               ),
             ),
-            DividerLine(height: 10, color: AppTheme.transparentColor),
+            DividerLine(height: 10),
             ListTile(
               dense: true,
               title: ButtonClick(
-                onPressed: !iAllow || !iAgree
-                    ? null
-                    : () {
+                onPressed: iAllow && iAgree
+                    ? () {
                         FocusScope.of(context).unfocus();
+                        String title = "";
+                        String message = "";
+                        isUsername = GetUtils.isLengthGreaterThan(usernameController.text.trim(), 5);
+                        isEmail = GetUtils.isEmail(emailController.text.trim());
+                        isPassword = GetUtils.isLengthGreaterThan(passwordController.text.trim(), 8);
                         if (isUsername && isEmail && isPassword) {
-                          setState(() {
-                            inAsyncCall = true;
-                          });
+                          setState(() => {inAsyncCall = true});
                           Get.offAll(() => InitialScreen());
                         } else {
+                          if (!isUsername) {
+                            title = "Check-up your name";
+                            message = "Your name is too short";
+                          } else if (!isEmail) {
+                            title = "Invalid Email";
+                            message = "Check your email";
+                          } else if (!isPassword) {
+                            title = "Password To Short";
+                            message = "Password Must Contain at Least 8 Characters";
+                          }
                           SharedFunctions.snackBar(
-                            title: "Identification Incorrect",
-                            message: "Something wrong check you information again",
+                            title: title,
+                            message: message,
                           );
+                          // SharedFunctions.snackBar(
+                          //  title: "Identification Incorrect",
+                          //  message: "Something wrong check you information again",
+                          //);
                         }
-                      },
+                      }
+                    : null,
                 title: Messages.SIGN_IN_BUTTON_TEXT,
                 textColor: AppTheme.whiteTextColor,
                 backColor: (iAllow && iAgree) ? AppTheme.mainColor : AppTheme.blackBackColor.withOpacity(.25),

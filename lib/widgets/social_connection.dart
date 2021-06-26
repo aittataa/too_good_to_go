@@ -4,15 +4,17 @@ import 'package:too_good_to_go/constant/app_theme.dart';
 class SocialConnection extends StatelessWidget {
   final String image;
   final Color color;
+  final Function onPressed;
   const SocialConnection({
     this.image,
     this.color,
+    this.onPressed,
   });
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
-      elevation: 1,
+      onPressed: onPressed,
+      elevation: 2,
       highlightElevation: 1,
       color: AppTheme.whiteBackColor,
       splashColor: AppTheme.transparentColor,

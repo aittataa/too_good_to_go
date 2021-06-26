@@ -53,7 +53,7 @@ class Constant {
   ];
 
   static BoxShadow boxShadow = BoxShadow(
-    color: AppTheme.darkColor.withOpacity(.25),
+    color: AppTheme.blackShadowColor.withOpacity(.25),
     blurRadius: 90,
     spreadRadius: 1,
   );

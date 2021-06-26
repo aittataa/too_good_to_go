@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 icon: CupertinoIcons.mail_solid,
                 keyboardType: TextInputType.emailAddress,
                 suffixIcon: Icon(
-                  isEmail ? Icons.check_circle : Icons.cancel,
+                  isEmail ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
                   color: isEmail ? AppTheme.lightMainColor : AppTheme.redIconColor,
                 ),
               ),
@@ -105,29 +105,28 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             ListTile(
               title: ButtonClick(
-                onPressed: !iAllow
-                    ? null
-                    : () {
+                onPressed: iAllow
+                    ? () {
                         FocusScope.of(context).unfocus();
+                        isEmail = GetUtils.isEmail(emailController.text.trim());
+                        isPassword = GetUtils.isLengthGreaterThan(passwordController.text.trim(), 8);
                         if (isEmail && isPassword) {
-                          setState(() {
-                            inAsyncCall = true;
-                          });
+                          setState(() => {inAsyncCall = true});
                           Get.offAll(() => InitialScreen());
-                          //Get.offAllNamed(AppRoutes.INITIAL);
                         } else {
                           SharedFunctions.snackBar(
                             title: "Identification Incorrect",
                             message: "Email or Password is Incorrect, Please Try Again",
                           );
                         }
-                      },
+                      }
+                    : null,
                 title: Messages.LOGIN_BUTTON_TEXT,
                 textColor: AppTheme.whiteTextColor,
                 backColor: iAllow ? AppTheme.mainColor : AppTheme.blackBackColor.withOpacity(.25),
               ),
             ),
-            DividerLine(height: 10, color: AppTheme.transparentColor),
+            DividerLine(),
             ListTile(
               dense: true,
               leading: Padding(
@@ -135,10 +134,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: CheckedBox(
                   size: 16,
                   state: iAllow,
+                  color: iAllow ? null : AppTheme.redBorderColor,
                   onTap: () {
-                    setState(() {
-                      iAllow = !iAllow;
-                    });
+                    setState(() => {iAllow = !iAllow});
                   },
                 ),
               ),
@@ -148,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 textAlign: TextAlign.start,
               ),
             ),
-            DividerLine(color: AppTheme.transparentColor),
+            DividerLine(),
             ListTile(
               title: SubtitleText(
                 subtitle: Messages.OR_TEXT,
@@ -168,6 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       alignment: Alignment.centerRight,
                       child: SocialConnection(
                         image: Messages.GOOGLE_ICON,
+                        onPressed: () => Get.offAll(() => InitialScreen()),
                       ),
                     ),
                   ),
@@ -179,6 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: SocialConnection(
                         image: Messages.FACEBOOK_ICON,
                         color: AppTheme.facebookColor,
+                        onPressed: () => Get.offAll(() => InitialScreen()),
                       ),
                     ),
                   ),

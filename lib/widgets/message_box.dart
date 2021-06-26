@@ -15,7 +15,7 @@ class MessageBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       contentPadding: EdgeInsets.all(5),
-      backgroundColor: AppTheme.backColor,
+      backgroundColor: AppTheme.mainBackColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),

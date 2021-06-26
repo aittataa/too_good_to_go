@@ -217,21 +217,22 @@ class _BrowsePageState extends State<BrowsePage> {
                     ),
 
                     /// TODO : Clear Option
-                    ListViewItem(
-                      color: AppTheme.whiteBackColor,
-                      onTap: () {
-                        setState(() {
-                          onItemTap1 = false;
-                          onItemTap2 = false;
-                          onItemTap3 = false;
-                          onItemTap4 = false;
-                        });
-                      },
-                      child: Icon(
-                        CupertinoIcons.repeat,
-                        color: AppTheme.redIconColor,
+                    if (onItemTap1 || onItemTap2 || onItemTap3 || onItemTap4)
+                      ListViewItem(
+                        color: AppTheme.whiteBackColor,
+                        onTap: () {
+                          setState(() {
+                            onItemTap1 = false;
+                            onItemTap2 = false;
+                            onItemTap3 = false;
+                            onItemTap4 = false;
+                          });
+                        },
+                        child: Icon(
+                          CupertinoIcons.repeat,
+                          color: AppTheme.lightMainColor,
+                        ),
                       ),
-                    ),
                   ],
                 ),
               ),

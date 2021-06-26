@@ -18,7 +18,7 @@ class Splash extends StatelessWidget {
         ],
       ),
       curve: Constant.curve,
-      backgroundColor: AppTheme.backColor,
+      backgroundColor: AppTheme.mainBackColor,
       splashTransition: SplashTransition.fadeTransition,
       animationDuration: Constant.duration,
       splashIconSize: double.infinity,

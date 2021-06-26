@@ -19,7 +19,7 @@ class HelpItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.darkColor.withOpacity(.15),
+            color: AppTheme.blackShadowColor.withOpacity(.15),
             blurRadius: 25,
             spreadRadius: 0,
           ),

@@ -40,10 +40,10 @@ class _FilterPageState extends State<FilterPage> {
               ),
             ),
           ),
-          DividerLine(color: AppTheme.darkColor.withOpacity(.25)),
+          DividerLine(color: AppTheme.blackBorderColor.withOpacity(.25)),
           Expanded(
             child: Container(
-              color: AppTheme.backColor,
+              color: AppTheme.mainBackColor,
               child: ListView(
                 physics: BouncingScrollPhysics(),
                 children: [
@@ -62,6 +62,7 @@ class _FilterPageState extends State<FilterPage> {
                     ),
                     trailing: CheckedBox(
                       state: state,
+                      size: 20,
                       onTap: () {
                         setState(() {
                           state = !state;
@@ -69,7 +70,7 @@ class _FilterPageState extends State<FilterPage> {
                       },
                     ),
                   ),
-                  DividerLine(color: AppTheme.darkColor.withOpacity(.75), value: 15),
+                  DividerLine(color: AppTheme.blackBorderColor.withOpacity(.75), value: 15),
                   ListTile(
                     dense: true,
                     title: TitleText(
@@ -105,7 +106,7 @@ class _FilterPageState extends State<FilterPage> {
                     image: Messages.OTHER_ICON,
                     label: Messages.FILTER_PAGE_CATEGORY_ITEM_5,
                   ),
-                  DividerLine(color: AppTheme.darkColor.withOpacity(.75), value: 15),
+                  DividerLine(color: AppTheme.blackBorderColor.withOpacity(.75), value: 15),
                   ListTile(
                     dense: true,
                     title: TitleText(
@@ -152,7 +153,7 @@ class _FilterPageState extends State<FilterPage> {
                       groupValue: false,
                     ),
                   ),
-                  DividerLine(color: AppTheme.darkColor.withOpacity(.75), value: 15),
+                  DividerLine(color: AppTheme.blackBorderColor.withOpacity(.75), value: 15),
                   ListTile(
                     dense: true,
                     title: TitleText(
@@ -172,7 +173,7 @@ class _FilterPageState extends State<FilterPage> {
               ),
             ),
           ),
-          DividerLine(color: AppTheme.darkColor.withOpacity(.25)),
+          DividerLine(color: AppTheme.blackBorderColor.withOpacity(.25)),
           ListTile(
             dense: true,
             title: Row(

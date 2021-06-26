@@ -14,7 +14,7 @@ class PaymentPay extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppTheme.whiteBackColor,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: AppTheme.darkColor.withOpacity(.75), width: 1),
+        border: Border.all(color: AppTheme.blackBorderColor.withOpacity(.75)),
         image: DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage(image),

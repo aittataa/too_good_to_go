@@ -13,7 +13,7 @@ class ProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ModalProgressHUD(
       inAsyncCall: inAsyncCall,
-      color: AppTheme.backColor,
+      color: AppTheme.mainBackColor,
       opacity: opacity,
       progressIndicator: BouncePoint(),
       child: child,
