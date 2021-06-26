@@ -48,11 +48,14 @@ class _DiscoverPageState extends State<DiscoverPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ListTile(title: TitleText(title: Messages.DISCOVER_TITLE_1)),
                 ListTile(
-                  subtitle: SubtitleText(
-                    subtitle: Messages.DISCOVER_SUBTITLE_1,
-                    color: AppTheme.blackTextColor.withOpacity(.75),
+                  title: TitleText(title: Messages.DISCOVER_TITLE_1),
+                  subtitle: Padding(
+                    padding: EdgeInsets.all(5),
+                    child: SubtitleText(
+                      subtitle: Messages.DISCOVER_SUBTITLE_1,
+                      color: AppTheme.blackTextColor.withOpacity(.75),
+                    ),
                   ),
                 ),
                 ListTile(
@@ -63,7 +66,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                     ),
                     title: Messages.CHANGE_LOCATION_BUTTON,
                     textColor: AppTheme.mainColor,
-                    backColor: AppTheme.blackBackColor.withOpacity(0.25),
+                    backColor: AppTheme.blackBackColor.withOpacity(0.15),
                   ),
                 ),
               ],
@@ -74,6 +77,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
               children: [
                 Expanded(
                   child: DividerLine(
+                    height: 1,
                     color: AppTheme.mainColor.withOpacity(0.5),
                     value: 10,
                   ),
@@ -81,11 +85,12 @@ class _DiscoverPageState extends State<DiscoverPage> {
                 Image.asset(
                   Messages.INSTAGRAM_ICON,
                   color: AppTheme.mainColor,
-                  width: 45,
-                  height: 45,
+                  width: 50,
+                  height: 50,
                 ),
                 Expanded(
                   child: DividerLine(
+                    height: 1,
                     color: AppTheme.mainColor.withOpacity(0.5),
                     value: 10,
                   ),
@@ -95,11 +100,12 @@ class _DiscoverPageState extends State<DiscoverPage> {
           ),
           ListTile(
             title: TitleText(title: Messages.DISCOVER_TITLE_2),
-          ),
-          ListTile(
-            subtitle: SubtitleText(
-              subtitle: Messages.DISCOVER_SUBTITLE_2,
-              color: AppTheme.blackTextColor.withOpacity(.75),
+            subtitle: Padding(
+              padding: EdgeInsets.all(5),
+              child: SubtitleText(
+                subtitle: Messages.DISCOVER_SUBTITLE_2,
+                color: AppTheme.blackTextColor.withOpacity(.75),
+              ),
             ),
           ),
           ListTile(

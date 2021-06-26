@@ -8,13 +8,11 @@ class EditText extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final TextInputType keyboardType;
-  final Function onPressed;
   const EditText({
     this.controller,
     this.hintText,
     this.obscureText = false,
     this.keyboardType,
-    this.onPressed,
   });
 
   @override
@@ -41,7 +39,7 @@ class EditText extends StatelessWidget {
             color: AppTheme.blackTextColor.withOpacity(0.25),
           ),
           suffixIcon: IconButton(
-            onPressed: onPressed,
+            onPressed: () => controller.clear(),
             splashColor: AppTheme.transparentColor,
             highlightColor: AppTheme.transparentColor,
             icon: Icon(

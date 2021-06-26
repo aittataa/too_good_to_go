@@ -5,8 +5,7 @@ import 'package:too_good_to_go/widgets/profile_title.dart';
 
 class NameItem extends StatelessWidget {
   final TextEditingController controller;
-  final Function onPressed;
-  const NameItem({this.controller, this.onPressed});
+  const NameItem({this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,6 @@ class NameItem extends StatelessWidget {
       children: [
         ProfileTitle(label: Messages.PROFILE_ACCOUNT_NAME),
         EditText(
-          onPressed: onPressed,
           controller: controller,
           hintText: Messages.PROFILE_ACCOUNT_NAME,
           keyboardType: TextInputType.name,

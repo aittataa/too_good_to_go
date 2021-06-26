@@ -114,6 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             inAsyncCall = true;
                           });
                           Get.offAll(() => InitialScreen());
+                          //Get.offAllNamed(AppRoutes.INITIAL);
                         } else {
                           SharedFunctions.snackBar(
                             title: "Identification Incorrect",

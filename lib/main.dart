@@ -24,6 +24,7 @@ void main() {
 class TooGoodToGo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    FocusScope.of(context).unfocus();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: Messages.APP_TITLE,
@@ -33,7 +34,7 @@ class TooGoodToGo extends StatelessWidget {
         scaffoldBackgroundColor: AppTheme.backColor,
       ),
       home: Splash(),
-      //home: InitialScreen(),
+      // home: InitialScreen(),
       // home: LoginScreen(),
       // home: RegisterScreen(),
     );

@@ -12,6 +12,7 @@ class NavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       onTap: onTap,
+      elevation: 10,
       currentIndex: currentIndex,
       backgroundColor: AppTheme.whiteBackColor,
       type: BottomNavigationBarType.fixed,

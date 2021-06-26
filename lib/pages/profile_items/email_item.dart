@@ -5,8 +5,7 @@ import 'package:too_good_to_go/widgets/profile_title.dart';
 
 class EmailItem extends StatelessWidget {
   final TextEditingController controller;
-  final Function onPressed;
-  const EmailItem({this.controller, this.onPressed});
+  const EmailItem({this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,6 @@ class EmailItem extends StatelessWidget {
       children: [
         ProfileTitle(label: Messages.PROFILE_ACCOUNT_EMAIL),
         EditText(
-          onPressed: onPressed,
           controller: controller,
           hintText: Messages.PROFILE_ACCOUNT_EMAIL,
           keyboardType: TextInputType.emailAddress,

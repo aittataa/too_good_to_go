@@ -46,19 +46,16 @@ class ProfileItems extends StatelessWidget {
           /// TODO : Name
           NameItem(
             controller: TextEditingController(text: user.name),
-            onPressed: () => FocusScope.of(context).unfocus(),
           ),
 
           /// TODO : Email
           EmailItem(
             controller: TextEditingController(text: user.email),
-            onPressed: () => FocusScope.of(context).unfocus(),
           ),
 
           /// TODO : Phone Number
           PhoneItem(
             controller: TextEditingController(text: user.phone),
-            onPressed: () => FocusScope.of(context).unfocus(),
           ),
 
           /// TODO : City
@@ -69,9 +66,9 @@ class ProfileItems extends StatelessWidget {
 
           /// TODO : Password
           PasswordItem(
-            onCurrentPressed: () => FocusScope.of(context).unfocus(),
-            onNewPressed: () => FocusScope.of(context).unfocus(),
-            onConfirmPressed: () => FocusScope.of(context).unfocus(),
+            currentPassword: TextEditingController(),
+            newPassword: TextEditingController(),
+            confirmPassword: TextEditingController(),
           ),
 
           /// TODO : Stores
