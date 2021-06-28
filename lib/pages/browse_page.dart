@@ -5,8 +5,10 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
+import 'package:too_good_to_go/pages/discover_page.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/clear_icon.dart';
@@ -236,48 +238,114 @@ class _BrowsePageState extends State<BrowsePage> {
                   ],
                 ),
               ),
-              Expanded(
-                child: pageIndex == 0
-                    ? Column(
-                        children: [
-                          ExpandedLogo(),
-                          ListTile(
-                            title: TitleText(title: Messages.BROWSE_TITLE_1),
-                          ),
-                          ListTile(
-                            subtitle: SubtitleText(
-                              subtitle: Messages.BROWSE_SUBTITLE_1,
-                              color: AppTheme.blackTextColor.withOpacity(.75),
-                            ),
-                          ),
-                          ListTile(
-                            title: ButtonClick(
-                              onPressed: () => SharedFunctions.loadPage(context, screen: LocateArea(position: position)),
-                              title: Messages.CHANGE_LOCATION_BUTTON,
-                              textColor: AppTheme.whiteTextColor,
-                              backColor: AppTheme.mainColor,
-                            ),
-                          ),
-                        ],
-                      )
-                    : SpeedDial(
-                        onPress: () {},
-                        visible: true,
-                        elevation: 1,
-                        backgroundColor: AppTheme.whiteBackColor,
-                        marginBottom: 25,
-                        marginEnd: 25,
-                        buttonSize: 50,
-                        child: Icon(
-                          Icons.my_location,
-                          color: AppTheme.lightMainColor,
-                        ),
-                      ),
-              )
+              if (pageIndex == 0)
+                Expanded(child: BrowseList(position: position, state: true))
+              else
+                Expanded(
+                  child: SpeedDial(
+                    onPress: () {},
+                    visible: true,
+                    elevation: 1,
+                    backgroundColor: AppTheme.whiteBackColor,
+                    marginBottom: 25,
+                    marginEnd: 25,
+                    buttonSize: 50,
+                    child: Icon(
+                      Icons.my_location,
+                      color: AppTheme.lightMainColor,
+                    ),
+                  ),
+                ),
             ],
           ),
         ),
       ],
+    );
+  }
+}
+
+class BrowseList extends StatelessWidget {
+  final bool state;
+  final LatLng position;
+  const BrowseList({this.position, this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    if (state) {
+      return DisplayItem(
+        title: "Nearby",
+      );
+    } else {
+      return Column(
+        children: [
+          ExpandedLogo(),
+          ListTile(
+            title: TitleText(title: Messages.BROWSE_TITLE_1),
+          ),
+          ListTile(
+            subtitle: SubtitleText(
+              subtitle: Messages.BROWSE_SUBTITLE_1,
+              color: AppTheme.blackTextColor.withOpacity(.75),
+            ),
+          ),
+          ListTile(
+            title: ButtonClick(
+              onPressed: () => SharedFunctions.loadPage(context, screen: LocateArea(position: position)),
+              title: Messages.CHANGE_LOCATION_BUTTON,
+              textColor: AppTheme.whiteTextColor,
+              backColor: AppTheme.mainColor,
+            ),
+          ),
+        ],
+      );
+    }
+  }
+}
+
+class DisplayItem extends StatelessWidget {
+  final String title;
+  const DisplayItem({this.title});
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: ListTile(
+        dense: true,
+        contentPadding: EdgeInsets.zero,
+        title: Container(
+          padding: EdgeInsets.all(10),
+          child: Row(
+            children: [
+              TitleText(
+                title: "Sorted by : ",
+                textAlign: TextAlign.start,
+              ),
+              Expanded(
+                child: TitleText(
+                  title: "$title",
+                  color: AppTheme.mainColor,
+                  textAlign: TextAlign.start,
+                ),
+              ),
+            ],
+          ),
+        ),
+        subtitle: Container(
+          height: double.infinity,
+          child: GridView.builder(
+            physics: BouncingScrollPhysics(),
+            padding: EdgeInsets.all(10),
+            scrollDirection: Axis.vertical,
+            gridDelegate: Constant.gridDelegate(
+              crossAxisCount: 1,
+              childAspectRatio: 1.5,
+            ),
+            itemCount: Constant.itemCount,
+            itemBuilder: (context, index) {
+              return ShapeItem();
+            },
+          ),
+        ),
+      ),
     );
   }
 }
