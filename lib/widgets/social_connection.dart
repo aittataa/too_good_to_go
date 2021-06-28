@@ -12,19 +12,19 @@ class SocialConnection extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
+    return TextButton(
       onPressed: onPressed,
-      elevation: 2,
-      highlightElevation: 1,
-      color: AppTheme.whiteBackColor,
-      splashColor: AppTheme.transparentColor,
-      shape: CircleBorder(),
-      padding: EdgeInsets.all(10),
+      style: TextButton.styleFrom(
+        elevation: 2,
+        backgroundColor: AppTheme.whiteBackColor,
+        shape: CircleBorder(),
+        padding: EdgeInsets.all(10),
+      ),
       child: Image.asset(
         image,
+        color: color,
         width: 30,
         height: 30,
-        color: color,
       ),
     );
   }

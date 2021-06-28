@@ -26,6 +26,7 @@ class TitleText extends StatelessWidget {
     return Text(
       "$title",
       textAlign: textAlign,
+      softWrap: false,
       style: TextStyle(
         color: color ?? AppTheme.blackTextColor,
         fontWeight: FontWeight.w900,

@@ -20,7 +20,7 @@ class CheckedBox extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: color ?? AppTheme.lightMainColor,
-            width: 1.5,
+            width: 2,
           ),
         ),
         child: Icon(

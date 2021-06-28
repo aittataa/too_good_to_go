@@ -161,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
-                    flex: 50,
+                    flex: 10,
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: SocialConnection(
@@ -172,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Expanded(child: SizedBox(width: 1)),
                   Expanded(
-                    flex: 50,
+                    flex: 10,
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: SocialConnection(
