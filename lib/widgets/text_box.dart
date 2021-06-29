@@ -33,8 +33,8 @@ class TextBox extends StatelessWidget {
           color: AppTheme.blackTextColor.withOpacity(.75),
           fontWeight: FontWeight.bold,
         ),
-        //autocorrect: true,
-        //autofocus: true,
+        autocorrect: true,
+        autofocus: true,
         obscureText: obscureText,
         obscuringCharacter: Messages.FIELD_TEXT_OBSCURING_CHARACTER,
         decoration: InputDecoration(

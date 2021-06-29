@@ -10,6 +10,7 @@ import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
+import 'package:too_good_to_go/display_item/item_shape.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/locate_area.dart';
@@ -66,12 +67,12 @@ class DiscoverBody extends StatelessWidget {
         child: ListView(
           physics: BouncingScrollPhysics(),
           children: [
-            SaveItem(),
-            DisplayItem(title: "Groceries"),
-            DisplayItem(title: "Pick up now"),
-            DisplayItem(title: "Nearby"),
-            DisplayItem(title: "Vegetarian Surprise Bags"),
-            DisplayItem(title: "Pick up for dinner"),
+            //FirstBar(title: "Save before it's too late"),
+            //SecondBar(title: "Groceries"),
+            ThirdBar(title: "Pick up now"),
+            //SecondBar(title: "Nearby"),
+            //SecondBar(title: "Vegetarian Surprise Bags"),
+            //SecondBar(title: "Pick up for dinner"),
           ],
         ),
       );
@@ -158,7 +159,9 @@ class DiscoverBody extends StatelessWidget {
   }
 }
 
-class SaveItem extends StatelessWidget {
+class FirstBar extends StatelessWidget {
+  final String title;
+  const FirstBar({this.title});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -171,7 +174,7 @@ class SaveItem extends StatelessWidget {
             children: [
               Expanded(
                 child: TitleText(
-                  title: "Save before it's too late",
+                  title: "$title",
                   textAlign: TextAlign.start,
                 ),
               ),
@@ -303,9 +306,9 @@ class SaveItem extends StatelessWidget {
   }
 }
 
-class DisplayItem extends StatelessWidget {
+class SecondBar extends StatelessWidget {
   final String title;
-  const DisplayItem({this.title});
+  const SecondBar({this.title});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -343,7 +346,7 @@ class DisplayItem extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             itemCount: Constant.itemCount,
             itemBuilder: (context, index) {
-              return ShapeItem();
+              return SecondShape();
             },
           ),
         ),
@@ -352,140 +355,50 @@ class DisplayItem extends StatelessWidget {
   }
 }
 
-class ShapeItem extends StatelessWidget {
-  final bool state;
-  const ShapeItem({this.state = false});
+class ThirdBar extends StatelessWidget {
+  final String title;
+  const ThirdBar({this.title});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: AppTheme.whiteBackColor,
-        borderRadius: BorderRadius.circular(25),
-        boxShadow: [
-          BoxShadow(
-            color: AppTheme.blackShadowColor.withOpacity(.15),
-            blurRadius: 10,
-            spreadRadius: 1,
-          )
-        ],
-      ),
-      child: Column(
-        children: [
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(Messages.APP_ICON),
+    return SizedBox(
+      child: ListTile(
+        dense: true,
+        contentPadding: EdgeInsets.zero,
+        title: Container(
+          padding: EdgeInsets.all(10),
+          child: Row(
+            children: [
+              Expanded(
+                child: TitleText(
+                  title: "$title",
+                  textAlign: TextAlign.start,
                 ),
               ),
-              child: Container(
+              Container(
+                padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  color: AppTheme.blackBackColor.withOpacity(.1),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25),
-                  ),
+                  color: AppTheme.lightMainColor,
+                  shape: BoxShape.circle,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ListTile(
-                      dense: true,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      leading: Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: AppTheme.blackBackColor.withOpacity(.25),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Text(
-                          "Check back later",
-                          style: TextStyle(
-                            color: AppTheme.whiteTextColor,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                      trailing: Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppTheme.blackBackColor.withOpacity(.25),
-                        ),
-                        child: Icon(
-                          state ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
-                          color: state ? AppTheme.redIconColor : AppTheme.whiteIconColor.withOpacity(.75),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(2.5),
-                                  decoration: BoxDecoration(
-                                    color: AppTheme.lightMainColor,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Container(
-                                    width: 75,
-                                    height: 75,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: AppTheme.whiteBackColor,
-                                      image: DecorationImage(
-                                        image: AssetImage(Messages.LOGO_ICON),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                                  decoration: BoxDecoration(
-                                    color: AppTheme.mainColor,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: TitleText(
-                                    title: "\$3.99",
-                                    color: AppTheme.whiteTextColor,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                child: Icon(
+                  Icons.chevron_right,
+                  color: AppTheme.whiteIconColor,
                 ),
               ),
-            ),
+            ],
           ),
-          ListTile(
-            title: TitleText(
-              title: "Fresh Central Grocery",
-              color: AppTheme.blackTextColor,
-              textAlign: TextAlign.start,
-            ),
-            subtitle: SubtitleText(
-              subtitle: "Today 17:00 - 02:00 | 3.2 mi",
-              color: AppTheme.blackTextColor.withOpacity(.5),
-              textAlign: TextAlign.start,
-            ),
+        ),
+        subtitle: Container(
+          height: 300,
+          child: PageView.builder(
+            controller: PageController(viewportFraction: .9),
+            physics: BouncingScrollPhysics(),
+            itemCount: Constant.itemCount,
+            itemBuilder: (context, index) {
+              return SecondShape();
+            },
           ),
-        ],
+        ),
       ),
     );
   }
