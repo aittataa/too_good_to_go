@@ -8,7 +8,7 @@ import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
-import 'package:too_good_to_go/display_item/item_shape.dart';
+import 'package:too_good_to_go/display_item/second_shape.dart';
 import 'package:too_good_to_go/widgets/browse_button.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/clear_icon.dart';
