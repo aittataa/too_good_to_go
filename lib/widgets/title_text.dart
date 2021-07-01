@@ -13,20 +13,11 @@ class TitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return AutoSizeText(
-    //   "$title",
-    //   minFontSize: 15,
-    //   maxFontSize: 18,
-    //   textAlign: textAlign,
-    //   style: TextStyle(
-    //     color: color ?? AppTheme.blackTextColor,
-    //     fontWeight: FontWeight.w900,
-    //   ),
-    // );
     return Text(
       "$title",
       textAlign: textAlign,
       softWrap: false,
+      overflow: TextOverflow.ellipsis,
       style: TextStyle(
         color: color ?? AppTheme.blackTextColor,
         fontWeight: FontWeight.w900,

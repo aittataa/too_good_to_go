@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
+import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';
 import 'package:too_good_to_go/widgets/title_text.dart';
@@ -15,13 +16,7 @@ class SecondShape extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppTheme.whiteBackColor,
         borderRadius: BorderRadius.circular(25),
-        boxShadow: [
-          BoxShadow(
-            color: AppTheme.blackShadowColor.withOpacity(.15),
-            blurRadius: 10,
-            spreadRadius: 1,
-          )
-        ],
+        boxShadow: [Constant.itemShadow],
       ),
       child: Column(
         children: [

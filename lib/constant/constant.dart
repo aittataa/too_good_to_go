@@ -58,6 +58,12 @@ class Constant {
     spreadRadius: 1,
   );
 
+  static BoxShadow itemShadow = BoxShadow(
+    color: AppTheme.blackShadowColor.withOpacity(.10),
+    blurRadius: 10,
+    spreadRadius: -1,
+  );
+
   static gridDelegate({int crossAxisCount = 1, double childAspectRatio = 1}) {
     return SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: crossAxisCount,

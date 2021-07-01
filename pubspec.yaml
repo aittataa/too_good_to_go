@@ -46,8 +46,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-#flutter_launcher_name:
-  #name: "Too Good To Go"
+flutter_launcher_name:
+  name: "Too Good To Go"
 
 
 flutter_icons:
