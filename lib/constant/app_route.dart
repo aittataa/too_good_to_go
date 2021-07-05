@@ -4,8 +4,8 @@ import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/screens/initial_screen.dart';
 import 'package:too_good_to_go/screens/item_details.dart';
 import 'package:too_good_to_go/screens/login_screen.dart';
-import 'package:too_good_to_go/screens/more_items.dart';
-import 'package:too_good_to_go/screens/profile_items.dart';
+import 'package:too_good_to_go/screens/more_screen.dart';
+import 'package:too_good_to_go/screens/profile_screen.dart';
 import 'package:too_good_to_go/screens/register_screen.dart';
 
 class AppRoutes {
@@ -45,12 +45,12 @@ class AppRoutes {
       transition: _transition,
     ),
     GetPage(
-      page: () => ProfileItems(),
+      page: () => ProfileScreen(),
       name: AppRoutes.PROFILE,
       transition: _transition,
     ),
     GetPage(
-      page: () => MoreItems(),
+      page: () => MoreScreen(),
       name: AppRoutes.MORE,
       transition: _transition,
     ),

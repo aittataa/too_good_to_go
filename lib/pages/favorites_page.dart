@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/messages.dart';
-import 'package:too_good_to_go/pages/favorites_item/favorites_body.dart';
+import 'package:too_good_to_go/pages/favorites_items/favorites_body.dart';
 import 'package:too_good_to_go/widgets/page_title.dart';
 
 class FavoritesPage extends StatelessWidget {

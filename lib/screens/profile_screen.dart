@@ -14,11 +14,11 @@ import 'package:too_good_to_go/pages/profile_items/privacy_item.dart';
 import 'package:too_good_to_go/pages/profile_items/stores_item.dart';
 import 'package:too_good_to_go/widgets/back_icon.dart';
 
-class ProfileItems extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
   final int index;
   final String title;
   final User user;
-  ProfileItems({this.index, this.title, this.user});
+  ProfileScreen({this.index, this.title, this.user});
 
   @override
   Widget build(BuildContext context) {

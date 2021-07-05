@@ -6,7 +6,7 @@ import 'package:too_good_to_go/constant/constant.dart';
 import 'package:too_good_to_go/constant/messages.dart';
 import 'package:too_good_to_go/constant/shared_functions.dart';
 import 'package:too_good_to_go/screens/login_screen.dart';
-import 'package:too_good_to_go/screens/profile_items.dart';
+import 'package:too_good_to_go/screens/profile_screen.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/message_box.dart';
 import 'package:too_good_to_go/widgets/profile_item.dart';
@@ -26,7 +26,7 @@ class ProfileDetails extends StatelessWidget {
             label: Messages.PROFILE_ACCOUNT_NAME,
             value: Constant.userLogin.name,
             onTap: () => Get.to(
-              () => ProfileItems(
+              () => ProfileScreen(
                 index: 0,
                 title: Messages.PROFILE_ACCOUNT_NAME,
                 user: Constant.userLogin,
@@ -39,7 +39,7 @@ class ProfileDetails extends StatelessWidget {
             label: Messages.PROFILE_ACCOUNT_EMAIL,
             value: Constant.userLogin.email,
             onTap: () => Get.to(
-              () => ProfileItems(
+              () => ProfileScreen(
                 index: 1,
                 title: Messages.PROFILE_ACCOUNT_EMAIL,
                 user: Constant.userLogin,
@@ -52,7 +52,7 @@ class ProfileDetails extends StatelessWidget {
             label: Messages.PROFILE_ACCOUNT_PHONE,
             value: Constant.userLogin.phone,
             onTap: () => Get.to(
-              () => ProfileItems(
+              () => ProfileScreen(
                 index: 2,
                 title: Messages.PROFILE_ACCOUNT_PHONE,
                 user: Constant.userLogin,
@@ -65,7 +65,7 @@ class ProfileDetails extends StatelessWidget {
             label: Messages.PROFILE_ACCOUNT_CITY,
             value: Constant.userLogin.city,
             onTap: () => Get.to(
-              () => ProfileItems(
+              () => ProfileScreen(
                 index: 3,
                 title: Messages.PROFILE_ACCOUNT_CITY,
                 user: Constant.userLogin,
@@ -92,7 +92,7 @@ class ProfileDetails extends StatelessWidget {
             icon: CupertinoIcons.bell_solid,
             label: Messages.PROFILE_SETTINGS_NOTIFICATIONS,
             onTap: () => Get.to(
-              () => ProfileItems(
+              () => ProfileScreen(
                 index: 4,
                 title: Messages.PROFILE_SETTINGS_NOTIFICATIONS,
                 user: Constant.userLogin,
@@ -104,7 +104,7 @@ class ProfileDetails extends StatelessWidget {
             icon: CupertinoIcons.lock_shield_fill,
             label: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD,
             onTap: () => Get.to(
-              () => ProfileItems(
+              () => ProfileScreen(
                 index: 5,
                 title: Messages.PROFILE_SETTINGS_CHANGE_PASSWORD,
                 user: Constant.userLogin,
@@ -116,7 +116,7 @@ class ProfileDetails extends StatelessWidget {
             icon: CupertinoIcons.location_slash_fill,
             label: Messages.PROFILE_SETTINGS_HIDDEN_STORES,
             onTap: () => Get.to(
-              () => ProfileItems(
+              () => ProfileScreen(
                 index: 6,
                 title: Messages.PROFILE_SETTINGS_HIDDEN_STORES,
                 user: Constant.userLogin,
@@ -128,7 +128,7 @@ class ProfileDetails extends StatelessWidget {
             icon: CupertinoIcons.doc_on_clipboard_fill,
             label: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES,
             onTap: () => Get.to(
-              () => ProfileItems(
+              () => ProfileScreen(
                 index: 7,
                 title: Messages.PROFILE_SETTINGS_PRIVACY_LICENSES,
                 user: Constant.userLogin,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
-import 'package:too_good_to_go/pages/favorites_item/display_item.dart';
+import 'package:too_good_to_go/pages/favorites_items/display_item.dart';
 import 'package:too_good_to_go/widgets/button_click.dart';
 import 'package:too_good_to_go/widgets/expanded_logo.dart';
 import 'package:too_good_to_go/widgets/subtitle_text.dart';

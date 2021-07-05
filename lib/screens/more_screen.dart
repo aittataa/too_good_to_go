@@ -1,26 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:too_good_to_go/pages/more_items/blog_details.dart';
+import 'package:too_good_to_go/pages/more_items/help_details.dart';
+import 'package:too_good_to_go/pages/more_items/learn_details.dart';
+import 'package:too_good_to_go/pages/more_items/orders_details.dart';
+import 'package:too_good_to_go/pages/more_items/payment_details.dart';
+import 'package:too_good_to_go/pages/more_items/profile_details.dart';
+import 'package:too_good_to_go/pages/more_items/terms_details.dart';
 
 import '../constant/constant.dart';
-import '../pages/more_details/blog_details.dart';
-import '../pages/more_details/help_details.dart';
-import '../pages/more_details/learn_details.dart';
-import '../pages/more_details/orders_details.dart';
-import '../pages/more_details/payment_details.dart';
-import '../pages/more_details/profile_details.dart';
-import '../pages/more_details/terms_details.dart';
 import '../widgets/back_icon.dart';
 
-class MoreItems extends StatefulWidget {
+class MoreScreen extends StatefulWidget {
   final int index;
   final String title;
-  const MoreItems({this.index, this.title});
+  const MoreScreen({this.index, this.title});
   @override
-  _MoreItemsState createState() => _MoreItemsState();
+  _MoreScreenState createState() => _MoreScreenState();
 }
 
-class _MoreItemsState extends State<MoreItems> {
+class _MoreScreenState extends State<MoreScreen> {
   int index;
   String title;
   @override

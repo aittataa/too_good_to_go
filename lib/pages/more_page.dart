@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:too_good_to_go/constant/app_theme.dart';
 import 'package:too_good_to_go/constant/messages.dart';
-import 'package:too_good_to_go/screens/more_items.dart';
+import 'package:too_good_to_go/screens/more_screen.dart';
 import 'package:too_good_to_go/widgets/divider_line.dart';
 import 'package:too_good_to_go/widgets/menu_item.dart';
 import 'package:too_good_to_go/widgets/page_title.dart';
@@ -21,7 +21,7 @@ class MorePage extends StatelessWidget {
             icon: CupertinoIcons.profile_circled,
             text: Messages.MORE_PROFILE_TITLE,
             onTap: () => Get.to(
-              () => MoreItems(index: 0, title: Messages.MORE_PROFILE_TITLE),
+              () => MoreScreen(index: 0, title: Messages.MORE_PROFILE_TITLE),
             ),
           ),
           DividerLine(),
@@ -29,7 +29,7 @@ class MorePage extends StatelessWidget {
             icon: CupertinoIcons.doc_text_fill,
             text: Messages.MORE_ORDERS_TITLE,
             onTap: () => Get.to(
-              () => MoreItems(index: 1, title: Messages.MORE_ORDERS_TITLE),
+              () => MoreScreen(index: 1, title: Messages.MORE_ORDERS_TITLE),
             ),
           ),
           DividerLine(),
@@ -37,7 +37,7 @@ class MorePage extends StatelessWidget {
             icon: CupertinoIcons.creditcard_fill,
             text: Messages.MORE_PAYMENT_TITLE,
             onTap: () => Get.to(
-              () => MoreItems(index: 2, title: Messages.MORE_PAYMENT_TITLE),
+              () => MoreScreen(index: 2, title: Messages.MORE_PAYMENT_TITLE),
             ),
           ),
           DividerLine(),
@@ -45,7 +45,7 @@ class MorePage extends StatelessWidget {
             icon: CupertinoIcons.news_solid,
             text: Messages.MORE_BLOG_TITLE,
             onTap: () => Get.to(
-              () => MoreItems(index: 3, title: Messages.MORE_BLOG_TITLE),
+              () => MoreScreen(index: 3, title: Messages.MORE_BLOG_TITLE),
             ),
           ),
           DividerLine(),
@@ -53,7 +53,7 @@ class MorePage extends StatelessWidget {
             icon: CupertinoIcons.checkmark_alt_circle_fill,
             text: Messages.MORE_TERMS_TITLE,
             onTap: () => Get.to(
-              () => MoreItems(index: 4, title: Messages.MORE_TERMS_TITLE),
+              () => MoreScreen(index: 4, title: Messages.MORE_TERMS_TITLE),
             ),
           ),
           DividerLine(),
@@ -61,7 +61,7 @@ class MorePage extends StatelessWidget {
             icon: CupertinoIcons.helm,
             text: Messages.MORE_HELP_TITLE,
             onTap: () => Get.to(
-              () => MoreItems(index: 5, title: Messages.MORE_HELP_TITLE),
+              () => MoreScreen(index: 5, title: Messages.MORE_HELP_TITLE),
             ),
           ),
           DividerLine(height: 10, color: AppTheme.transparentColor),
@@ -73,7 +73,7 @@ class MorePage extends StatelessWidget {
           ),
           ListTile(
             onTap: () => Get.to(
-              () => MoreItems(index: 6, title: Messages.MORE_TITLE),
+              () => MoreScreen(index: 6, title: Messages.MORE_TITLE),
             ),
             title: SubtitleText(
               subtitle: Messages.MORE_SUBTITLE_2,
