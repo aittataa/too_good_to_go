@@ -10,15 +10,12 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      // nextScreen: InitialScreen(),
-      // nextScreen: RegisterScreen(),
       nextScreen: LoginScreen(),
       splash: Padding(
         padding: EdgeInsets.all(10),
         child: Column(
           children: [
             ExpandedLogo(flex: 2),
-            // BouncePoint(),
             Expanded(child: BouncePoint()),
           ],
         ),
